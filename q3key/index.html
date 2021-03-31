@@ -282,21 +282,15 @@ input[type="checkbox"]:disabled+span {
 
 <div id="wrapper">
 <div id="content">
-<h2>q3key</h2>
-<hr />
-<div id="pack">
-<span class="out" id="q3key"></span> <a href="javascript:makeid();">new key</a>
-</div>
+<h2>q3key</h2><hr />
+<div id="pack"><span class="out" id="q3key"></span> <a href="javascript:makeid();">new key</a></div>
 </div>
 </div>
 
 <script>
 function makeid() {
-	var text = '';
-	var possible = '237abcdghjlprstw';
-	for(var i = 0; i < 16; i++) {
-		text += possible.charAt(Math.floor(Math.random() * possible.length));
-	}
+	let text = '', possible = '237abcdghjlprstw';
+	for(var i = 0; i < 16; i++) text += possible.charAt(Math.floor(Math.random() * possible.length));
 	document.getElementById("q3key").innerHTML = text;
 }
 makeid();

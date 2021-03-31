@@ -305,11 +305,10 @@ function x_setup() {
 }
 
 function x_load() {
-	var tin = document.getElementById('in').value;
-	var sum = document.getElementById('sum').value;
-	var sep = document.getElementById('sep').value;
-	var sepend = document.getElementById('sepend').checked;
-	var data = '';
+	let tin = document.getElementById('in').value;
+	let sum = document.getElementById('sum').value;
+	let sep = document.getElementById('sep').value;
+	let sepend = document.getElementById('sepend').checked;
 
 	document.getElementById('out').value = '';
 
@@ -318,7 +317,7 @@ function x_load() {
 		return;
 	}
 
-	var sumint = parseInt(sum);
+	let sumint = parseInt(sum);
 	if (isNaN(sumint) || sum !== String(sumint) || sumint < 1 || sumint > 1000) {
 		document.getElementById('out').placeholder = 'Введите число повторений от 1 до 1000';
 		if (setup != 0) x_setup();
@@ -327,7 +326,7 @@ function x_load() {
 
 	document.getElementById('out').placeholder = '';
 
-	var num = 0, numr = sumint, cache;
+	let data = '', num = 0, numr = sumint, cache;
 	while (num < sumint) {
 		num++;
 		cache = tin.replaceAll('{num}', num);

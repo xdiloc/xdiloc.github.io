@@ -334,7 +334,7 @@ input[type="checkbox"]:disabled+span {
 var gname, id_movie;
 function matchYoutubeUrl(url) {
 	if (url.length == 0) return false;
-	var p = /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/;
+	let p = /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/;
 	return (url.match(p)) ? RegExp.$1 : false;
 }
 
@@ -344,9 +344,9 @@ function x_thumbnail() {
 }
 
 function x_gen(thumbnail) {
-	var ramka = document.getElementById('ramka');
-	var imgcenter = document.getElementById('imgcenter');
-	var out, img, video;
+	let ramka = document.getElementById('ramka');
+	let imgcenter = document.getElementById('imgcenter');
+	let out, img, video;
 
 	if (thumbnail == 1) {
 		video = '<div id=\"thumbnail\" onclick=\"x_thumbnail();\" style=\"background-image: url(https://img.youtube.com/vi/'+id_movie+'/mqdefault.jpg);\"><div class=\"icon\"><div class=\"tri\"></div></div></div>';
@@ -395,17 +395,15 @@ function x_setup() {
 }
 
 function x_load() {
-	var select = document.getElementById('wrapper');
-	var url = document.getElementById('url').value;
-	var show = document.getElementById('show');
+	let select = document.getElementById('wrapper');
+	let url = document.getElementById('url').value;
+	let show = document.getElementById('show');
 
 	if (select.childElementCount > 1) select.removeChild(select.lastElementChild);
-
 	if (gname != url) {
 		gname = url;
 		id_movie = matchYoutubeUrl(url);
 	}
-
 	if (id_movie == false) {
 		document.getElementById('result').innerHTML = '';
 		if (setup != 0) x_setup();
