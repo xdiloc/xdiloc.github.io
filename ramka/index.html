@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- title -->
+<title>Рамки для видео</title>
+<!-- title -->
+<!-- meta -->
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<!-- meta -->
+<!-- style -->
+<style>
+* {
+	margin: 0;
+	padding: 0;
+	border: none;
+	border-collapse: collapse;
+}
+
+body {
+	color: #000;
+	background-color: #FFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+}
+
+a, a:active {
+	color: #6699CC;
+	outline-style: none;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #6699CC;
+}
+
+a:hover {
+	color: #FF9000;
+}
+
+hr {
+	background-color: #ddd;
+	border: none;
+	height: 1px;
+	color: #ddd;
+	margin: 0;
+	padding: 0;
+}
+
+h2 {
+	font-size: 16px;
+	font-weight: bold;
+	color: #333;
+	margin: 0;
+}
+
+#wrapper {
+	padding: 20px;
+	margin-bottom: 60px;
+}
+
+#wrapper > #content {
+	margin-bottom: 10px;
+}
+
+#wrapper > #content:last-child {
+	margin-bottom: 0;
+}
+
+#wrapper > #content:only-child {
+	margin-bottom: 0;
+}
+
+#footer {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: #222;
+	box-shadow: 0px 0px 2px rgba(0, 0, 0,.8);
+	-o-box-shadow: 0px 0px 2px rgba(0, 0, 0,.8);
+	-webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0,.8);
+	-moz-box-shadow: 0px 0px 2px rgba(0, 0, 0,.8);
+}
+
+.we {
+	color: #fff;
+	font-weight: bold;
+	text-align: right;
+	padding-top: 12px;
+	padding-bottom: 15px;
+	padding-right: 20px;
+	padding-left: 20px;
+}
+
+#content {
+	background-color: #FFF;
+	padding: 20px;
+	box-shadow: 0px 0px 2px rgba(0, 0, 0,.8);
+	-o-box-shadow: 0px 0px 2px rgba(0, 0, 0,.8);
+	-webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0,.8);
+	-moz-box-shadow: 0px 0px 2px rgba(0, 0, 0,.8);
+}
+
+#content > * {
+	margin-bottom: 10px;
+}
+
+#content > *:last-child {
+	margin-bottom: 0;
+}
+
+#content > *:only-child {
+	margin-bottom: 0;
+}
+
+#const {
+	width: 100%;
+	background-color: #FFF;
+}
+
+.box {
+	width: calc(50% - 10px);
+	float: left;
+}
+
+.box > * {
+	margin-bottom: 10px;
+}
+
+.box > *:last-child {
+	margin-bottom: 0;
+}
+
+.box > *:only-child {
+	margin-bottom: 0;
+}
+
+.pack {
+	width: 100%;
+}
+
+#result {
+	padding: 10px;
+	display: block;
+	min-height: 140px;
+	width: 100%;
+	resize: vertical;
+	background-color: #eee;
+	font-family: monospace;
+	color: #000;
+	font-size: 14px;
+	border: 1px solid #6699CC;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+::selection { background-color: #333; color: #fff; }
+::-moz-selection { background-color: #333; color: #fff; }
+::-webkit-selection { background-color: #333; color: #fff; }
+
+#clear {
+	clear: both;
+}
+
+label {
+	display: inline-block;
+}
+
+/* wtf mozilla */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+
+/* hell mozilla */
+select, select:-moz-focusring, select::-moz-focus-inner {
+	color: transparent !important;
+	text-shadow: 0 0 0 #FFF !important;
+	background-image: none !important;
+	border: 0;
+}
+
+input[type="text"] {
+	color: #000;
+	/* border: 1px solid #ccc; */
+	background-color: #fff;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	padding-left: 7px;
+	padding-right: 7px;
+	width: 186px;
+	border: none;
+	box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, .2), inset 0px 0px 1px 0px rgba(0, 0, 0, .3);
+	border-radius: 3px;
+}
+
+input[type="submit"], select {
+	margin: 0;
+	border: none;
+	/* line-height: 20px; */
+	text-align: center;
+	text-align-last: center;
+	min-width: 200px;
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
+	cursor: pointer;
+	background-color: #6699CC;
+	transition: 200ms;
+	transition-timing-function: ease-in-out;
+	-webkit-transition: 200ms;
+	-webkit-transition-timing-function: ease-in-out;
+	border-radius: 3px;
+	text-shadow: none;
+}
+
+input[type="submit"]:hover, select:hover {
+	background-color: #1f668f;
+}
+
+select {
+	margin: 0;
+	border: none;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+/* checkbox */
+input[type="checkbox"] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	position: absolute;
+	opacity: 0;
+	z-index: -1;
+}
+
+input[type="checkbox"],
+input[type="checkbox"] + span {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+input[type="checkbox"] + span {
+	cursor: pointer;
+	padding-left: 0;
+}
+
+input[type="checkbox"] + span:before {
+	content: "";
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	vertical-align: top;
+	background-color: #fff;
+	text-align: center;
+	box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, .2), inset 0px 0px 1px 0px rgba(0, 0, 0, .3);
+	border-radius: 3px;
+}
+
+input[type="checkbox"]:checked + span:before,
+input[type="checkbox"]:indeterminate + span:before {
+	color: #6699CC;
+	content: "\2713";
+	font-size: 15px;
+	text-shadow: 0px 0px 1px rgba(0, 0, 0, .3);
+}
+
+input[type="checkbox"]:disabled+span {
+	color: #999;
+}
+
+.icon {
+	cursor: pointer;
+	background: rgba(0,0,0,0.55);
+	width: 62px;
+	height: 31px;
+	border-radius: 8px;
+	padding-top: 12px;
+	position: relative;
+	margin: 0 auto;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	transition: all 0.15s ease;
+}
+
+#thumbnail:hover .icon {
+	background: rgba(225, 0, 0, 1);
+	box-shadow: 0px 0px 2px rgba(0, 0, 0,.6);
+	-o-box-shadow: 0px 0px 2px rgba(0, 0, 0,.6);
+	-webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0,.6);
+	-moz-box-shadow: 0px 0px 2px rgba(0, 0, 0,.6);
+}
+
+#thumbnail {
+	width: 560px;
+	height: 315px; 
+	background-size: cover;
+	margin-bottom: 3px;
+}
+
+.tri {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 10px 0 10px 20px;
+	border-color: transparent transparent transparent #ffffff;
+	margin: 0 auto;
+}
+
+#ccopy {
+	text-align: center;
+}
+</style>
+<!-- style -->
+</head>
+<body>
+
+<script>
+var gname, id_movie;
+function matchYoutubeUrl(url) {
+	if (url.length == 0) return false;
+	var p = /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/;
+	return (url.match(p)) ? RegExp.$1 : false;
+}
+
+function x_thumbnail() {
+	if (id_movie == false) return;
+	document.getElementById('thumbnail').parentElement.innerHTML = '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/'+id_movie+'?autoplay=1\" frameborder=\"0\" allowfullscreen></iframe>';
+}
+
+function x_gen(thumbnail) {
+	var ramka = document.getElementById('ramka');
+	var imgcenter = document.getElementById('imgcenter');
+	var out, img, video;
+
+	if (thumbnail == 1) {
+		video = '<div id=\"thumbnail\" onclick=\"x_thumbnail();\" style=\"background-image: url(https://img.youtube.com/vi/'+id_movie+'/mqdefault.jpg);\"><div class=\"icon\"><div class=\"tri\"></div></div></div>';
+	} else if (thumbnail == 3) {
+		video = ''
+	} else {
+		video = '<object width=\"560\" height=\"315\"><param value=\"https://www.youtube.com/v/'+id_movie+'\" name=\"movie\"></param><param value=\"true\" name=\"allowFullScreen\"></param><param value=\"always\" name=\"allowscriptaccess\"></param><embed allowfullscreen=\"true\" src=\"https://www.youtube.com/v/'+id_movie+'\" type=\"application/x-shockwave-flash\" width=\"560\" height=\"315\"></object>';
+	}
+
+	switch(ramka.value) {
+		case '1':
+			img = 'https://i.imgur.com/szJWOKV.png';
+			out = '<table background=\"'+img+'\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td height=\"7\"></td></tr><tr><td width=\"578\" height=\"315\" align=\"center\">'+video+'</td></tr><tr><td height=\"7\"></td></tr></table>';
+			break;
+		case '2':
+			img = 'https://i.imgur.com/pODfvGZ.png';
+			out = '<table background=\"'+img+'\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td height=\"7\"></td></tr><tr><td width=\"576\" height=\"315\" align=\"center\">'+video+'</td></tr><tr><td height=\"3\"></td></tr></table>';
+			break;
+		case '3':
+			img = 'https://i.imgur.com/8shW7Ny.png';
+			out = '<table background=\"'+img+'\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td height=\"14\"></td></tr><tr><td width=\"589\" height=\"315\" align=\"center\">'+video+'</td></tr><tr><td height=\"11\"></td></tr></table>';
+			break;
+		case '4':
+			img = 'https://i.imgur.com/H4qWT3J.png';
+			out = '<table background=\"'+img+'\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td height=\"14\"></td></tr><tr><td width=\"589\" height=\"315\" align=\"center\">'+video+'</td></tr><tr><td height=\"11\"></td></tr></table>';
+			break;
+		case '5':
+			img = 'https://i.imgur.com/hidct6S.png';
+			out = '<table background=\"'+img+'\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td width=\"589\" height=\"346\" align=\"center\">'+video+'<tr><td width=\"589\" height=\"20\"></td></tr></table>';
+			break;
+		default:
+			out = 'Unknown value: '+ramka.value;
+	}
+
+	if (imgcenter.checked) {
+		out = '<div align=\"center\">'+out+'</div>';
+	}
+
+	return out;
+}
+
+var setup = 0;
+function x_setup() {
+	document.getElementById('ccopy').remove();
+	setup = 0;
+}
+
+function x_load() {
+	var select = document.getElementById('wrapper');
+	var url = document.getElementById('url').value;
+	var show = document.getElementById('show');
+
+	if (select.childElementCount > 1) select.removeChild(select.lastElementChild);
+
+	if (gname != url) {
+		gname = url;
+		id_movie = matchYoutubeUrl(url);
+	}
+
+	if (id_movie == false) {
+		document.getElementById('result').innerHTML = '';
+		if (setup != 0) x_setup();
+		return;
+	}
+
+	document.getElementById('result').innerHTML = x_gen(0);
+	if (setup != 1) {
+		document.getElementById('result').insertAdjacentHTML('afterend', '<div id=\"ccopy\"><a href=\"javascript:x_ccopy(\'result\');\" title=\"копировать код\">Копировать код в буфер обмена</a></div>');
+		setup = 1;
+	}
+	if (show.value <= 3) {
+		document.getElementById('content').insertAdjacentHTML('afterend', '<div id=\"content\"><h2>Результат</h2><hr />'+x_gen(show.value)+'</div>');
+	}
+}
+
+function x_exemple() {
+	document.getElementById('url').value = 'https://www.youtube.com/watch?v=1La4QzGeaaQ';
+	document.getElementById('show').selectedIndex = 0;
+	document.getElementById('ramka').selectedIndex = 0;
+	document.getElementById('imgcenter').checked = false;
+	x_load();
+}
+
+function x_cclear(dd) {
+	document.getElementById(dd).value = '';
+	x_load();
+}
+
+function x_ccopy(dd) {
+	document.getElementById(dd).select();
+	document.execCommand('copy');
+}
+</script>
+
+<div id="wrapper">
+<div id="content">
+<h2>Набор рамок для видео</h2>
+<hr />
+<div id="pack">
+<div class="box" style="padding-right: 10px;">
+<input type="text" id="url" oninput="x_load();" autofocus> Ссылка на ролик (<a href="javascript:x_cclear('url');" title="очистить">очистить</a>)
+<br />
+<select id="show" onchange="x_load();">
+<option value="1">Да (быстрый)</option>
+<option value="2">Да (исходное)</option>
+<option value="3">Да (только рамка)</option>
+<option value="4">Нет</option>
+</select> Показать результат
+<br />
+<select id="ramka" onchange="x_load();">
+<option value="1">C тенью</option>
+<option value="2">Неон</option>
+<option value="3">Новогодняя</option>
+<option value="4">Белая рамка</option>
+<option value="5">Белая рамка с тенью</option>
+</select> Вид рамки (<a href="javascript:x_exemple();" title="настройки для примера">показать пример</a>)
+<br />
+<label><input type="checkbox" id="imgcenter" onchange="x_load();"><span> Выровнять по центру</span></label>
+</div>
+<div class="box" style="padding-left: 10px;">
+<textarea id="result" onclick="this.select();" placeholder="Вставьте ссылку на youtube ролик" readonly></textarea>
+</div>
+<div id="clear"></div>
+</div>
+</div>
+</div>
+
+<script>
+// clear
+document.getElementById('url').value = '';
+document.getElementById('show').selectedIndex = 0;
+document.getElementById('ramka').selectedIndex = 0;
+document.getElementById('imgcenter').checked = false;
+</script>
+
+<footer id="footer"><div class="we">
+<a href="https://xdiloc.github.io/" title="главная страница">xdiloc.github.io</a>
+<span> &starf; </span>
+<a href="https://github.com/xdiloc/xdiloc.github.io" target="_blank" title="разработка">github.com</a>
+</div></footer>
+
+</body>
+</html>
