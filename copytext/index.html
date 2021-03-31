@@ -173,14 +173,12 @@ label {
 	display: inline-block;
 }
 
-/* wtf mozilla */
 button::-moz-focus-inner,
 input::-moz-focus-inner {
 	padding: 0;
 	border: 0;
 }
 
-/* hell mozilla */
 select, select:-moz-focusring, select::-moz-focus-inner {
 	color: transparent !important;
 	text-shadow: 0 0 0 #FFF !important;
@@ -190,7 +188,6 @@ select, select:-moz-focusring, select::-moz-focus-inner {
 
 input[type="text"], input[type="number"] {
 	color: #000;
-	/* border: 1px solid #ccc; */
 	background-color: #fff;
 	padding-bottom: 5px;
 	padding-top: 5px;
@@ -238,7 +235,6 @@ select {
 	appearance: none;
 }
 
-/* checkbox */
 input[type="checkbox"] {
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -284,7 +280,7 @@ input[type="checkbox"]:indeterminate + span:before {
 	text-shadow: 0px 0px 1px rgba(0, 0, 0, .3);
 }
 
-input[type="checkbox"]:disabled+span {
+input[type="checkbox"]:disabled + span {
 	color: #999;
 }
 
@@ -346,7 +342,6 @@ function x_load() {
 		document.getElementById('out').insertAdjacentHTML('afterend', '<div class=\"center\" id=\"ccopy\"><a href=\"javascript:x_ccopy(\'out\');\" title=\"копировать текст\">Копировать текст в буфер обмена</a><br /><a id=\"ssave\" target = \"_blank\" download = \"saveit.txt\" title=\"сохранить\">Сохранить в фаил</a></div>');
 		setup = 1;
 	}
-
 	document.getElementById('ssave').href = 'data:text/plain;charset=utf-8,'+encodeURIComponent(data);
 }
 

@@ -157,14 +157,12 @@ label {
 	display: inline-block;
 }
 
-/* wtf mozilla */
 button::-moz-focus-inner,
 input::-moz-focus-inner {
 	padding: 0;
 	border: 0;
 }
 
-/* hell mozilla */
 select, select:-moz-focusring, select::-moz-focus-inner {
 	color: transparent !important;
 	text-shadow: 0 0 0 #FFF !important;
@@ -174,7 +172,6 @@ select, select:-moz-focusring, select::-moz-focus-inner {
 
 input[type="text"], input[type="number"] {
 	color: #000;
-	/* border: 1px solid #ccc; */
 	background-color: #fff;
 	padding-bottom: 5px;
 	padding-top: 5px;
@@ -222,7 +219,6 @@ select {
 	appearance: none;
 }
 
-/* checkbox */
 input[type="checkbox"] {
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -268,7 +264,7 @@ input[type="checkbox"]:indeterminate + span:before {
 	text-shadow: 0px 0px 1px rgba(0, 0, 0, .3);
 }
 
-input[type="checkbox"]:disabled+span {
+input[type="checkbox"]:disabled + span {
 	color: #999;
 }
 

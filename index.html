@@ -120,22 +120,20 @@ p {
 	margin: 0;
 }
 
-::selection { background-color: #000; color: #FF9000; }
-::-moz-selection { background-color: #000; color: #FF9000; }
-::-webkit-selection { background-color: #000; color: #FF9000; }
+::selection { background-color: #333; color: #fff; }
+::-moz-selection { background-color: #333; color: #fff; }
+::-webkit-selection { background-color: #333; color: #fff; }
 
 #clear {
 	clear: both;
 }
 
-/* wtf mozilla */
 button::-moz-focus-inner,
 input::-moz-focus-inner {
 	padding: 0;
 	border: 0;
 }
 
-/* hell mozilla */
 select, select:-moz-focusring, select::-moz-focus-inner {
 	color: transparent !important;
 	text-shadow: 0 0 0 #FFF !important;
