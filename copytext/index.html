@@ -307,6 +307,7 @@ function x_load() {
 	let sepend = document.getElementById('sepend').checked;
 
 	document.getElementById('out').value = '';
+	document.getElementById('out').placeholder = '';
 
 	if (tin.length == 0) {
 		if (setup != 0) x_setup();
@@ -315,12 +316,11 @@ function x_load() {
 
 	let sumint = parseInt(sum);
 	if (isNaN(sumint) || sum !== String(sumint) || sumint < 1 || sumint > 1000) {
+		document.getElementById('sum').value = '';
 		document.getElementById('out').placeholder = 'Введите число повторений от 1 до 1000';
 		if (setup != 0) x_setup();
 		return;
 	}
-
-	document.getElementById('out').placeholder = '';
 
 	let data = '', num = 0, numr = sumint, cache;
 	while (num < sumint) {
