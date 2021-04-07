@@ -304,7 +304,7 @@ input[type="checkbox"]:disabled + span {
 
 #thumbnail {
 	width: 560px;
-	height: 315px; 
+	height: 315px;
 	background-size: cover;
 	margin-bottom: 3px;
 }
@@ -377,17 +377,14 @@ function x_gen(thumbnail) {
 			out = 'Unknown value: '+ramka.value;
 	}
 
-	if (imgcenter.checked) {
-		out = '<div align=\"center\">'+out+'</div>';
-	}
-
+	if (imgcenter.checked) out = '<div align=\"center\">'+out+'</div>';
 	return out;
 }
 
-var setup = 0;
+var setup = false;
 function x_setup() {
 	document.getElementById('ccopy').remove();
-	setup = 0;
+	setup = false;
 }
 
 function x_load() {
@@ -402,24 +399,32 @@ function x_load() {
 	}
 	if (id_movie == false) {
 		document.getElementById('result').innerHTML = '';
-		if (setup != 0) x_setup();
+		if (setup != false) x_setup();
 		return;
 	}
 
 	document.getElementById('result').innerHTML = x_gen(0);
-	if (setup != 1) {
+	if (setup != true) {
 		document.getElementById('result').insertAdjacentHTML('afterend', '<div id=\"ccopy\"><a href=\"javascript:x_ccopy(\'result\');\" title=\"копировать код\">Копировать код в буфер обмена</a></div>');
-		setup = 1;
+		setup = true;
 	}
 	if (show.value <= 3) {
 		document.getElementById('content').insertAdjacentHTML('afterend', '<div id=\"content\"><h2>Результат</h2><hr />'+x_gen(show.value)+'</div>');
 	}
 }
 
-function x_exemple() {
-	document.getElementById('url').value = 'https://www.youtube.com/watch?v=1La4QzGeaaQ';
+function x_exemple(num) {
+	if (num == 1) {
+		url = 'https://www.youtube.com/watch?v=1La4QzGeaaQ';
+		ramka = 0;
+	}
+	if (num == 2) {
+		url = 'https://www.youtube.com/watch?v=LrOIvod07xE';
+		ramka = 1;
+	}
+	document.getElementById('url').value = url;
 	document.getElementById('show').selectedIndex = 0;
-	document.getElementById('ramka').selectedIndex = 0;
+	document.getElementById('ramka').selectedIndex = ramka;
 	document.getElementById('imgcenter').checked = false;
 	x_load();
 }
@@ -456,9 +461,11 @@ function x_ccopy(dd) {
 <option value="3">Новогодняя</option>
 <option value="4">Белая рамка</option>
 <option value="5">Белая рамка с тенью</option>
-</select> Вид рамки (<a href="javascript:x_exemple();" title="настройки для примера">показать пример</a>)
+</select> Вид рамки
 <br />
 <label><input type="checkbox" id="imgcenter" onchange="x_load();"><span> Выровнять по центру</span></label>
+<br />
+Пример настройки: <a href="javascript:x_exemple(1);" title="вид">[1]</a>, <a href="javascript:x_exemple(2);" title="вид">[2]</a>
 </div>
 <div class="box" style="padding-left: 10px;">
 <textarea id="result" onclick="this.select();" placeholder="Вставьте ссылку на youtube ролик" readonly></textarea>
