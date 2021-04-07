@@ -332,9 +332,8 @@ function x_load() {
 		data += cache+sep;
 	}
 
-	data = data.replaceAll('\\n', '\n');
-	data = data.replaceAll('\\r', '\r');
-	data = data.replaceAll('\\t', '\t');
+	data = data.replaceAll(/(\\t)|(\s{4})/g, '\t');
+	data = data.replaceAll(/(\\r)|(\\n)/g, '\n');
 	document.getElementById('out').value = data;
 
 	if (setup != 1) {
