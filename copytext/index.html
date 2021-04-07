@@ -297,7 +297,7 @@ var setup = 0;
 function x_setup() {
 	document.getElementById('cclear').remove();
 	document.getElementById('ccopy').remove();
-	setup = 0;
+	setup = false;
 }
 
 function x_load() {
@@ -309,16 +309,16 @@ function x_load() {
 	document.getElementById('out').value = '';
 	document.getElementById('out').placeholder = '';
 
-	if (tin.length == 0) {
-		if (setup != 0) x_setup();
-		return;
-	}
-
+	let check = false;
+	if (tin.length == 0) check = true;
 	let sumint = parseInt(sum);
 	if (isNaN(sumint) || sum !== String(sumint) || sumint < 1 || sumint > 1000) {
 		document.getElementById('sum').value = '';
 		document.getElementById('out').placeholder = 'Введите число повторений от 1 до 1000';
-		if (setup != 0) x_setup();
+		check = true;
+	}
+	if (check == true) {
+		if (setup != false) x_setup();
 		return;
 	}
 
@@ -336,10 +336,10 @@ function x_load() {
 	data = data.replaceAll(/(\\r)|(\\n)/g, '\n');
 	document.getElementById('out').value = data;
 
-	if (setup != 1) {
+	if (setup != true) {
 		document.getElementById('in').insertAdjacentHTML('afterend', '<div class=\"center\" id=\"cclear"\><a href=\"javascript:x_cclear(\'in\');\" title=\"очистить\">Очистить текст</a></div>');
 		document.getElementById('out').insertAdjacentHTML('afterend', '<div class=\"center\" id=\"ccopy\"><a href=\"javascript:x_ccopy(\'out\');\" title=\"копировать текст\">Копировать текст в буфер обмена</a><br /><a id=\"ssave\" target = \"_blank\" download = \"saveit.txt\" title=\"сохранить\">Сохранить в фаил</a></div>');
-		setup = 1;
+		setup = true;
 	}
 	document.getElementById('ssave').href = 'data:text/plain;charset=utf-8,'+encodeURIComponent(data);
 }
