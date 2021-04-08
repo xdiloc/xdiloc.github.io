@@ -300,8 +300,14 @@ function x_setup() {
 	setup = false;
 }
 
+function x_spec(m) {
+	m = m.replaceAll(/(\\t)|(\s{4})/g, '\t');
+	m = m.replaceAll(/(\\r)|(\\n)/g, '\n');
+	return m;
+}
+
 function x_load() {
-	let tin = document.getElementById('in').value;
+	let inp = document.getElementById('in').value;
 	let sum = document.getElementById('sum').value;
 	let sep = document.getElementById('sep').value;
 	let sepend = document.getElementById('sepend').checked;
@@ -310,7 +316,7 @@ function x_load() {
 	document.getElementById('out').placeholder = '';
 
 	let check = false;
-	if (tin.length == 0) check = true;
+	if (inp.length == 0) check = true;
 	let sumint = parseInt(sum);
 	if (isNaN(sumint) || sum !== String(sumint) || sumint < 1 || sumint > 1000) {
 		document.getElementById('sum').value = '';
@@ -322,26 +328,25 @@ function x_load() {
 		return;
 	}
 
-	let data = '', num = 0, numr = sumint, cache;
+	let data = x_spec(inp), datasep = x_spec(sep);
+	let num = 0, numr = sumint, cache, out = '';
 	while (num < sumint) {
 		num++;
-		cache = tin.replaceAll('{num}', num);
+		if (num == sumint && sepend == false) datasep = '';
+		cache = data+datasep;
+		cache = cache.replaceAll('{num}', num);
 		cache = cache.replaceAll('{numr}', numr);
 		numr--;
-		if (num == sumint && sepend == false) sep = '';
-		data += cache+sep;
+		out += cache;
 	}
-
-	data = data.replaceAll(/(\\t)|(\s{4})/g, '\t');
-	data = data.replaceAll(/(\\r)|(\\n)/g, '\n');
-	document.getElementById('out').value = data;
+	document.getElementById('out').value = out;
 
 	if (setup != true) {
 		document.getElementById('in').insertAdjacentHTML('afterend', '<div class=\"center\" id=\"cclear"\><a href=\"javascript:x_cclear(\'in\');\" title=\"очистить\">Очистить текст</a></div>');
 		document.getElementById('out').insertAdjacentHTML('afterend', '<div class=\"center\" id=\"ccopy\"><a href=\"javascript:x_ccopy(\'out\');\" title=\"копировать текст\">Копировать текст в буфер обмена</a><br /><a id=\"ssave\" target = \"_blank\" download = \"saveit.txt\" title=\"сохранить\">Сохранить в фаил</a></div>');
 		setup = true;
 	}
-	document.getElementById('ssave').href = 'data:text/plain;charset=utf-8,'+encodeURIComponent(data);
+	document.getElementById('ssave').href = 'data:text/plain;charset=utf-8,'+encodeURIComponent(out);
 }
 
 function x_cclear(dd) {
