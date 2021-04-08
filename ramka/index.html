@@ -390,7 +390,7 @@ function x_setup() {
 function x_load() {
 	let select = document.getElementById('wrapper');
 	let url = document.getElementById('url').value;
-	let show = document.getElementById('show');
+	let show = document.getElementById('show').value;
 
 	if (select.childElementCount > 1) select.removeChild(select.lastElementChild);
 	if (gname != url) {
@@ -408,8 +408,8 @@ function x_load() {
 		document.getElementById('result').insertAdjacentHTML('afterend', '<div id=\"ccopy\"><a href=\"javascript:x_ccopy(\'result\');\" title=\"копировать код\">Копировать код в буфер обмена</a></div>');
 		setup = true;
 	}
-	if (show.value <= 3) {
-		document.getElementById('content').insertAdjacentHTML('afterend', '<div id=\"content\"><h2>Результат</h2><hr />'+x_gen(show.value)+'</div>');
+	if (show <= 3) {
+		document.getElementById('content').insertAdjacentHTML('afterend', '<div id=\"content\"><h2>Результат</h2><hr />'+x_gen(show)+'</div>');
 	}
 }
 
