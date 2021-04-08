@@ -300,10 +300,10 @@ function x_setup() {
 	setup = false;
 }
 
-function x_spec(m) {
-	m = m.replaceAll(/(\\t)|(\s{4})/g, '\t');
-	m = m.replaceAll(/(\\r)|(\\n)/g, '\n');
-	return m;
+function x_spec(dd) {
+	dd = dd.replaceAll(/(\\t)|(\s{4})/g, '\t');
+	dd = dd.replaceAll(/(\\r)|(\\n)/g, '\n');
+	return dd;
 }
 
 function x_load() {
@@ -329,14 +329,12 @@ function x_load() {
 	}
 
 	let data = x_spec(inp), datasep = x_spec(sep);
-	let num = 0, numr = sumint, cache, out = '';
-	while (num < sumint) {
-		num++;
+	let num = 1, numr = sumint, cache, out = '';
+	while (num <= sumint) {
 		if (num == sumint && sepend == false) datasep = '';
 		cache = data + datasep;
-		cache = cache.replaceAll('{num}', num);
-		cache = cache.replaceAll('{numr}', numr);
-		numr--;
+		cache = cache.replaceAll('{num}', num); num++;
+		cache = cache.replaceAll('{numr}', numr); numr--;
 		out += cache;
 	}
 	document.getElementById('out').value = out;
