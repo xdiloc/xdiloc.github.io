@@ -307,20 +307,18 @@ function x_spec(dd) {
 }
 
 function x_load() {
-	let inp = document.getElementById('in').value;
-	let sum = document.getElementById('sum').value;
-	let sep = document.getElementById('sep').value;
-	let sepend = document.getElementById('sepend').checked;
-
-	document.getElementById('out').value = '';
-	document.getElementById('out').placeholder = '';
+	let inp = document.getElementById('in');
+	let out = document.getElementById('out');
+	let sum = document.getElementById('sum');
+	out.value = '';
+	out.placeholder = '';
 
 	let check = false;
-	if (inp.length == 0) check = true;
-	let sumint = parseInt(sum);
-	if (isNaN(sumint) || sum !== String(sumint) || sumint < 1 || sumint > 1000) {
-		document.getElementById('sum').value = '';
-		document.getElementById('out').placeholder = 'Введите число повторений от 1 до 1000';
+	if (inp.value.length == 0) check = true;
+	let sumint = parseInt(sum.value);
+	if (isNaN(sumint) || sum.value !== String(sumint) || sumint < 1 || sumint > 1000) {
+		sum.value = '';
+		out.placeholder = 'Введите число повторений от 1 до 1000';
 		check = true;
 	}
 	if (check == true) {
@@ -328,20 +326,22 @@ function x_load() {
 		return;
 	}
 
-	let data = x_spec(inp), datasep = x_spec(sep);
-	let num = 1, numr = sumint, cache, out = '';
+	let sep = document.getElementById('sep');
+	let sepend = document.getElementById('sepend').checked;
+	let data = x_spec(inp.value), datasep = x_spec(sep.value);
+	let num = 1, numr = sumint, cache, com = '';
 	while (num <= sumint) {
 		if (num == sumint && sepend == false) datasep = '';
 		cache = data + datasep;
 		cache = cache.replaceAll('{num}', num); num++;
 		cache = cache.replaceAll('{numr}', numr); numr--;
-		out += cache;
+		com += cache;
 	}
-	document.getElementById('out').value = out;
+	out.value = com;
 
 	if (setup != true) {
-		document.getElementById('in').insertAdjacentHTML('afterend', '<div class=\"center\" id=\"cclear"\><a href=\"javascript:x_cclear(\'in\');\" title=\"очистить\">Очистить текст</a></div>');
-		document.getElementById('out').insertAdjacentHTML('afterend', '<div class=\"center\" id=\"ccopy\"><a href=\"javascript:x_ccopy(\'out\');\" title=\"копировать текст\">Копировать текст в буфер обмена</a><br /><a id=\"ssave\" target = \"_blank\" download = \"saveit.txt\" title=\"сохранить\">Сохранить в фаил</a></div>');
+		inp.insertAdjacentHTML('afterend', '<div class=\"center\" id=\"cclear"\><a href=\"javascript:x_cclear(\'in\');\" title=\"очистить\">Очистить текст</a></div>');
+		out.insertAdjacentHTML('afterend', '<div class=\"center\" id=\"ccopy\"><a href=\"javascript:x_ccopy(\'out\');\" title=\"копировать текст\">Копировать текст в буфер обмена</a><br /><a id=\"ssave\" target = \"_blank\" download = \"saveit.txt\" title=\"сохранить\">Сохранить в фаил</a></div>');
 		setup = true;
 	}
 	document.getElementById('ssave').href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(out);
