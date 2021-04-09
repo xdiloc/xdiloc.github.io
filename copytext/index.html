@@ -293,11 +293,8 @@ input[type="checkbox"]:disabled + span {
 <body>
 
 <script>
-var setup = false;
-function x_setup() {
-	document.getElementById('cclear').remove();
-	document.getElementById('ccopy').remove();
-	setup = false;
+function delid(dd) {
+	document.getElementById(dd).remove();
 }
 
 function x_spec(dd) {
@@ -306,6 +303,7 @@ function x_spec(dd) {
 	return dd;
 }
 
+var setup = false;
 function x_load() {
 	let inp = document.getElementById('in');
 	let out = document.getElementById('out');
@@ -322,7 +320,11 @@ function x_load() {
 		check = true;
 	}
 	if (check == true) {
-		if (setup != false) x_setup();
+		if (setup != false) {
+			delid('cclear');
+			delid('ccopy');
+			setup = false;
+		}
 		return;
 	}
 
