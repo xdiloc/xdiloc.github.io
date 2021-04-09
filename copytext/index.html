@@ -316,9 +316,9 @@ function x_load() {
 	let check = false;
 	if (inp.value.length == 0) check = true;
 	let sumint = parseInt(sum.value);
-	if (isNaN(sumint) || sum.value !== String(sumint) || sumint < 1 || sumint > 1000) {
+	if (isNaN(sumint) || sum.value !== String(sumint) || sumint < 1 || sumint > 3000) {
 		sum.value = '';
-		out.placeholder = 'Введите число повторений от 1 до 1000';
+		out.placeholder = 'Введите число повторений от 1 до 3000';
 		check = true;
 	}
 	if (check == true) {
@@ -368,7 +368,7 @@ function x_ccopy(dd) {
 <textarea id="out" onclick="this.select();" readonly></textarea>
 </div>
 <div class="box" style="padding-left: 10px;">
-<input type="number" id="sum" oninput="x_load();" min="1" max="1000"> Количество повторений (1-1000)<br />
+<input type="number" id="sum" oninput="x_load();" min="1" max="3000"> Количество повторений (1-3000)<br />
 <input type="text" id="sep" oninput="x_load();"> Разделитель (<a href="javascript:x_cclear('sep');" title="очистить">очистить</a>)<br />
 <label><input type="checkbox" id="sepend" onchange="x_load();"><span> Разделитель в конце</span></label>
 <hr />
