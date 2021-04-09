@@ -293,7 +293,7 @@ input[type="checkbox"]:disabled + span {
 <body>
 
 <script>
-function delid(dd) {
+function x_delid(dd) {
 	document.getElementById(dd).remove();
 }
 
@@ -321,8 +321,8 @@ function x_load() {
 	}
 	if (check == true) {
 		if (setup != false) {
-			delid('cclear');
-			delid('ccopy');
+			x_delid('cclear');
+			x_delid('ccopy');
 			setup = false;
 		}
 		return;
