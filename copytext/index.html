@@ -303,20 +303,32 @@ function x_spec(dd) {
 	return dd;
 }
 
+function x_nan(n, nmin, nmax) {
+	let c = n;
+	n = parseInt(n);
+	if (isNaN(n) || n != c || n < nmin || n > nmax) return true;
+	return false;
+}
+
 var setup = false;
 function x_load() {
 	let inp = document.getElementById('in');
 	let out = document.getElementById('out');
 	let sum = document.getElementById('sum');
+	let step = document.getElementById('step');
 	out.value = '';
 	out.placeholder = '';
 
 	let check = false;
 	if (inp.value.length == 0) check = true;
-	let sumint = parseInt(sum.value);
-	if (isNaN(sumint) || sum.value !== String(sumint) || sumint < 1 || sumint > 3000) {
+	if (x_nan(sum.value, 1, 3000)) {
 		sum.value = '';
 		out.placeholder = 'Введите число повторений от 1 до 3000';
+		check = true;
+	}
+	if (x_nan(step.value, 1, 3000)) {
+		step.value = '';
+		out.placeholder = 'Введите число шаг разделителя от 1 до 3000';
 		check = true;
 	}
 	if (check == true) {
@@ -331,10 +343,14 @@ function x_load() {
 	let sep = document.getElementById('sep');
 	let sepend = document.getElementById('sepend').checked;
 	let data = x_spec(inp.value), datasep = x_spec(sep.value);
-	let num = 1, numr = sumint, cache, com = '';
-	while (num <= sumint) {
-		if (num == sumint && sepend == false) datasep = '';
-		cache = data + datasep;
+	let num = 1, numr = sum.value, cache, com = '';
+	while (num <= sum.value) {
+		if (num % step.value == 0) {
+			if (num == sum.value && sepend == false) datasep = '';
+			cache = data + datasep;
+		} else {
+			cache = data;
+		}
 		cache = cache.replaceAll('{num}', num); num++;
 		cache = cache.replaceAll('{numr}', numr); numr--;
 		com += cache;
@@ -370,8 +386,10 @@ function x_ccopy(dd) {
 <textarea id="out" onclick="this.select();" readonly></textarea>
 </div>
 <div class="box" style="padding-left: 10px;">
-<input type="number" id="sum" oninput="x_load();" min="1" max="3000"> Количество повторений (1-3000)<br />
+<input type="number" id="sum" oninput="x_load();" min="1" max="3000"> Количество повторений (1-3000)
+<hr />
 <input type="text" id="sep" oninput="x_load();"> Разделитель (<a href="javascript:x_cclear('sep');" title="очистить">очистить</a>)<br />
+<input type="number" id="step" oninput="x_load();" min="1" max="3000"> Шаг разделителя<br />
 <label><input type="checkbox" id="sepend" onchange="x_load();"><span> Разделитель в конце</span></label>
 <hr />
 <table class="isapi">
@@ -389,6 +407,7 @@ function x_ccopy(dd) {
 <script>
 // clear
 document.getElementById('sum').value = '5';
+document.getElementById('step').value = '1';
 x_load();
 </script>
 
