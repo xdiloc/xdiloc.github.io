@@ -346,7 +346,7 @@ function x_load() {
 		out.insertAdjacentHTML('afterend', '<div class=\"center\" id=\"ccopy\"><a href=\"javascript:x_ccopy(\'out\');\" title=\"копировать текст\">Копировать текст в буфер обмена</a><br /><a id=\"ssave\" target = \"_blank\" download = \"saveit.txt\" title=\"сохранить\">Сохранить в фаил</a></div>');
 		setup = true;
 	}
-	document.getElementById('ssave').href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(out);
+	document.getElementById('ssave').href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(com);
 }
 
 function x_cclear(dd) {
