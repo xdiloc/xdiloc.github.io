@@ -359,7 +359,7 @@ function x_load() {
 
 	if (setup != true) {
 		inp.insertAdjacentHTML('afterend', '<div class=\"center\" id=\"cclear"\><a href=\"javascript:x_cclear(\'in\');\" title=\"очистить\">Очистить текст</a></div>');
-		out.insertAdjacentHTML('afterend', '<div class=\"center\" id=\"ccopy\"><a href=\"javascript:x_ccopy(\'out\');\" title=\"копировать текст\">Копировать текст в буфер обмена</a><br /><a id=\"ssave\" target = \"_blank\" download = \"saveit.txt\" title=\"сохранить\">Сохранить в фаил</a></div>');
+		out.insertAdjacentHTML('afterend', '<div class=\"center\" id=\"ccopy\"><a href=\"javascript:x_ccopy(\'out\');\" title=\"копировать текст\">Копировать текст в буфер обмена</a><br /><a id=\"ssave\" target=\"_blank\" download=\"saveit.txt\" title=\"сохранить\">Сохранить в фаил</a></div>');
 		setup = true;
 	}
 	document.getElementById('ssave').href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(com);
