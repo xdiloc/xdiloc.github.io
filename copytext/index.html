@@ -390,8 +390,10 @@ function x_load() {
 }
 
 function x_cclear(dd) {
-	document.getElementById(dd).value = '';
-	x_load();
+	if (confirm('Вы уверены что хотите очистить текст?')) {
+		document.getElementById(dd).value = '';
+		x_load();
+	}
 }
 
 function x_ccopy(dd) {
