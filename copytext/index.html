@@ -417,8 +417,10 @@ function x_load() {
 }
 
 function x_cclear(dd) {
+	let ww = document.getElementById(dd);
+	if (ww.value.length == 0) return;
 	if (confirm('Вы уверены что хотите очистить текст?')) {
-		document.getElementById(dd).value = '';
+		ww.value = '';
 		x_load();
 	}
 }
