@@ -284,8 +284,34 @@ input[type="checkbox"]:disabled + span {
 	color: #999;
 }
 
-.center {
-	text-align: center;
+#mkey {
+	text-align: right;
+	width: 100%;
+}
+
+.svgx {
+	background-color: #6699CC;
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	padding-left: 3px;
+	mask-repeat: no-repeat;
+}
+
+.svgx:hover {
+	background-color: #FF9000;
+}
+
+.dl {
+	mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 5C11 4.44772 11.4477 4 12 4C12.5523 4 13 4.44772 13 5V12.1578L16.2428 8.91501L17.657 10.3292L12.0001 15.9861L6.34326 10.3292L7.75748 8.91501L11 12.1575V5Z" fill="currentColor" /><path d="M4 14H6V18H18V14H20V18C20 19.1046 19.1046 20 18 20H6C4.89543 20 4 19.1046 4 18V14Z" fill="currentColor" /></svg>');
+}
+
+.cp {
+	mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 7H7V5H13V7Z" fill="currentColor" /><path d="M13 11H7V9H13V11Z" fill="currentColor" /><path d="M7 15H13V13H7V15Z" fill="currentColor" /><path fill-rule="evenodd" clip-rule="evenodd" d="M3 19V1H17V5H21V23H7V19H3ZM15 17V3H5V17H15ZM17 7V19H9V21H19V7H17Z" fill="currentColor" /></svg>');
+}
+
+.rm  {
+	mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 11C7.44772 11 7 11.4477 7 12C7 12.5523 7.44772 13 8 13H16C16.5523 13 17 12.5523 17 12C17 11.4477 16.5523 11 16 11H8Z" fill="currentColor" /><path fill-rule="evenodd" clip-rule="evenodd" d="M23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12ZM21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" fill="currentColor" /></svg>');
 }
 </style>
 <!-- style -->
@@ -333,8 +359,7 @@ function x_load() {
 	}
 	if (check == true) {
 		if (setup != false) {
-			x_delid('cclear');
-			x_delid('ccopy');
+			x_delid('mkey');
 			setup = false;
 		}
 		return;
@@ -358,11 +383,10 @@ function x_load() {
 	out.value = com;
 
 	if (setup != true) {
-		inp.insertAdjacentHTML('afterend', '<div class=\"center\" id=\"cclear"\><a href=\"javascript:x_cclear(\'in\');\" title=\"очистить\">Очистить текст</a></div>');
-		out.insertAdjacentHTML('afterend', '<div class=\"center\" id=\"ccopy\"><a href=\"javascript:x_ccopy(\'out\');\" title=\"копировать текст\">Копировать текст в буфер обмена</a><br /><a id=\"ssave\" target=\"_blank\" download=\"saveit.txt\" title=\"сохранить\">Сохранить в фаил</a></div>');
+		out.insertAdjacentHTML('afterend', '<div id=\"mkey"\><a class="rm svgx" href=\"javascript:x_cclear(\'in\');\" title=\"Очистить текст\"></a><a class="cp svgx" href=\"javascript:x_ccopy(\'out\');\" title=\"Копировать текст в буфер обмена\"></a><a class="dl svgx" id=\"savefile\" target=\"_blank\" download=\"saveit.txt\" title=\"Сохранить в фаил\"></a></div>');
 		setup = true;
 	}
-	document.getElementById('ssave').href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(com);
+	document.getElementById('savefile').href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(com);
 }
 
 function x_cclear(dd) {
@@ -380,7 +404,7 @@ function x_ccopy(dd) {
 <div id="content">
 <h2>Клонирование текста</h2>
 <hr />
-<div id="pack">
+<div class="pack">
 <div class="box" style="padding-right: 10px;">
 <textarea id="in" oninput="x_load();" placeholder="Введите сюда текст для клонирования" autofocus></textarea>
 <textarea id="out" onclick="this.select();" readonly></textarea>
