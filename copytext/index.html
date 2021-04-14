@@ -360,6 +360,10 @@ function x_nan(n, nmin, nmax) {
 	return false;
 }
 
+function x_seturl(dd, text) {
+	document.getElementById(dd).href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(text);
+}
+
 var setup = false;
 function x_load() {
 	let inp = document.getElementById('in');
@@ -412,8 +416,8 @@ function x_load() {
 		out.insertAdjacentHTML('afterend', '<div id=\"outkey\"><a class=\"sl svgx\" href=\"javascript:x_cselect(\'out\');\" title=\"Выделить текст\"></a><a class=\"cp svgx\" href=\"javascript:x_ccopy(\'out\');\" title=\"Копировать текст в буфер обмена\"></a><a class=\"dl svgx\" id=\"saveout\" target=\"_blank\" download=\"saveit.txt\" title=\"Сохранить в фаил\"></a></div>');
 		setup = true;
 	}
-	document.getElementById('savein').href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(inp.value);
-	document.getElementById('saveout').href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(com);
+	x_seturl('savein', inp.value);
+	x_seturl('saveout', com);
 }
 
 function x_cclear(dd) {
