@@ -412,7 +412,7 @@ function x_load() {
 	out.value = com;
 
 	if (setup != true) {
-		inp.insertAdjacentHTML('afterend', '<div id=\"inkey\"><a class=\"rm svgx\" href=\"javascript:x_cclear(\'in\');\" title=\"Очистить текст\"></a><a class=\"cp svgx\" href=\"javascript:x_ccopy(\'in\');\" title=\"Копировать текст в буфер обмена\"></a><a class=\"dl svgx\" id=\"savein\" target=\"_blank\" download=\"saveit.txt\" title=\"Сохранить в фаил\"></a></div>');
+		inp.insertAdjacentHTML('afterend', '<div id=\"inkey\"><a class=\"rm svgx\" href=\"javascript:x_clear(\'in\', 1);\" title=\"Очистить текст\"></a><a class=\"cp svgx\" href=\"javascript:x_ccopy(\'in\');\" title=\"Копировать текст в буфер обмена\"></a><a class=\"dl svgx\" id=\"savein\" target=\"_blank\" download=\"saveit.txt\" title=\"Сохранить в фаил\"></a></div>');
 		out.insertAdjacentHTML('afterend', '<div id=\"outkey\"><a class=\"sl svgx\" href=\"javascript:x_cselect(\'out\');\" title=\"Выделить текст\"></a><a class=\"cp svgx\" href=\"javascript:x_ccopy(\'out\');\" title=\"Копировать текст в буфер обмена\"></a><a class=\"dl svgx\" id=\"saveout\" target=\"_blank\" download=\"saveit.txt\" title=\"Сохранить в фаил\"></a></div>');
 		setup = true;
 	}
@@ -420,13 +420,14 @@ function x_load() {
 	x_seturl('saveout', com);
 }
 
-function x_cclear(dd) {
+function x_clear(dd, ask) {
 	let ww = document.getElementById(dd);
 	if (ww.value.length == 0) return;
-	if (confirm('Вы уверены что хотите очистить текст?')) {
-		ww.value = '';
-		x_load();
+	if (ask == 1) {
+		if (confirm('Вы уверены что хотите очистить текст?') == false) return;
 	}
+	ww.value = '';
+	x_load();
 }
 
 function x_ccopy(dd) {
@@ -451,7 +452,7 @@ function x_cselect(dd) {
 <div class="box" style="padding-left: 10px;">
 <input type="number" id="sum" oninput="x_load();" min="1" max="3000"> Количество повторений (1-3000)
 <hr />
-<input type="text" id="sep" oninput="x_load();"> Разделитель (<a href="javascript:x_cclear('sep');" title="очистить">очистить</a>)<br />
+<input type="text" id="sep" oninput="x_load();"> Разделитель (<a href="javascript:x_clear('sep', 0);" title="очистить">очистить</a>)<br />
 <input type="number" id="step" oninput="x_load();" min="1" max="3000"> Шаг разделителя<br />
 <label><input type="checkbox" id="sepend" onchange="x_load();"><span> Разделитель в конце</span></label>
 <hr />
