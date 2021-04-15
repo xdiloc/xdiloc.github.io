@@ -328,12 +328,12 @@ input[type="checkbox"]:disabled + span {
 	-webkit-mask-image: url('https://xdiloc.github.io/copytext/icon/cp.svg');
 }
 
-.rm:after  {
+.rm:after {
 	mask-image: url('https://xdiloc.github.io/copytext/icon/rm.svg');
 	-webkit-mask-image: url('https://xdiloc.github.io/copytext/icon/rm.svg');
 }
 
-.sl:after  {
+.sl:after {
 	mask-image: url('https://xdiloc.github.io/copytext/icon/sl.svg');
 	-webkit-mask-image: url('https://xdiloc.github.io/copytext/icon/sl.svg');
 }
@@ -398,6 +398,34 @@ function x_load() {
 	let sepend = document.getElementById('sepend').checked;
 	let data = x_spec(inp.value), datasep = x_spec(sep.value);
 	let num = 1, numr = sum.value, cache, com = '';
+	let prev = new Array();
+	/* wtf 1.1+2.2=1.1*3=3.3000000000000003 */
+	function convert(str, p1, p2, p3, offset, s) {
+		let out = 'bad';
+		p3 = Number(p3);
+		if (prev[offset] == undefined) {
+			c1 = Number(p1);
+			prev[offset] = c1;
+			return c1;
+		} else {
+			c1 = prev[offset];
+		}
+		if (p2 === '+') {
+			out = c1 + p3;
+		}
+		if (p2 === '-') {
+			out = c1 - p3;
+		}
+		if (p2 === '*') {
+			out = c1 * p3;
+		}
+		if (p2 === '/') {
+			out = c1 / p3;
+		}
+		prev[offset] = out;
+		return out;
+	}
+
 	while (num <= sum.value) {
 		if (num % step.value == 0) {
 			if (num == sum.value && sepend == false) datasep = '';
@@ -407,6 +435,7 @@ function x_load() {
 		}
 		cache = cache.replaceAll('{num}', num); num++;
 		cache = cache.replaceAll('{numr}', numr); numr--;
+		cache = cache.replaceAll(/calc\((\d*\.\d+|\d+)([\+|\-|\*|\/])(\d*\.\d+|\d+)\)/g, convert);
 		com += cache;
 	}
 	out.value = com;
@@ -457,6 +486,7 @@ function x_cselect(dd) {
 <label><input type="checkbox" id="sepend" onchange="x_load();"><span> Разделитель в конце</span></label>
 <hr />
 <table class="isapi">
+<tr><td colspan="2"><b>calc(1+1)</b></td><td>простые вычисления<br />деления, умножения, сложения, вычитание</td></tr>
 <tr><td colspan="2"><b>{num}</b></td><td>номер строки</td></tr>
 <tr><td colspan="2"><b>{numr}</b></td><td>номер строки обратный порядок</td></tr>
 <tr><td colspan="2"><b>\t</b></td><td>табуляция</td></tr>
