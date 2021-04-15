@@ -148,7 +148,7 @@ h2 {
 #in, #out {
 	padding: 10px;
 	display: block;
-	min-height: 200px;
+	min-height: 180px;
 	width: 100%;
 	resize: vertical;
 	background-color: #eee;
@@ -384,10 +384,23 @@ function x_load() {
 		out.placeholder = 'Введите число повторений от 1 до 3000';
 		check = true;
 	}
+	let sep2 = document.getElementById('sep2');
+	let sepend2 = document.getElementById('sepend2');
+	let datasep2;
 	if (x_nan(step.value, 1, 3000)) {
 		step.value = '';
 		out.placeholder = 'Введите число шаг разделителя от 1 до 3000';
 		check = true;
+	} else {
+		if (step.value > 1) {
+			sep2.disabled = false;
+			sepend2.disabled = false;
+			datasep2 = x_spec(sep2.value);
+		} else {
+			sep2.disabled = true;
+			sepend2.disabled = true;
+			datasep2 = '';
+		}
 	}
 	if (check == true) {
 		if (setup != false) {
@@ -397,26 +410,10 @@ function x_load() {
 		}
 		return;
 	}
-
-	let sep1 = document.getElementById('sep1');
-	let sep2 = document.getElementById('sep2');
-	let sepend1 = document.getElementById('sepend1');
-	let sepend2 = document.getElementById('sepend2');
-	let data = x_spec(inp.value), datasep1 = x_spec(sep1.value);
-	if (step.value > 1) {
-		sep2.disabled = false;
-		sepend2.disabled = false;
-		datasep2 = x_spec(sep2.value);
-	} else {
-		sep2.disabled = true;
-		sepend2.disabled = true;
-		datasep2 = '';
-	}
-	let num = 1, numr = sum.value, cache, com = '';
 	let prev = new Array();
 	/* wtf 1.1+2.2=1.1*3=3.3000000000000003 */
 	function calc(str, p1, p2, p3, offset, s) {
-		let out = 'bad';
+		let out = 'bad', c1;
 		p3 = Number(p3);
 		if (prev[offset] == undefined) {
 			c1 = Number(p1);
@@ -432,7 +429,10 @@ function x_load() {
 		prev[offset] = out;
 		return out;
 	}
-
+	let sep1 = document.getElementById('sep1');
+	let sepend1 = document.getElementById('sepend1');
+	let data = x_spec(inp.value), datasep1 = x_spec(sep1.value);
+	let num = 1, numr = sum.value, cache, com = '';
 	while (num <= sum.value) {
 		if (num % step.value == 0) {
 			if (num == sum.value && sepend1.checked == false) datasep1 = '';
