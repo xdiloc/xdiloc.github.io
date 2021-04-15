@@ -400,7 +400,7 @@ function x_load() {
 	let num = 1, numr = sum.value, cache, com = '';
 	let prev = new Array();
 	/* wtf 1.1+2.2=1.1*3=3.3000000000000003 */
-	function convert(str, p1, p2, p3, offset, s) {
+	function calc(str, p1, p2, p3, offset, s) {
 		let out = 'bad';
 		p3 = Number(p3);
 		if (prev[offset] == undefined) {
@@ -410,18 +410,10 @@ function x_load() {
 		} else {
 			c1 = prev[offset];
 		}
-		if (p2 === '+') {
-			out = c1 + p3;
-		}
-		if (p2 === '-') {
-			out = c1 - p3;
-		}
-		if (p2 === '*') {
-			out = c1 * p3;
-		}
-		if (p2 === '/') {
-			out = c1 / p3;
-		}
+		if (p2 === '+') out = c1 + p3;
+		if (p2 === '-') out = c1 - p3;
+		if (p2 === '*') out = c1 * p3;
+		if (p2 === '/') out = c1 / p3;
 		prev[offset] = out;
 		return out;
 	}
@@ -435,7 +427,7 @@ function x_load() {
 		}
 		cache = cache.replaceAll('{num}', num); num++;
 		cache = cache.replaceAll('{numr}', numr); numr--;
-		cache = cache.replaceAll(/calc\((\d*\.\d+|\d+)([\+|\-|\*|\/])(\d*\.\d+|\d+)\)/g, convert);
+		cache = cache.replaceAll(/calc\((\d*\.\d+|\d+)([\+|\-|\*|\/])(\d*\.\d+|\d+)\)/g, calc);
 		com += cache;
 	}
 	out.value = com;
