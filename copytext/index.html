@@ -384,23 +384,22 @@ function x_load() {
 		out.placeholder = 'Введите число повторений от 1 до 3000';
 		check = true;
 	}
-	let sep2 = document.getElementById('sep2');
-	let sepend2 = document.getElementById('sepend2');
-	let datasep2;
 	if (x_nan(step.value, 1, 3000)) {
 		step.value = '';
 		out.placeholder = 'Введите число шаг разделителя от 1 до 3000';
 		check = true;
+	}
+	let sep2 = document.getElementById('sep2');
+	let sepend2 = document.getElementById('sepend2');
+	let datasep2;
+	if (step.value > 1 && check != true) {
+		sep2.disabled = false;
+		sepend2.disabled = false;
+		datasep2 = x_spec(sep2.value);
 	} else {
-		if (step.value > 1) {
-			sep2.disabled = false;
-			sepend2.disabled = false;
-			datasep2 = x_spec(sep2.value);
-		} else {
-			sep2.disabled = true;
-			sepend2.disabled = true;
-			datasep2 = '';
-		}
+		sep2.disabled = true;
+		sepend2.disabled = true;
+		datasep2 = '';
 	}
 	if (check == true) {
 		if (setup != false) {
@@ -438,8 +437,12 @@ function x_load() {
 			if (num == sum.value && sepend1.checked == false) datasep1 = '';
 			cache = data + datasep1;
 		} else {
-			if (num == sum.value && sepend2.checked == false) datasep2 = '';
-			cache = data + datasep2;
+			if (step.value > 1) {
+				if (num == sum.value && sepend2.checked == false) datasep2 = '';
+				cache = data + datasep2;
+			} else {
+				cache = data;
+			}
 		}
 		cache = cache.replaceAll('{num}', num); num++;
 		cache = cache.replaceAll('{numr}', numr); numr--;
