@@ -148,7 +148,7 @@ h2 {
 #in, #out {
 	padding: 10px;
 	display: block;
-	min-height: 180px;
+	min-height: 160px;
 	width: 100%;
 	resize: vertical;
 	background-color: #eee;
@@ -352,6 +352,7 @@ function x_delid(dd) {
 }
 
 function x_spec(dd) {
+	dd = dd.replaceAll(/(\\s)/g, ' ');
 	dd = dd.replaceAll(/(\\t)|(\s{4})/g, '\t');
 	dd = dd.replaceAll(/(\\r)|(\\n)/g, '\n');
 	return dd;
@@ -410,7 +411,7 @@ function x_load() {
 		return;
 	}
 	let prev = new Array();
-	/* wtf 1.1+2.2=1.1*3=3.3000000000000003 */
+	/* IEEE-754 suck 1.1*3=3.3000000000000003 */
 	function calc(str, p1, p2, p3, offset, s) {
 		let out = 'bad', c1;
 		p3 = Number(p3);
@@ -421,6 +422,7 @@ function x_load() {
 		} else {
 			c1 = prev[offset];
 		}
+		console.log(p3);
 		if (p2 === '+') out = c1 + p3;
 		if (p2 === '-') out = c1 - p3;
 		if (p2 === '*') out = c1 * p3;
@@ -431,7 +433,7 @@ function x_load() {
 	let sep1 = document.getElementById('sep1');
 	let sepend1 = document.getElementById('sepend1');
 	let data = x_spec(inp.value), datasep1 = x_spec(sep1.value);
-	let num = 1, numr = sum.value, cache, com = '';
+	let num = 1, cache, com = '';
 	while (num <= sum.value) {
 		if (num % step.value == 0) {
 			if (num == sum.value && sepend1.checked == false) datasep1 = '';
@@ -444,10 +446,9 @@ function x_load() {
 				cache = data;
 			}
 		}
-		cache = cache.replaceAll('{num}', num); num++;
-		cache = cache.replaceAll('{numr}', numr); numr--;
-		cache = cache.replaceAll(/calc\((\d*\.\d+|\d+)([\+|\-|\*|\/])(\d*\.\d+|\d+)\)/g, calc);
+		cache = cache.replaceAll(/calc\((\d*\.{1}\d+|\d+)([\+|\-|\*|\/])(\d*\.{1}\d+|\d+)\)/g, calc);
 		com += cache;
+		num++;
 	}
 	out.value = com;
 
@@ -501,10 +502,9 @@ function x_cselect(dd) {
 <hr />
 <table class="isapi">
 <tr><td colspan="2"><b>calc(1+1)</b></td><td>простые вычисления<br />сложение, вычитание, деление, умножение</td></tr>
-<tr><td colspan="2"><b>{num}</b></td><td>номер строки</td></tr>
-<tr><td colspan="2"><b>{numr}</b></td><td>номер строки обратный порядок</td></tr>
-<tr><td colspan="2"><b>\t</b></td><td>табуляция</td></tr>
 <tr><td><b>\r</b></td><td><b>\n</b></td><td>перенос строки</td></tr>
+<tr><td colspan="2"><b>\t</b></td><td>табуляция</td></tr>
+<tr><td colspan="2"><b>\s</b></td><td>пробел</td></tr>
 </table>
 </div>
 <div id="clear"></div>
