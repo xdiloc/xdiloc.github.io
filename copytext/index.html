@@ -359,9 +359,8 @@ function x_spec(dd) {
 }
 
 function x_nan(n, nmin, nmax) {
-	let c = n;
-	n = parseInt(n);
-	if (isNaN(n) || n != c || n < nmin || n > nmax) return true;
+	let c = parseInt(n);
+	if (isNaN(c) || n != c || c < nmin || c > nmax) return true;
 	return false;
 }
 
