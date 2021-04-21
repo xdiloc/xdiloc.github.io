@@ -192,8 +192,8 @@ function x_load() {
 	out.value = com;
 
 	if (setup != true) {
-		inp.insertAdjacentHTML('afterend', '<div id=\"inkey\"><a class=\"rm svgx\" href=\"javascript:x_clear(\'in\', 1);\" title=\"Очистить текст\"></a><a class=\"cp svgx\" href=\"javascript:x_ccopy(\'in\');\" title=\"Копировать текст в буфер обмена\"></a><a class=\"dl svgx\" id=\"savein\" target=\"_blank\" download=\"saveit.txt\" title=\"Сохранить в фаил\"></a></div>');
-		out.insertAdjacentHTML('afterend', '<div id=\"outkey\"><a class=\"sl svgx\" href=\"javascript:x_cselect(\'out\');\" title=\"Выделить текст\"></a><a class=\"cp svgx\" href=\"javascript:x_ccopy(\'out\');\" title=\"Копировать текст в буфер обмена\"></a><a class=\"dl svgx\" id=\"saveout\" target=\"_blank\" download=\"saveit.txt\" title=\"Сохранить в фаил\"></a></div>');
+		inp.insertAdjacentHTML('afterend', '<div id=\"inkey\"><a class=\"rm svgx\" href=\"javascript:x_clear(\'in\', 1);\" title=\"Очистить текст\"></a><a class=\"cp svgx\" href=\"javascript:x_copy(\'in\');\" title=\"Копировать текст в буфер обмена\"></a><a class=\"dl svgx\" id=\"savein\" target=\"_blank\" download=\"saveit.txt\" title=\"Сохранить в фаил\"></a></div>');
+		out.insertAdjacentHTML('afterend', '<div id=\"outkey\"><a class=\"sl svgx\" href=\"javascript:x_select(\'out\');\" title=\"Выделить текст\"></a><a class=\"cp svgx\" href=\"javascript:x_copy(\'out\');\" title=\"Копировать текст в буфер обмена\"></a><a class=\"dl svgx\" id=\"saveout\" target=\"_blank\" download=\"saveit.txt\" title=\"Сохранить в фаил\"></a></div>');
 		setup = true;
 	}
 	x_seturl('savein', inp.value);
@@ -210,12 +210,12 @@ function x_clear(dd, ask) {
 	x_load();
 }
 
-function x_ccopy(dd) {
+function x_copy(dd) {
 	document.getElementById(dd).select();
 	document.execCommand('copy');
 }
 
-function x_cselect(dd) {
+function x_select(dd) {
 	document.getElementById(dd).select();
 }
 </script>

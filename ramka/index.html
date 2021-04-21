@@ -58,7 +58,7 @@ input[type="text"], input[type="number"] {
 	margin: 0 auto;
 }
 
-#ccopy {
+#copy {
 	text-align: center;
 }
 </style>
@@ -121,12 +121,11 @@ function x_gen(thumbnail) {
 	return out;
 }
 
-var setup = false;
-function x_setup() {
-	document.getElementById('ccopy').remove();
-	setup = false;
+function x_delid(dd) {
+	document.getElementById(dd).remove();
 }
 
+var setup = false;
 function x_load() {
 	let select = document.getElementById('wrapper');
 	let url = document.getElementById('url').value;
@@ -139,13 +138,16 @@ function x_load() {
 	}
 	if (id_movie == false) {
 		document.getElementById('result').innerHTML = '';
-		if (setup != false) x_setup();
+		if (setup != false) {
+			x_delid('copy');
+			setup = false;
+		}
 		return;
 	}
 
 	document.getElementById('result').innerHTML = x_gen(0);
 	if (setup != true) {
-		document.getElementById('result').insertAdjacentHTML('afterend', '<div id=\"ccopy\"><a href=\"javascript:x_ccopy(\'result\');\" title=\"копировать код\">Копировать код в буфер обмена</a></div>');
+		document.getElementById('result').insertAdjacentHTML('afterend', '<div id=\"copy\"><a href=\"javascript:x_copy(\'result\');\" title=\"копировать код\">Копировать код в буфер обмена</a></div>');
 		setup = true;
 	}
 	if (show <= 3) {
@@ -154,6 +156,7 @@ function x_load() {
 }
 
 function x_exemple(num) {
+	let url, ramka;
 	if (num == 1) {
 		url = 'https://www.youtube.com/watch?v=1La4QzGeaaQ';
 		ramka = 0;
@@ -169,12 +172,12 @@ function x_exemple(num) {
 	x_load();
 }
 
-function x_cclear(dd) {
+function x_clear(dd) {
 	document.getElementById(dd).value = '';
 	x_load();
 }
 
-function x_ccopy(dd) {
+function x_copy(dd) {
 	document.getElementById(dd).select();
 	document.execCommand('copy');
 }
@@ -186,7 +189,7 @@ function x_ccopy(dd) {
 <hr />
 <div class="pack">
 <div class="box" style="padding-right: 10px;">
-<input type="text" id="url" oninput="x_load();" autofocus> Ссылка на ролик (<a href="javascript:x_cclear('url');" title="очистить">очистить</a>)
+<input type="text" id="url" oninput="x_load();" autofocus> Ссылка на ролик (<a href="javascript:x_clear('url');" title="очистить">очистить</a>)
 <br />
 <select id="show" onchange="x_load();">
 <option value="1">Да (быстрый)</option>
