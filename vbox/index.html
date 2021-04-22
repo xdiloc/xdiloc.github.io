@@ -24,31 +24,6 @@
 </head>
 <body>
 
-<script>
-function vname() {
-	let idc = document.querySelectorAll('.out');
-	let uuid = document.getElementsByClassName('in')[0];
-	let i = 0;
-	while (i < idc.length) {
-		if (uuid.value.length == 0) {
-			idc[i].value = '';
-		} else {
-			idc[i].value = idc[i].placeholder.replaceAll('[name или uuid]', uuid.value);
-		}
-		i++;
-	}
-}
-
-function x_clear(dd) {
-	let id = document.getElementsByClassName(dd)[0];
-	if (id.value.length == 0) return;
-	id.value = '';
-	vname();
-}
-
-vname();
-</script>
-
 <div id="wrapper">
 <div id="content">
 <h2>vbox (генератор команд управления через терминал)</h2>
@@ -74,6 +49,42 @@ startvm nogui<br />
 <input type="text" class="out" placeholder="VBoxManage startvm [name или uuid] --type headless" readonly>
 </div>
 </div>
+
+<script>
+function vname() {
+	let idc = document.querySelectorAll('.out');
+	let uuid = document.getElementsByClassName('in')[0];
+	let copy = document.querySelectorAll('.copy');
+	let i = 0, cache, url;
+	while (i < idc.length) {
+		if (copy[i] != undefined) copy[i].remove();
+		if (uuid.value.length == 0) {
+			idc[i].value = '';
+		} else {
+			cache = idc[i].placeholder.replaceAll('[name или uuid]', uuid.value);
+			idc[i].value = cache;
+			url = 'data:application/x-shellscript;charset=utf-8,' + encodeURIComponent('#!/bin/bash\n' + cache);
+			idc[i].insertAdjacentHTML('afterend', ' <span class=\"copy\"><a href=\"javascript:x_copy(\'out\', '+i+');\" title=\"Копировать текст в буфер обмена\">[копировать]</a>, <a href=\"'+url+'\" target=\"_blank\" download=\"vbox'+i+'.sh\" title=\"Сохранить в фаил\">[sh скрипт]</a><span>');
+		}
+		i++;
+	}
+}
+
+function x_clear(dd) {
+	let id = document.getElementsByClassName(dd)[0];
+	if (id.value.length == 0) return;
+	id.value = '';
+	vname();
+}
+
+function x_copy(dd, num) {
+	let id = document.getElementsByClassName(dd)[num];
+	id.select();
+	document.execCommand('copy');
+}
+
+vname();
+</script>
 
 <footer id="footer"><div class="we">
 <a href="https://xdiloc.github.io/" title="главная страница">xdiloc.github.io</a>
