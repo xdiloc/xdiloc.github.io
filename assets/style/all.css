@@ -117,11 +117,6 @@ p {
 	margin-bottom: 0;
 }
 
-#const {
-	width: 100%;
-	background-color: #FFF;
-}
-
 .box {
 	width: calc(50% - 10px);
 	float: left;

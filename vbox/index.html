@@ -28,6 +28,7 @@
 <div id="content">
 <h2>vbox (генератор команд управления через терминал)</h2>
 <hr />
+
 <input type="text" class="in" oninput="vname();" placeholder="[name или uuid]" autofocus> <a href="javascript:x_clear('in');" title="очистить">очистить</a><br />
 <input type="text" class="help" value="VBoxManage list vms" readonly> Список виртуальных машин по имени и uuid<br />
 <hr />
@@ -46,7 +47,7 @@ restart button<br />
 startvm gui<br />
 <input type="text" class="out" placeholder="VBoxManage startvm [name или uuid] --type gui" readonly><br />
 startvm nogui<br />
-<input type="text" class="out" placeholder="VBoxManage startvm [name или uuid] --type headless" readonly>
+<div class="pack"><input type="text" class="out" placeholder="VBoxManage startvm [name или uuid] --type headless" readonly></div>
 </div>
 </div>
 
@@ -67,7 +68,7 @@ function vname() {
 			cache = out[i].placeholder.replaceAll('[name или uuid]', uuid.value);
 			out[i].value = cache;
 			url = 'data:application/x-shellscript;charset=utf-8,' + encodeURIComponent('#!/bin/bash\n' + cache);
-			out[i].insertAdjacentHTML('afterend', ' <span class=\"copy\"><a href=\"javascript:x_copy(\'out\', ' + i + ');\" title=\"Копировать текст в буфер обмена\">[копировать]</a>, <a href=\"' + url + '\" target=\"_blank\" download=\"' + prefix + fname[i] + '.sh\" title=\"Сохранить в фаил\">[sh скрипт]</a><span>');
+			out[i].insertAdjacentHTML('afterend', ' <span class=\"copy\"><a href=\"javascript:x_copy(\'out\', ' + i + ');\" title=\"Копировать текст в буфер обмена\">[копировать]</a>, <a href=\"' + url + '\" target=\"_blank\" download=\"' + prefix + fname[i] + '.sh\" title=\"Сохранить в фаил\">[sh скрипт]</a></span>');
 		}
 		i++;
 	}
