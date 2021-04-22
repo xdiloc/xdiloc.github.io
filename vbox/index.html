@@ -81,8 +81,7 @@ function x_clear(dd) {
 }
 
 function x_copy(dd, num) {
-	let id = document.getElementsByClassName(dd)[num];
-	id.select();
+	document.getElementsByClassName(dd)[num].select();
 	document.execCommand('copy');
 }
 
