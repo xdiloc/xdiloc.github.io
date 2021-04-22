@@ -10,7 +10,7 @@ body {
 	font-size: 16px;
 	color: #000;
 	background-color: #ddd;
-	background-image: url(https://picsum.photos/800/600.jpg?blur);
+	background-image: url(https://picsum.photos/800/600.jpg);
 	background-size: cover;
 	background-attachment: fixed;
 }
