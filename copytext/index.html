@@ -165,7 +165,10 @@ function x_load() {
 		if (p2 === '-') out = c1 - p3;
 		if (p2 === '*') out = c1 * p3;
 		if (p2 === '/') out = c1 / p3;
-		out = Math.round((out + Number.EPSILON) * 100) / 100;
+		if (Number.isInteger(out) == false) {
+			out = Math.round((out + Number.EPSILON) * 100) / 100;
+//			console.log(out + ' epsilon');
+		}
 		prev[offset] = out;
 		return out;
 	}
