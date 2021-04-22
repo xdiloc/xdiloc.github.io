@@ -10,8 +10,14 @@
 <!-- style -->
 <link rel="stylesheet" type="text/css" href="../assets/style/all.css" />
 <style>
-input[type="text"], input[type="number"] {
-	width: 420px;
+#help {
+	width: 160px;
+}
+#in {
+	width: 320px;
+}
+#out {
+	width: 640px;
 }
 </style>
 <!-- style -->
@@ -19,37 +25,53 @@ input[type="text"], input[type="number"] {
 <body>
 
 <script>
+function vname() {
+	let idc = document.querySelectorAll('#out');
+	let uuid = document.getElementById('in');
+	let i = 0;
+	while (i < idc.length) {
+		if (uuid.value.length == 0) {
+			idc[i].value = '';
+		} else {
+			idc[i].value = idc[i].placeholder.replaceAll('[name или uuid]', uuid.value);
+		}
+		i++;
+	}
+}
 
+function x_clear(dd) {
+	let id = document.getElementById(dd);
+	if (id.value.length == 0) return;
+	id.value = '';
+	vname();
+}
+
+vname();
 </script>
 
 <div id="wrapper">
 <div id="content">
-<h2>vbox (beta page)</h2>
+<h2>vbox (генератор команд управления через терминал)</h2>
 <hr />
-<div class="pack">
-<div class="box" style="padding-right: 10px;">
+<input type="text" id="in" oninput="vname();" placeholder="[name или uuid]"></input> <a href="javascript:x_clear('in');" title="очистить">очистить</a><br />
+<input type="text" id="help"value="VBoxManage list vms" readonly></input> Список виртуальных машин по имени и uuid<br />
+<hr />
 pause<br />
-<input type="text" id="in" value="VBoxManage controlvm [name или uuid] pause" readonly></input><br />
+<input type="text" id="out" placeholder="VBoxManage controlvm [name или uuid] pause" readonly></input><br />
 unpause<br />
-<input type="text" id="in" value="VBoxManage controlvm [name или uuid] resume" readonly></input><br />
+<input type="text" id="out" placeholder="VBoxManage controlvm [name или uuid] resume" readonly></input><br />
 poweroff<br />
-<input type="text" id="in" value="VBoxManage controlvm [name или uuid] poweroff" readonly></input><br />
+<input type="text" id="out" placeholder="VBoxManage controlvm [name или uuid] poweroff" readonly></input><br />
 poweroff savestate<br />
-<input type="text" id="in" value="VBoxManage controlvm [name или uuid] savestate" readonly></input><br />
+<input type="text" id="out" placeholder="VBoxManage controlvm [name или uuid] savestate" readonly></input><br />
 poweroff button<br />
-<input type="text" id="in" value="VBoxManage controlvm [name или uuid] acpipowerbutton" readonly></input><br />
+<input type="text" id="out" placeholder="VBoxManage controlvm [name или uuid] acpipowerbutton" readonly></input><br />
 reset button<br />
-<input type="text" id="in" value="VBoxManage controlvm [name или uuid] reset" readonly></input><br />
+<input type="text" id="out" placeholder="VBoxManage controlvm [name или uuid] reset" readonly></input><br />
 startvm gui<br />
-<input type="text" id="in" value="VBoxManage startvm [name или uuid] --type gui" readonly></input><br />
+<input type="text" id="out" placeholder="VBoxManage startvm [name или uuid] --type gui" readonly></input><br />
 startvm nogui<br />
-<input type="text" id="in" value="VBoxManage startvm [name или uuid] --type headless" readonly></input>
-</div>
-<div class="box" style="padding-left: 10px;">
-VBoxManage list vms - список виртуальных машин по имени и uuid
-</div>
-<div id="clear"></div>
-</div>
+<input type="text" id="out" placeholder="VBoxManage startvm [name или uuid] --type headless" readonly></input>
 </div>
 </div>
 

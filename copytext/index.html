@@ -201,12 +201,12 @@ function x_load() {
 }
 
 function x_clear(dd, ask) {
-	let ww = document.getElementById(dd);
-	if (ww.value.length == 0) return;
+	let id = document.getElementById(dd);
+	if (id.value.length == 0) return;
 	if (ask == 1) {
 		if (confirm('Вы уверены что хотите очистить текст?') == false) return;
 	}
-	ww.value = '';
+	id.value = '';
 	x_load();
 }
 

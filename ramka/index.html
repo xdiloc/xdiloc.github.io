@@ -173,7 +173,9 @@ function x_exemple(num) {
 }
 
 function x_clear(dd) {
-	document.getElementById(dd).value = '';
+	let id = document.getElementById(dd);
+	if (id.value.length == 0) return;
+	id.value = '';
 	x_load();
 }
 
