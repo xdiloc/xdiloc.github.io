@@ -9,9 +9,10 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 16px;
 	color: #000;
-	background-color: #FFF;
-	background-size: 20px 20px;
-	background-image: radial-gradient(circle, #ddd 1px, rgba(0, 0, 0, 0) 1px);
+	background-color: #222;
+/*	background-size: 10px 10px;
+	background-image: radial-gradient(circle, #aaa 1px, rgba(0, 0, 0, 0) 1px); */
+	background-image: url("../image/grain.png");
 	background-attachment: fixed;
 }
 
@@ -30,12 +31,8 @@ a:hover {
 }
 
 hr {
-	background-color: #666;
-	border: none;
+	background-color: #aaa;
 	height: 1px;
-	color: #666;
-	margin: 0;
-	padding: 0;
 }
 
 h2 {
@@ -75,10 +72,10 @@ p {
 	bottom: 0;
 	width: 100%;
 	background-color: #333;
-	box-shadow: 0px 0px 3px rgba(0, 0, 0,.5);
-	-o-box-shadow: 0px 0px 3px rgba(0, 0, 0,.5);
-	-webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0,.5);
-	-moz-box-shadow: 0px 0px 3px rgba(0, 0, 0,.5);
+	box-shadow: 0px 0px 6px rgba(0, 0, 0,.8);
+	-o-box-shadow: 0px 0px 6px rgba(0, 0, 0,.8);
+	-webkit-box-shadow: 0px 0px 6px rgba(0, 0, 0,.8);
+	-moz-box-shadow: 0px 0px 6px rgba(0, 0, 0,.8);
 }
 
 .we {
@@ -93,16 +90,16 @@ p {
 
 #content {
 	background-color: #FFF;
-	border-left: 22px solid #333;
-	border-right: 22px solid #333;
-	border-top: 4px solid #333;
-	border-bottom: 4px solid #333;
+	border-left: 20px solid #333;
+	border-right: 20px solid #333;
+	border-top: 3px solid #333;
+	border-bottom: 3px solid #333;
 	border-radius: 8px;
 	padding: 20px;
-	box-shadow: 0px 0px 3px rgba(0, 0, 0,.5);
-	-o-box-shadow: 0px 0px 3px rgba(0, 0, 0,.5);
-	-webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0,.5);
-	-moz-box-shadow: 0px 0px 3px rgba(0, 0, 0,.5);
+	box-shadow: 0px 0px 6px rgba(0, 0, 0,.8);
+	-o-box-shadow: 0px 0px 6px rgba(0, 0, 0,.8);
+	-webkit-box-shadow: 0px 0px 6px rgba(0, 0, 0,.8);
+	-moz-box-shadow: 0px 0px 6px rgba(0, 0, 0,.8);
 }
 
 #content > * {
