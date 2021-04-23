@@ -9,9 +9,9 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 16px;
 	color: #000;
-	background-color: #ddd;
-	background-image: url(https://picsum.photos/800/600.jpg);
-	background-size: cover;
+	background-color: #FFF;
+	background-size: 20px 20px;
+	background-image: radial-gradient(circle, #ddd 1px, rgba(0, 0, 0, 0) 1px);
 	background-attachment: fixed;
 }
 
@@ -173,6 +173,7 @@ input::-moz-focus-inner {
 }
 
 input[type="text"], input[type="number"] {
+	display: inline-block;
 	color: #000;
 	background-color: #fff;
 	padding-bottom: 5px;
