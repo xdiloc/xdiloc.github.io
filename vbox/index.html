@@ -10,14 +10,14 @@
 <!-- style -->
 <link rel="stylesheet" type="text/css" href="../assets/style/all.css" />
 <style>
-.help {
-	width: 160px;
+.cmd {
+	width: 150px;
 }
 .in {
-	width: 320px;
+	width: 300px;
 }
 .out {
-	width: 640px;
+	width: 600px;
 }
 </style>
 <!-- style -->
@@ -29,7 +29,7 @@
 <h2>vbox (генератор команд управления через терминал)</h2>
 <hr />
 <input type="text" class="in" oninput="vname();" placeholder="[name или uuid]" autofocus> <a href="javascript:x_clear('in');" title="очистить">очистить</a><br />
-<input type="text" class="help" value="VBoxManage list vms" readonly> Список виртуальных машин по имени и uuid<br />
+<input type="text" class="cmd" onclick="this.select();" value="VBoxManage list vms" readonly> Список виртуальных машин по имени и uuid<br />
 <hr />
 <p>pause</p>
 <input type="text" class="out" placeholder="VBoxManage controlvm [name или uuid] pause" readonly><br />

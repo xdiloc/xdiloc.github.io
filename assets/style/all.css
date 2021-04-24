@@ -1,3 +1,8 @@
+@font-face {
+	font-family: 'logo';
+	src: local('../font/logo.ttf'), url('../font/logo.ttf');
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -41,7 +46,6 @@ h2 {
 }
 
 p {
-	background-color: #FFF;
 	text-align: justify;
 	text-justify: inter-word;
 	margin: 0;
@@ -52,15 +56,15 @@ p {
 	margin-bottom: 50px;
 }
 
-.wrapper > .content {
+.wrapper > * {
 	margin-bottom: 10px;
 }
 
-.wrapper > .content:last-child {
+.wrapper > *:last-child {
 	margin-bottom: 0;
 }
 
-.wrapper > .content:only-child {
+.wrapper > *:only-child {
 	margin-bottom: 0;
 }
 
@@ -88,6 +92,21 @@ p {
 	padding-bottom: 15px;
 	padding-right: 20px;
 	padding-left: 20px;
+}
+
+.logo {
+	text-align: center;
+	font-size: 26px;
+	font-family: 'logo';
+	text-shadow: 1px 1px 0px #000;
+	color: #FF9000;
+	background-color: rgba(0, 0, 0,.8);
+	border-left: 10px solid #333;
+	border-right: 10px solid #333;
+	border-top: 1px solid #333;
+	border-bottom: 1px solid #333;
+	border-radius: 8px;
+	padding: 20px;
 }
 
 .content {
