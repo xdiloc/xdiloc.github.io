@@ -76,7 +76,7 @@ function matchYoutubeUrl(url) {
 
 function x_thumbnail() {
 	if (id_movie == false) return;
-	document.getElementById('thumbnail').parentElement.innerHTML = '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/'+id_movie+'?autoplay=1\" frameborder=\"0\" allowfullscreen></iframe>';
+	document.getElementById('thumbnail').parentElement.innerHTML = '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/' + id_movie + '?autoplay=1\" frameborder=\"0\" allowfullscreen></iframe>';
 }
 
 function x_gen(thumbnail) {
@@ -89,35 +89,34 @@ function x_gen(thumbnail) {
 	} else if (thumbnail == 3) {
 		video = ''
 	} else {
-		video = '<object width=\"560\" height=\"315\"><param value=\"https://www.youtube.com/v/'+id_movie+'\" name=\"movie\"></param><param value=\"true\" name=\"allowFullScreen\"></param><param value=\"always\" name=\"allowscriptaccess\"></param><embed allowfullscreen=\"true\" src=\"https://www.youtube.com/v/'+id_movie+'\" type=\"application/x-shockwave-flash\" width=\"560\" height=\"315\"></object>';
+		video = '<object width=\"560\" height=\"315\"><param value=\"https://www.youtube.com/v/' + id_movie + '\" name=\"movie\"></param><param value=\"true\" name=\"allowFullScreen\"></param><param value=\"always\" name=\"allowscriptaccess\"></param><embed allowfullscreen=\"true\" src=\"https://www.youtube.com/v/' + id_movie + '\" type=\"application/x-shockwave-flash\" width=\"560\" height=\"315\"></object>';
 	}
 
 	switch(ramka.value) {
 		case '1':
 			img = 'https://i.imgur.com/szJWOKV.png';
-			out = '<table background=\"'+img+'\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td height=\"7\"></td></tr><tr><td width=\"578\" height=\"315\" align=\"center\">'+video+'</td></tr><tr><td height=\"7\"></td></tr></table>';
+			out = '<table background=\"' + img + '\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td height=\"7\"></td></tr><tr><td width=\"578\" height=\"315\" align=\"center\">' + video + '</td></tr><tr><td height=\"7\"></td></tr></table>';
 			break;
 		case '2':
 			img = 'https://i.imgur.com/pODfvGZ.png';
-			out = '<table background=\"'+img+'\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td height=\"7\"></td></tr><tr><td width=\"576\" height=\"315\" align=\"center\">'+video+'</td></tr><tr><td height=\"3\"></td></tr></table>';
+			out = '<table background=\"' + img + '\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td height=\"7\"></td></tr><tr><td width=\"576\" height=\"315\" align=\"center\">' + video + '</td></tr><tr><td height=\"3\"></td></tr></table>';
 			break;
 		case '3':
 			img = 'https://i.imgur.com/8shW7Ny.png';
-			out = '<table background=\"'+img+'\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td height=\"14\"></td></tr><tr><td width=\"589\" height=\"315\" align=\"center\">'+video+'</td></tr><tr><td height=\"11\"></td></tr></table>';
+			out = '<table background=\"' + img + '\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td height=\"14\"></td></tr><tr><td width=\"589\" height=\"315\" align=\"center\">' + video + '</td></tr><tr><td height=\"11\"></td></tr></table>';
 			break;
 		case '4':
 			img = 'https://i.imgur.com/H4qWT3J.png';
-			out = '<table background=\"'+img+'\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td height=\"14\"></td></tr><tr><td width=\"589\" height=\"315\" align=\"center\">'+video+'</td></tr><tr><td height=\"11\"></td></tr></table>';
+			out = '<table background=\"' + img + '\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td height=\"14\"></td></tr><tr><td width=\"589\" height=\"315\" align=\"center\">' + video + '</td></tr><tr><td height=\"11\"></td></tr></table>';
 			break;
 		case '5':
 			img = 'https://i.imgur.com/hidct6S.png';
-			out = '<table background=\"'+img+'\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td width=\"589\" height=\"346\" align=\"center\">'+video+'<tr><td width=\"589\" height=\"20\"></td></tr></table>';
+			out = '<table background=\"' + img + '\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td width=\"589\" height=\"346\" align=\"center\">' + video + '<tr><td width=\"589\" height=\"20\"></td></tr></table>';
 			break;
 		default:
-			out = 'Unknown value: '+ramka.value;
+			out = 'Unknown value: ' + ramka.value;
 	}
-
-	if (imgcenter.checked) out = '<div align=\"center\">'+out+'</div>';
+	if (imgcenter.checked) out = '<div align=\"center\">' + out + '</div>';
 	return out;
 }
 
@@ -127,9 +126,10 @@ function x_delid(dd) {
 
 var setup = false;
 function x_load() {
-	let select = document.getElementById('wrapper');
+	let select = document.querySelectorAll('.wrapper')[0];
 	let url = document.getElementById('url').value;
 	let show = document.getElementById('show').value;
+	let result = document.getElementById('result');
 
 	if (select.childElementCount > 1) select.removeChild(select.lastElementChild);
 	if (gname != url) {
@@ -137,7 +137,7 @@ function x_load() {
 		id_movie = matchYoutubeUrl(url);
 	}
 	if (id_movie == false) {
-		document.getElementById('result').innerHTML = '';
+		result.innerHTML = '';
 		if (setup != false) {
 			x_delid('copy');
 			setup = false;
@@ -145,13 +145,13 @@ function x_load() {
 		return;
 	}
 
-	document.getElementById('result').innerHTML = x_gen(0);
+	result.innerHTML = x_gen(0);
 	if (setup != true) {
-		document.getElementById('result').insertAdjacentHTML('afterend', '<div id=\"copy\"><a href=\"javascript:x_copy(\'result\');\" title=\"копировать код\">Копировать код в буфер обмена</a></div>');
+		result.insertAdjacentHTML('afterend', '<div id=\"copy\"><a href=\"javascript:x_copy(\'result\');\" title=\"копировать код\">Копировать код в буфер обмена</a></div>');
 		setup = true;
 	}
 	if (show <= 3) {
-		document.getElementById('content').insertAdjacentHTML('afterend', '<div id=\"content\"><h2>Результат</h2><hr />'+x_gen(show)+'</div>');
+		document.querySelectorAll('.content')[0].insertAdjacentHTML('afterend', '<div class=\"content\"><h2>Результат</h2><hr />' + x_gen(show) + '</div>');
 	}
 }
 
@@ -185,8 +185,8 @@ function x_copy(dd) {
 }
 </script>
 
-<div id="wrapper">
-<div id="content">
+<div class="wrapper">
+<div class="content">
 <h2>Набор рамок для видео</h2>
 <hr />
 <div class="pack">
@@ -228,7 +228,7 @@ document.getElementById('ramka').selectedIndex = 0;
 document.getElementById('imgcenter').checked = false;
 </script>
 
-<footer id="footer"><div class="we">
+<footer class="footer"><div class="we">
 <a href="https://xdiloc.github.io/" title="главная страница">xdiloc.github.io</a>
 <span> &starf; </span>
 <a href="https://github.com/xdiloc/xdiloc.github.io" target="_blank" title="разработка">github.com</a>
