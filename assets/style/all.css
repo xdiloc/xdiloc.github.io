@@ -56,15 +56,15 @@ p {
 	margin-bottom: 50px;
 }
 
-.wrapper > * {
+.wrapper > *, .content > *, .box > * {
 	margin-bottom: 10px;
 }
 
-.wrapper > *:last-child {
+.wrapper > *:last-child, .content > *:last-child, .box > *:last-child {
 	margin-bottom: 0;
 }
 
-.wrapper > *:only-child {
+.wrapper > *:only-child, .content > *:only-child, .box > *:only-child {
 	margin-bottom: 0;
 }
 
@@ -119,33 +119,9 @@ p {
 	padding: 20px;
 }
 
-.content > * {
-	margin-bottom: 10px;
-}
-
-.content > *:last-child {
-	margin-bottom: 0;
-}
-
-.content > *:only-child {
-	margin-bottom: 0;
-}
-
 .box {
 	width: calc(50% - 10px);
 	float: left;
-}
-
-.box > * {
-	margin-bottom: 10px;
-}
-
-.box > *:last-child {
-	margin-bottom: 0;
-}
-
-.box > *:only-child {
-	margin-bottom: 0;
 }
 
 .pack {
