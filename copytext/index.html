@@ -14,9 +14,13 @@ input[type="text"], input[type="number"] {
 	width: 100px;
 }
 
-.isapi td {
+.help {
+	width: 100%;
+}
+
+.help td {
 	color: #333;
-	border: 1px solid #ddd;
+	border: 1px solid #aaa;
 	padding-bottom: 2px;
 	padding-top: 2px;
 	padding-left: 10px;
@@ -238,8 +242,8 @@ function x_select(dd) {
 <input type="text" id="sep2" oninput="x_load();" disabled> Разделитель (<a href="javascript:x_clear('sep2', 0);" title="очистить">очистить</a>)<br />
 <label><input type="checkbox" id="sepend2" onchange="x_load();" disabled><span> Разделитель в конце</span></label>
 <hr />
-<table class="isapi">
-<tr><td colspan="2"><b>calc(1+1)</b></td><td>простые вычисления<br />сложение, вычитание, деление, умножение</td></tr>
+<table class="help">
+<tr><td colspan="2"><b>calc(1+1)</b></td><td>простые вычисления<br />сложение <b>+</b>, вычитание <b>-</b>, умножение <b>*</b>, деление <b>/</b></td></tr>
 <tr><td><b>\r</b></td><td><b>\n</b></td><td>перенос строки</td></tr>
 <tr><td colspan="2"><b>\t</b></td><td>табуляция</td></tr>
 <tr><td colspan="2"><b>\s</b></td><td>пробел</td></tr>
