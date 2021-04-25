@@ -1,3 +1,7 @@
+:root {
+	--shadow: 0px 0px 3px rgba(0, 0, 0,.8);
+}
+
 @font-face {
 	font-family: 'logo';
 	src: local('../font/logo.ttf'), url('../font/logo.ttf');
@@ -68,30 +72,11 @@ p {
 	margin-bottom: 0;
 }
 
-.footer, .content {
-	box-shadow: 0px 0px 4px rgba(0, 0, 0,.8);
-	-o-box-shadow: 0px 0px 4px rgba(0, 0, 0,.8);
-	-webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0,.8);
-	-moz-box-shadow: 0px 0px 4px rgba(0, 0, 0,.8);
-}
-
-.footer {
-	position: fixed;
-	right: 0;
-	bottom: 0;
-	width: 100%;
-	border-top: 2px solid #6699CC;
-	background-color: rgba(0, 0, 0,.8);
-}
-
-.we {
-	color: #fff;
-	font-weight: bold;
-	text-align: right;
-	padding-top: 12px;
-	padding-bottom: 15px;
-	padding-right: 20px;
-	padding-left: 20px;
+.logo, .content , .footer {
+	box-shadow: var(--shadow);
+	-o-box-shadow: var(--shadow);
+	-moz-box-shadow: var(--shadow);
+	-webkit-box-shadow: -webkit-var(--shadow);
 }
 
 .logo {
@@ -126,6 +111,25 @@ p {
 
 .pack {
 	width: 100%;
+}
+
+.footer {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	border-top: 2px solid #6699CC;
+	background-color: rgba(0, 0, 0,.8);
+}
+
+.we {
+	color: #fff;
+	font-weight: bold;
+	text-align: right;
+	padding-top: 12px;
+	padding-bottom: 15px;
+	padding-right: 20px;
+	padding-left: 20px;
 }
 
 ::selection { background-color: #333; color: #fff; }
