@@ -21,8 +21,8 @@ input[type="text"], input[type="number"] {
 .help td {
 	color: #333;
 	border: 1px solid #aaa;
-	padding-bottom: 2px;
-	padding-top: 2px;
+	padding-bottom: 4px;
+	padding-top: 4px;
 	padding-left: 10px;
 	padding-right: 10px;
 	text-align: center;
@@ -243,10 +243,11 @@ function x_select(dd) {
 <label><input type="checkbox" id="sepend2" onchange="x_load();" disabled><span> Разделитель в конце</span></label>
 <hr />
 <table class="help">
-<tr><td colspan="2"><b>calc(1+1)</b></td><td>простые вычисления<br />сложение <b>+</b>, вычитание <b>-</b>, умножение <b>*</b>, деление <b>/</b></td></tr>
-<tr><td><b>\r</b></td><td><b>\n</b></td><td>перенос строки</td></tr>
-<tr><td colspan="2"><b>\t</b></td><td>табуляция</td></tr>
-<tr><td colspan="2"><b>\s</b></td><td>пробел</td></tr>
+<tr><td colspan="2" rowspan="2"><b>calc(1+1)</b></td><td colspan="4">простые вычисления</td></tr>
+<tr><td>сложение <b>+</b></td><td>вычитание <b>-</b></td><td>умножение <b>*</b></td><td>деление <b>/</b></td></tr>
+<tr><td><b>\r</b></td><td><b>\n</b></td><td colspan="4">перенос строки</td></tr>
+<tr><td colspan="2"><b>\t</b></td><td colspan="4">табуляция</td></tr>
+<tr><td colspan="2"><b>\s</b></td><td colspan="4">пробел</td></tr>
 </table>
 </div>
 <div id="clear"></div>
