@@ -187,7 +187,7 @@ input[type="text"]:read-only, input[type="number"]:read-only {
 	color: #333;
 }
 
-input[type="submit"], select {
+input[type="submit"], select, button {
 	margin: 0;
 	border: none;
 	/* line-height: 20px; */
@@ -207,7 +207,7 @@ input[type="submit"], select {
 	text-shadow: none;
 }
 
-input[type="submit"]:hover, select:hover {
+input[type="submit"]:hover, select:hover, button:hover {
 	background-color: #1f668f;
 }
 
@@ -221,6 +221,13 @@ select {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
+}
+
+input[type="submit"], button {
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 
 select, select:-moz-focusring, select::-moz-focus-inner {
