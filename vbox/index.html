@@ -29,7 +29,9 @@
 <h2>vbox (генератор команд управления через терминал)</h2>
 <hr />
 <input type="text" class="in" oninput="vname();" placeholder="[name или uuid]" autofocus> <a href="javascript:x_clear('in');" title="очистить">очистить</a><br />
-<input type="text" class="cmd" onclick="this.select();" value="VBoxManage list vms" readonly> Список виртуальных машин по имени и uuid<br />
+<hr />
+Список виртуальных машин по имени и uuid<br />
+<input type="text" class="cmd" onclick="this.select();" value="VBoxManage list vms" readonly> <a href="javascript:x_copy('cmd', 0);" title="Копировать текст в буфер обмена">[копировать]</a>
 <hr />
 <p>pause</p>
 <input type="text" class="out" placeholder="VBoxManage controlvm [name или uuid] pause" readonly><br />
