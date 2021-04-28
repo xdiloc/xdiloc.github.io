@@ -107,8 +107,10 @@ function x_nan(n, nmin, nmax) {
 	return false;
 }
 
-function x_seturl(dd, text) {
-	document.getElementById(dd).href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(text);
+function x_seturl(dd, file, text) {
+	let ww = document.getElementById(dd);
+	ww.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(text);
+	ww.download = file;
 }
 
 var setup = false;
@@ -195,12 +197,12 @@ function x_load() {
 	out.value = com;
 
 	if (setup != true) {
-		inp.insertAdjacentHTML('afterend', '<div id=\"inkey\"><a class=\"rm svgx\" href=\"javascript:x_clear(\'in\', 1);\" title=\"Очистить текст\"></a><a class=\"cp svgx\" href=\"javascript:x_copy(\'in\');\" title=\"Копировать текст в буфер обмена\"></a><a class=\"dl svgx\" id=\"savein\" target=\"_blank\" download=\"saveit.txt\" title=\"Сохранить в фаил\"></a></div>');
-		out.insertAdjacentHTML('afterend', '<div id=\"outkey\"><a class=\"sl svgx\" href=\"javascript:x_select(\'out\');\" title=\"Выделить текст\"></a><a class=\"cp svgx\" href=\"javascript:x_copy(\'out\');\" title=\"Копировать текст в буфер обмена\"></a><a class=\"dl svgx\" id=\"saveout\" target=\"_blank\" download=\"saveit.txt\" title=\"Сохранить в фаил\"></a></div>');
+		inp.insertAdjacentHTML('afterend', '<div id=\"inkey\"><a class=\"rm svgx\" href=\"javascript:x_clear(\'in\', 1);\" title=\"Очистить текст\"></a><a class=\"cp svgx\" href=\"javascript:x_copy(\'in\');\" title=\"Копировать текст в буфер обмена\"></a><a class=\"dl svgx\" id=\"savein\" target=\"_blank\" title=\"Сохранить в фаил\"></a></div>');
+		out.insertAdjacentHTML('afterend', '<div id=\"outkey\"><a class=\"sl svgx\" href=\"javascript:x_select(\'out\');\" title=\"Выделить текст\"></a><a class=\"cp svgx\" href=\"javascript:x_copy(\'out\');\" title=\"Копировать текст в буфер обмена\"></a><a class=\"dl svgx\" id=\"saveout\" target=\"_blank\" title=\"Сохранить в фаил\"></a></div>');
 		setup = true;
 	}
-	x_seturl('savein', inp.value);
-	x_seturl('saveout', com);
+	x_seturl('savein', 'in.txt', inp.value);
+	x_seturl('saveout', 'out.txt', com);
 }
 
 function x_clear(dd, ask) {
