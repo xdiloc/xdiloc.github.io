@@ -61,6 +61,7 @@ function vname() {
 	let i = 0, cache, url, prefix = '';
 	uuid.value = uuid.value.trim();
 	if (/^\{\w{8}-\w{4}-\w{4}-\w{4}-\w{12}\}$/.test(uuid.value) == false) prefix = uuid.value + '_';
+	prefix = prefix.replaceAll(/\s+/g, '_');
 	while (i < out.length) {
 		if (copy[i] != undefined) copy[i].remove();
 		if (uuid.value.length == 0) {
