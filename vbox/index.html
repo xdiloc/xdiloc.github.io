@@ -63,7 +63,6 @@ function vname() {
 	if (/^\{\w{8}-\w{4}-\w{4}-\w{4}-\w{12}\}$/.test(uuid.value) == false) {
 		prefix = uuid.value;
 		prefix = prefix.replaceAll(/\s+/g, '_') + '_';
-
 	}
 	while (i < out.length) {
 		if (copy[i] != undefined) copy[i].remove();
