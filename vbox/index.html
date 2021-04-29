@@ -64,7 +64,7 @@ function vname() {
 		prefix = uuid.value;
 		prefix = prefix.replaceAll(/\s+/g, '_') + '_';
 	}
-	if (/^\"\w+\"$/.test(uuid.value)) {
+	if (/^\".*\"$/.test(uuid.value)) {
 		quot = uuid.value;
 	} else {
 		quot = '\"' + uuid.value + '\"';
