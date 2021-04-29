@@ -58,18 +58,23 @@ function vname() {
 	let out = document.querySelectorAll('.out');
 	let uuid = document.getElementsByClassName('in')[0];
 	let copy = document.querySelectorAll('.copy');
-	let i = 0, cache, url, prefix = '';
+	let i = 0, cache, url, prefix = '', quot;
 	uuid.value = uuid.value.trim();
 	if (/^\{\w{8}-\w{4}-\w{4}-\w{4}-\w{12}\}$/.test(uuid.value) == false) {
 		prefix = uuid.value;
 		prefix = prefix.replaceAll(/\s+/g, '_') + '_';
+	}
+	if (/^\"\w+\"$/.test(uuid.value)) {
+		quot = uuid.value;
+	} else {
+		quot = '\"' + uuid.value + '\"';
 	}
 	while (i < out.length) {
 		if (copy[i] != undefined) copy[i].remove();
 		if (uuid.value.length == 0) {
 			out[i].value = '';
 		} else {
-			cache = out[i].placeholder.replaceAll('[name или uuid]', '\"' + uuid.value + '\"');
+			cache = out[i].placeholder.replaceAll('[name или uuid]', quot);
 			out[i].value = cache;
 			url = 'data:application/x-shellscript;charset=utf-8,' + encodeURIComponent('#!/bin/bash\n' + cache);
 			out[i].insertAdjacentHTML('afterend', ' <span class=\"copy\"><a href=\"javascript:x_copy(\'out\', ' + i + ');\" title=\"Копировать текст в буфер обмена\">[копировать]</a>, <a href=\"' + url + '\" target=\"_blank\" download=\"' + prefix + fname[i] + '.sh\" title=\"Сохранить в фаил\">[sh скрипт]</a></span>');
