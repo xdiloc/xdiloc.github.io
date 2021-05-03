@@ -26,7 +26,7 @@ a, a:active {
 	padding-top: 7px;
 	padding-bottom: 7px;
 	text-align: center;
-	width: 180px;
+	width: 190px;
 	font-weight: bold;
 	display: inline-block;
 }
@@ -54,16 +54,24 @@ hr {
 	margin-left: -220px;
 }
 
+.pnf > * {
+	margin-bottom: 10px;
+}
+
+.pnf > *:last-child {
+	margin-bottom: 0;
+}
+
 .pnf_notice {
 	border-radius: 8px;
 	background-color: #222;
 	text-align: center;
 	width: 400px;
 	padding: 20px;
-	box-shadow: 0 0 2px rgba(0,0,0,0.65);
-	-o-box-shadow: 0 0 2px rgba(0,0,0,0.65);
-	-moz-box-shadow: 0 0 2px rgba(0,0,0,0.65);
-	-webkit-box-shadow: 0 0 2px rgba(0,0,0,0.65);
+	box-shadow: 0px 0px 3px rgba(0, 0, 0,.8);
+	-o-box-shadow: 0px 0px 3px rgba(0, 0, 0,.8);
+	-moz-box-shadow: 0px 0px 3px rgba(0, 0, 0,.8);
+	-webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0,.8);
 }
 
 .pnf_notice > * {
