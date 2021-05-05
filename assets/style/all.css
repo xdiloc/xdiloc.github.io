@@ -46,7 +46,6 @@ h2 {
 	font-size: 16px;
 	font-weight: bold;
 	color: #333;
-	margin: 0;
 }
 
 p {
@@ -75,29 +74,26 @@ p {
 	-webkit-box-shadow: -webkit-var(--shadow);
 }
 
-.logo {
-	text-align: center;
-	font-size: 26px;
-	font-family: 'logo';
-	text-shadow: 1px 1px 0px #000;
-	color: #FF9000;
-	background-color: rgba(0, 0, 0,.8);
+.logo, .content {
 	border-left: 10px solid #333;
 	border-right: 10px solid #333;
 	border-top: 1px solid #333;
 	border-bottom: 1px solid #333;
 	border-radius: 8px;
-	padding: 20px;
+	padding: 16px;
+}
+
+.logo {
+	background-color: rgba(0, 0, 0,.8);
+	color: #FF9000;
+	font-family: 'logo';
+	font-size: 26px;
+	text-align: center;
+	text-shadow: 1px 1px 0px #000;
 }
 
 .content {
 	background-color: #FFF;
-	border-left: 10px solid #333;
-	border-right: 10px solid #333;
-	border-top: 1px solid #333;
-	border-bottom: 1px solid #333;
-	border-radius: 8px;
-	padding: 20px;
 }
 
 .box {
