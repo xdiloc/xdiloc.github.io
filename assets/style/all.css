@@ -60,19 +60,15 @@ p {
 	margin-bottom: 50px;
 }
 
-.wrapper > *, .content > *, .box > * {
+.warp > * {
 	margin-bottom: 10px;
 }
 
-.wrapper > *:last-child, .content > *:last-child, .box > *:last-child {
+.warp > *:last-child, .warp > *:only-child {
 	margin-bottom: 0;
 }
 
-.wrapper > *:only-child, .content > *:only-child, .box > *:only-child {
-	margin-bottom: 0;
-}
-
-.logo, .content , .footer {
+.logo, .content, .footer {
 	box-shadow: var(--shadow);
 	-o-box-shadow: var(--shadow);
 	-moz-box-shadow: var(--shadow);

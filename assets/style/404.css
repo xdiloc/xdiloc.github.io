@@ -53,6 +53,14 @@ h1 {
 	text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
 }
 
+.warp > * {
+	margin-bottom: 10px;
+}
+
+.warp > *:last-child, .warp > *:only-child {
+	margin-bottom: 0;
+}
+
 .pnf {
 	color: #666;
 	position: absolute;
@@ -62,15 +70,7 @@ h1 {
 	margin-left: -220px;
 }
 
-.pnf > * {
-	margin-bottom: 10px;
-}
-
-.pnf > *:last-child {
-	margin-bottom: 0;
-}
-
-.pnf_notice {
+.notice {
 	border-radius: 8px;
 	background-color: #222;
 	text-align: center;
@@ -84,12 +84,4 @@ h1 {
 	border-right: 10px solid #333;
 	border-top: 1px solid #333;
 	border-bottom: 1px solid #333;
-}
-
-.pnf_notice > * {
-	margin-bottom: 10px;
-}
-
-.pnf_notice > *:last-child {
-	margin-bottom: 0;
 }

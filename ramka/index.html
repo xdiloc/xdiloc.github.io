@@ -185,12 +185,12 @@ function x_copy(dd) {
 }
 </script>
 
-<div class="wrapper">
-<div class="content">
+<div class="wrapper warp">
+<div class="content warp">
 <h2>Набор рамок для видео</h2>
 <hr />
 <div class="pack">
-<div class="box" style="padding-right: 10px;">
+<div class="box warp" style="padding-right: 10px;">
 <input type="text" id="url" oninput="x_load();" autofocus> Ссылка на ролик (<a href="javascript:x_clear('url');" title="очистить">очистить</a>)
 <br />
 <select id="show" onchange="x_load();">
@@ -212,7 +212,7 @@ function x_copy(dd) {
 <br />
 Пример рамки: <a href="javascript:x_exemple(1);" title="вид 1">[1]</a>, <a href="javascript:x_exemple(2);" title="вид 2">[2]</a>
 </div>
-<div class="box" style="padding-left: 10px;">
+<div class="box warp" style="padding-left: 10px;">
 <textarea id="result" onclick="this.select();" placeholder="Вставьте ссылку на youtube ролик" readonly></textarea>
 </div>
 <div id="clear"></div>
