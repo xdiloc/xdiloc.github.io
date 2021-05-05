@@ -28,27 +28,27 @@
 <div class="content warp">
 <h2>Генератор команд vbox для управления vm</h2>
 <hr />
-<input type="text" class="in" oninput="vname();" placeholder="[name или uuid]" autofocus> <a href="javascript:x_clear('in');" title="очистить">[очистить]</a><br />
+<input type="text" class="in" oninput="vname();" placeholder="[name или uuid]" autofocus> <a href="javascript:x_clear('in');" title="очистить">[очистить]</a>
 <hr />
-Список виртуальных машин по имени и uuid<br />
+<p>Список виртуальных машин по имени и uuid</p>
 <input type="text" class="cmd" onclick="this.select();" value="VBoxManage list vms" readonly> <a href="javascript:x_copy('cmd', 0);" title="Копировать текст в буфер обмена">[копировать]</a>
 <hr />
 <p>pause</p>
-<input type="text" class="out" placeholder="VBoxManage controlvm [name или uuid] pause" readonly><br />
+<div><input type="text" class="out" placeholder="VBoxManage controlvm [name или uuid] pause" readonly></div>
 <p>unpause</p>
-<input type="text" class="out" placeholder="VBoxManage controlvm [name или uuid] resume" readonly><br />
+<div><input type="text" class="out" placeholder="VBoxManage controlvm [name или uuid] resume" readonly></div>
 <p>poweroff</p>
-<input type="text" class="out" placeholder="VBoxManage controlvm [name или uuid] poweroff" readonly><br />
+<div><input type="text" class="out" placeholder="VBoxManage controlvm [name или uuid] poweroff" readonly></div>
 <p>poweroff savestate</p>
-<input type="text" class="out" placeholder="VBoxManage controlvm [name или uuid] savestate" readonly><br />
+<div><input type="text" class="out" placeholder="VBoxManage controlvm [name или uuid] savestate" readonly></div>
 <p>poweroff button</p>
-<input type="text" class="out" placeholder="VBoxManage controlvm [name или uuid] acpipowerbutton" readonly><br />
+<div><input type="text" class="out" placeholder="VBoxManage controlvm [name или uuid] acpipowerbutton" readonly></div>
 <p>restart button</p>
-<input type="text" class="out" placeholder="VBoxManage controlvm [name или uuid] reset" readonly><br />
+<div><input type="text" class="out" placeholder="VBoxManage controlvm [name или uuid] reset" readonly></div>
 <p>startvm gui</p>
-<input type="text" class="out" placeholder="VBoxManage startvm [name или uuid] --type gui" readonly><br />
+<div><input type="text" class="out" placeholder="VBoxManage startvm [name или uuid] --type gui" readonly></div>
 <p>startvm nogui</p>
-<div class="pack"><input type="text" class="out" placeholder="VBoxManage startvm [name или uuid] --type headless" readonly></div>
+<div><input type="text" class="out" placeholder="VBoxManage startvm [name или uuid] --type headless" readonly></div>
 </div>
 </div>
 
