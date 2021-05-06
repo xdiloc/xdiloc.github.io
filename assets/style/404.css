@@ -97,34 +97,36 @@ h1 {
 	width: 8px;
 	height: 8px;
 	background-color: #666;
-	-webkit-animation: rotateplane 1s infinite ease-in-out;
-	animation: rotateplane 1s infinite ease-in-out;
+	-webkit-animation: rotateplane 1.2s infinite ease-in-out;
+	animation: rotateplane 1.2s infinite ease-in-out;
+	border-radius: 4px;
 }
 
 @-webkit-keyframes rotateplane {
 	0% {
-		-webkit-transform: perspective(120px)
+		-webkit-transform: perspective(120px);
 	}
 	50% {
-		-webkit-transform: perspective(120px) rotateY(180deg)
+		-webkit-transform: perspective(120px) rotateY(180deg);
+		background-color: #fff6a9;
+		-webkit-box-shadow:  0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
 	}
 	100% {
-		-webkit-transform: perspective(120px) rotateY(180deg) rotateX(180deg)
+		-webkit-transform: perspective(120px) rotateY(180deg) rotateX(180deg);
 	}
 }
 
 @keyframes rotateplane {
 	0% {
-		-webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
-		transform: perspective(120px) rotateX(0deg) rotateY(0deg)
+		transform: perspective(120px) rotateX(0deg) rotateY(0deg);
 	}
 	50% {
-		-webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
-		transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
+		transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+		background-color: #fff6a9;
+		box-shadow:  0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
 	}
 	100% {
-		-webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
-		transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg)
+		transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
 	}
 }
 
