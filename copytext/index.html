@@ -113,7 +113,7 @@ function x_seturl(dd, file, text) {
 	ww.download = file + '.txt';
 }
 
-var setup = false;
+let setup = false;
 function x_load() {
 	let inp = document.getElementById('in');
 	let out = document.getElementById('out');
@@ -177,14 +177,14 @@ function x_load() {
 	let sep1 = document.getElementById('sep1');
 	let sepend1 = document.getElementById('sepend1');
 	let data = x_spec(inp.value), datasep1 = x_spec(sep1.value);
-	let num = 1, cache, com = '';
-	while (num <= sum.value) {
-		if (num % step.value == 0) {
-			if (num == sum.value && sepend1.checked == false) datasep1 = '';
+	let cache, com = '';
+	for(let line = 1; line <= sum.value; line++) {
+		if (line % step.value == 0) {
+			if (line == sum.value && sepend1.checked == false) datasep1 = '';
 			cache = data + datasep1;
 		} else {
 			if (step.value > 1) {
-				if (num == sum.value && sepend2.checked == false) datasep2 = '';
+				if (line == sum.value && sepend2.checked == false) datasep2 = '';
 				cache = data + datasep2;
 			} else {
 				cache = data;
@@ -192,7 +192,6 @@ function x_load() {
 		}
 		cache = cache.replaceAll(/calc\((\-?\d*\.{1}\d+|\-?\d+)([\+|\-|\*|\|x/])(\-?\d*\.{1}\d+|\-?\d+)\)/g, calc);
 		com += cache;
-		num++;
 	}
 	out.value = com;
 

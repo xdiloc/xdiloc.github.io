@@ -39,7 +39,7 @@
 <script>
 function makeid() {
 	let text = '', possible = '237abcdghjlprstw';
-	for(var i = 0; i < 16; i++) text += possible.charAt(Math.floor(Math.random() * possible.length));
+	for(let i = 0; i < 16; i++) text += possible.charAt(Math.floor(Math.random() * possible.length));
 	document.getElementById("q3key").innerHTML = text;
 }
 makeid();

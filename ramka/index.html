@@ -67,7 +67,7 @@ input[type="text"], input[type="number"] {
 <body>
 
 <script>
-var gname, id_movie;
+let gname, id_movie;
 function matchYoutubeUrl(url) {
 	if (url.length == 0) return false;
 	let p = /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/;
@@ -124,7 +124,7 @@ function x_delid(dd) {
 	document.getElementById(dd).remove();
 }
 
-var setup = false;
+let setup = false;
 function x_load() {
 	let select = document.querySelectorAll('.wrapper')[0];
 	let url = document.getElementById('url').value;
