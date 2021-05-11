@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"  viewBox="0 0 16 16">
 <g>
 <path fill="#6699CC" d="M 15.00,1.00 C 15.00,1.00 15.00,15.00 15.00,15.00 15.00,15.00 9.00,15.00 9.00,15.00 9.00,15.00 9.00,1.00 9.00,1.00 9.00,1.00 15.00,1.00 15.00,1.00 Z" />
 <path fill="#ff9000" d="M 7.00,1.00 C 7.00,1.00 7.00,15.00 7.00,15.00 7.00,15.00 1.00,15.00 1.00,15.00 1.00,15.00 1.00,1.00 1.00,1.00 1.00,1.00 7.00,1.00 7.00,1.00 Z" />
