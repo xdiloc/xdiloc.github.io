@@ -48,15 +48,17 @@ function loadJSON(file, callback) {
 
 function x_load() {
 	let out = document.getElementById('out');
-	let show = document.getElementById('show').value;
+	let show = document.getElementById('show');
 	out.innerHTML = '';
 	loadJSON('https://xdiloc.github.io/ww/data.json', function(json) {
 		let dd;
-		if (show == 1) {
+		if (show.value == 1) {
 			dd = json['my'];
+			window.location.hash = '#my';
 		}
-		if (show == 2) {
+		if (show.value == 2) {
 			dd = json['gen'];
+			window.location.hash = '#gen';
 		}
 		if (dd === 'undefined') return;
 		for (let i = 0; i < dd.length; i++) {
@@ -80,7 +82,14 @@ function x_load() {
 </div>
 
 <script>
-document.getElementById('show').selectedIndex = 0;
+window.onload = function() {
+	if (window.location.hash.substring(1) == 'my') {
+		show.selectedIndex = 0;
+	}
+	if (window.location.hash.substring(1) == 'gen') {
+		show.selectedIndex = 1;
+	}
+}
 x_load();
 </script>
 
