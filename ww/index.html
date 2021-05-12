@@ -82,15 +82,18 @@ function x_load() {
 </div>
 
 <script>
-window.onload = function() {
+function x_hash() {
+	let show = document.getElementById('show');
 	if (window.location.hash.substring(1) == 'my') {
 		show.selectedIndex = 0;
 	}
 	if (window.location.hash.substring(1) == 'gen') {
 		show.selectedIndex = 1;
 	}
+	x_load();
 }
-x_load();
+//window.onload = x_hash();
+window.onhashchange = x_hash();
 </script>
 
 <footer class="footer"><div class="we">
