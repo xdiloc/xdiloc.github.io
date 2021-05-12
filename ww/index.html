@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<title>url book</title>
+<!-- xd -->
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="description" content="Генератор ключа Q3">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="msapplication-config" content="https://xdiloc.github.io/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+<!-- xd -->
+<link rel="shortcut icon" href="https://xdiloc.github.io/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://xdiloc.github.io/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" sizes="180x180" href="https://xdiloc.github.io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://xdiloc.github.io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://xdiloc.github.io/favicon-16x16.png">
+<link rel="manifest" href="https://xdiloc.github.io/site.webmanifest">
+<link rel="mask-icon" href="https://xdiloc.github.io/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="stylesheet" href="../assets/style/all.css" type="text/css">
+<!-- xd -->
+<style>
+#out {
+	width: 100%;
+}
+
+#out td {
+	color: #333;
+	border: 1px solid #aaa;
+	padding: 8px;
+	text-align: center;
+}
+</style>
+</head>
+<body>
+
+<script>
+function loadJSON(file, callback) {
+	var xobj = new XMLHttpRequest();
+	xobj.overrideMimeType('application/json');
+	xobj.open('GET', file, true);
+	xobj.onreadystatechange = function () {
+		if (xobj.readyState == 4 && xobj.status == '200') {
+			callback(JSON.parse(xobj.responseText));
+		}
+	};
+	xobj.send(null);
+}
+
+function x_load() {
+	let out = document.getElementById('out');
+	let show = document.getElementById('show').value;
+	out.innerHTML = '';
+	loadJSON('https://xdiloc.github.io/ww/data.json', function(json) {
+		let dd;
+		if (show == 1) {
+			dd = json['my'];
+		}
+		if (show == 2) {
+			dd = json['gen'];
+		}
+		if (dd === 'undefined') return;
+		for (let i = 0; i < dd.length; i++) {
+			let newtab = '';
+			if (dd[i]['newtab'] == '1') newtab = 'target=\"_blank\" ';
+			out.innerHTML += '<tr><td><a href=\"' + dd[i]['url'] + '\" ' + newtab + 'title=\"' + dd[i]['title'] + '\">' + dd[i]['name'] + '</a></td><td>' + dd[i]['description'] + '</td></tr>';
+		}
+	});
+}
+</script>
+
+<div class="wrapper warp">
+<div class="content warp">
+<h2>url book</h2><hr />
+<select id="show" onchange="x_load();">
+<option value="1">Мои ресурсы</option>
+<option value="2">Генераторы</option>
+</select> Категория<br />
+<table id="out"></table>
+</div>
+</div>
+
+<script>
+document.getElementById('show').selectedIndex = 0;
+x_load();
+</script>
+
+<footer class="footer"><div class="we">
+<a href="https://xdiloc.github.io/" title="главная страница">xdiloc.github.io</a>
+<span> &starf; </span>
+<a href="https://github.com/xdiloc/xdiloc.github.io" target="_blank" title="разработка">github.com</a>
+</div></footer>
+
+</body>
+</html>
