@@ -3,8 +3,9 @@
 {"url":"https://xdiloc.github.io/","name":"xdiloc.github.io","newtab":"0","title":"xdiloc web assets","description":"Мой сайт на github pages"},
 {"url":"https://github.com/xdiloc","name":"github.com/xdiloc","newtab":"0","title":"xdiloc profile","description":"Мой профиль на github"}
 ],
-"gen":[
-{"url":"https://realfavicongenerator.net/","name":"realfavicongenerator.net","newtab":"1","title":"создание и проверка favicon","description":"Создание и проверка различных favicon. Очень удобный генератор, сэкономил мне много времени."}
+"dev":[
+{"url":"https://realfavicongenerator.net/","name":"realfavicongenerator.net","newtab":"1","title":"создание и проверка favicon","description":"Создание и проверка различных favicon. Очень удобный генератор, сэкономил мне много времени."},
+{"url":"https://validator.w3.org/","name":"validator.w3.org","newtab":"1","title":"W3C Markup Validator","description":"W3C валидатор разметки html, svg и других веб форматов."}
 ],
 "test":[
 {"url":"test url","name":"test name","newtab":"0","title":"test title","description":"test description"}
