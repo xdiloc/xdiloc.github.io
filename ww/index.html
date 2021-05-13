@@ -60,7 +60,7 @@ function x_load() {
 	let show = document.getElementById('show');
 	out.innerHTML = '';
 	loadJSON('https://xdiloc.github.io/ww/data.json', function(json) {
-		let dd;
+		let dd, cache = '';
 		if (show.value == 1) {
 			dd = json['xd'];
 			window.location.hash = '#xd';
@@ -73,12 +73,12 @@ function x_load() {
 			out.innerHTML = '<tr><td>bad index</td></tr>';
 			return;
 		}
-		out.innerHTML += '<thead><tr><td>сайт</td><td>описание</td></tr></thead>';
 		for (let i = 0; i < dd.length; i++) {
 			let newtab = '';
 			if (dd[i]['newtab'] == '1') newtab = 'target=\"_blank\" ';
-			out.innerHTML += '<tr><td><a href=\"' + dd[i]['url'] + '\" ' + newtab + 'title=\"' + dd[i]['title'] + '\">' + dd[i]['name'] + '</a></td><td>' + dd[i]['description'] + '</td></tr>';
+			cache += '<tr><td><a href=\"' + dd[i]['url'] + '\" ' + newtab + 'title=\"' + dd[i]['title'] + '\">' + dd[i]['name'] + '</a></td><td>' + dd[i]['description'] + '</td></tr>';
 		}
+		out.innerHTML = '<thead><tr><td>сайт</td><td>описание</td></tr></thead>' + cache;
 	});
 }
 </script>
