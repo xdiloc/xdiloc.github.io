@@ -23,8 +23,17 @@
 	width: 100%;
 }
 
-#out td {
+#out thead {
+	color: #666;
+	font-weight: bold;
+	background-color: #eee;
+}
+
+#out tbody {
 	color: #333;
+}
+
+#out td {
 	border: 1px solid #aaa;
 	padding: 8px;
 	text-align: center;
@@ -64,6 +73,7 @@ function x_load() {
 			out.innerHTML = '<tr><td>bad index</td></tr>';
 			return;
 		}
+		out.innerHTML += '<thead><tr><td>сайт</td><td>описание</td></tr></thead>';
 		for (let i = 0; i < dd.length; i++) {
 			let newtab = '';
 			if (dd[i]['newtab'] == '1') newtab = 'target=\"_blank\" ';
