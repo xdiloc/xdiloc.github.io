@@ -19,8 +19,8 @@ body {
 	font-size: 16px;
 	color: #000;
 	background-color: #A8B1BB;
-	background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.5) 35px, rgba(255,255,255,.5) 70px);
-	background-size: 99px 99px;
+	background-size: cover;
+	background-image: url('../image/bg1.png');
 }
 
 a, a:active {
