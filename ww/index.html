@@ -60,7 +60,7 @@ function x_load() {
 			dd = json['dev'];
 			window.location.hash = '#dev';
 		}
-		if (dd === 'undefined') return;
+		if (dd === void 0) return;
 		for (let i = 0; i < dd.length; i++) {
 			let newtab = '';
 			if (dd[i]['newtab'] == '1') newtab = 'target=\"_blank\" ';
