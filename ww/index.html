@@ -84,15 +84,10 @@ function x_load() {
 <script>
 function x_hash() {
 	let show = document.getElementById('show');
-	if (window.location.hash.substring(1) == 'my') {
-		show.selectedIndex = 0;
-	}
-	if (window.location.hash.substring(1) == 'dev') {
-		show.selectedIndex = 1;
-	}
+	if (window.location.hash.substring(1) == 'my') show.selectedIndex = 0;
+	if (window.location.hash.substring(1) == 'dev') show.selectedIndex = 1;
 	x_load();
 }
-//window.onload = x_hash();
 window.onhashchange = x_hash();
 </script>
 
