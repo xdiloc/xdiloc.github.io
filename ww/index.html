@@ -58,7 +58,7 @@ function x_load() {
 		}
 		if (show.value == 2) {
 			dd = json['dev'];
-			window.location.hash = '#gen';
+			window.location.hash = '#dev';
 		}
 		if (dd === 'undefined') return;
 		for (let i = 0; i < dd.length; i++) {
@@ -87,7 +87,7 @@ function x_hash() {
 	if (window.location.hash.substring(1) == 'my') {
 		show.selectedIndex = 0;
 	}
-	if (window.location.hash.substring(1) == 'gen') {
+	if (window.location.hash.substring(1) == 'dev') {
 		show.selectedIndex = 1;
 	}
 	x_load();
