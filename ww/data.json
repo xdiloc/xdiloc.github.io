@@ -8,8 +8,8 @@
 {"url":"https://validator.w3.org/","name":"validator.w3.org","newtab":"1","title":"W3C Markup Validator","description":"W3C валидатор разметки html, svg и других веб форматов."},
 {"url":"https://jigsaw.w3.org/css-validator/","name":"jigsaw.w3.org/css-validator","newtab":"1","title":"CSS Validation Service","description":"W3C валидатор разметки css."},
 {"url":"https://developers.google.com/speed/pagespeed/insights/","name":"PageSpeed Insights","newtab":"1","title":"PageSpeed Insights","description":"Проверить скорость загрузки веб страницы."},
-{"url":"https://search.google.com/search-console","name":"search.google.com","newtab":"1","title":"Google Search Console tool","description":"Проверять статус индексации своих сайтов в google поисковике."},
-{"url":"https://webmaster.yandex.ru/","name":"webmaster.yandex.ru","newtab":"1","title":"Инструментов для оценки индексации сайта","description":"Проверять статус индексации своих сайтов в yandex поисковике."}
+{"url":"https://search.google.com/search-console","name":"search.google.com","newtab":"1","title":"Google Search Console tool","description":"Инструментов для оценки индексации сайтов в google поисковике."},
+{"url":"https://webmaster.yandex.ru/","name":"webmaster.yandex.ru","newtab":"1","title":"Инструментов для оценки индексации сайта","description":"Инструментов для оценки индексации сайтов в yandex поисковике."}
 ],
 "test":[
 {"url":"test url","name":"test name","newtab":"0","title":"test title","description":"test description"}
