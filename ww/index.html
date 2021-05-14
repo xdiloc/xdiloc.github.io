@@ -83,8 +83,9 @@ function x_load() {
 <h2>url book</h2><hr />
 <select id="show" onchange="x_load();">
 <option value="xd">my projects</option>
-<option value="dev">web developer</option>
+<option value="webdev">web developer</option>
 <option value="net">network</option>
+<option value="device">device</option>
 </select> Категория<br />
 <table id="out"></table>
 </div>
@@ -94,7 +95,7 @@ function x_load() {
 function x_hash() {
 	let show = document.getElementById('show');
 	let hh = window.location.hash.substring(1);
-	let tt = ['xd', 'dev', 'net'];
+	let tt = ['xd','webdev','net','device'];
 	for (let i = 0; i < tt.length; i++) {
 		if (hh == tt[i]) {
 			show.selectedIndex = i;

@@ -3,7 +3,7 @@
 {"url":"https://xdiloc.github.io/","name":"xdiloc.github.io","newtab":"0","title":"xdiloc web assets","description":"Мой сайт на github pages"},
 {"url":"https://github.com/xdiloc","name":"github.com/xdiloc","newtab":"0","title":"xdiloc profile","description":"Мой профиль на github"}
 ],
-"dev":[
+"webdev":[
 {"url":"https://realfavicongenerator.net/","name":"realfavicongenerator.net","newtab":"1","title":"создание и проверка favicon","description":"Создание и проверка различных favicon. Очень удобный генератор, сэкономил мне много времени."},
 {"url":"https://validator.w3.org/","name":"validator.w3.org","newtab":"1","title":"W3C Markup Validator","description":"W3C валидатор разметки html, svg и других веб форматов."},
 {"url":"https://jigsaw.w3.org/css-validator/","name":"jigsaw.w3.org/css-validator","newtab":"1","title":"CSS Validation Service","description":"W3C валидатор разметки css."},
@@ -16,6 +16,9 @@
 {"url":"http://speedtest.tele2.net/","name":"speedtest.tele2.net","newtab":"1","title":"Tele2 Speedtest Service","description":"Сервис проверки скорости интернет-соединения."},
 {"url":"https://www.speedtest.net/","name":"www.speedtest.net","newtab":"1","title":"Speedtest Service","description":"Сервис проверки скорости интернет-соединения."},
 {"url":"https://www.myip.com/","name":"www.myip.com","newtab":"1","title":"Check IP address","description":"Узнать свой ip адрес."}
+],
+"device":[
+{"url":"https://www.cpubenchmark.net/","name":"www.cpubenchmark.net","newtab":"1","title":"CPU Benchmarks","description":"Сравнение процессоров, рейтинг производительности процессоров."}
 ],
 "test":[
 {"url":"test url","name":"test name","newtab":"1","title":"test title","description":"test description"}
