@@ -11,7 +11,13 @@
 {"url":"https://search.google.com/search-console","name":"search.google.com","newtab":"1","title":"Google Search Console tool","description":"Инструментов для оценки индексации сайтов в google поисковике."},
 {"url":"https://webmaster.yandex.ru/","name":"webmaster.yandex.ru","newtab":"1","title":"Инструментов для оценки индексации сайта","description":"Инструментов для оценки индексации сайтов в yandex поисковике."}
 ],
+"net":[
+{"url":"https://speedtest.selectel.ru/","name":"speedtest.selectel.ru","newtab":"1","title":"Selectel Speedtest","description":"Сервис проверки скорости интернет-соединения."},
+{"url":"http://speedtest.tele2.net/","name":"speedtest.tele2.net","newtab":"1","title":"Tele2 Speedtest Service","description":"Сервис проверки скорости интернет-соединения."},
+{"url":"https://www.speedtest.net/","name":"www.speedtest.net","newtab":"1","title":"Speedtest Service","description":"Сервис проверки скорости интернет-соединения."},
+{"url":"https://www.myip.com/","name":"www.speedtest.net","newtab":"1","title":"Check IP address","description":"Узнать свой ip адрес."}
+],
 "test":[
-{"url":"test url","name":"test name","newtab":"0","title":"test title","description":"test description"}
+{"url":"test url","name":"test name","newtab":"1","title":"test title","description":"test description"}
 ]
 }
