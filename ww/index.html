@@ -44,7 +44,7 @@
 
 <script>
 function loadJSON(file, callback) {
-	var xobj = new XMLHttpRequest();
+	let xobj = new XMLHttpRequest();
 	xobj.overrideMimeType('application/json');
 	xobj.open('GET', file, true);
 	xobj.onreadystatechange = function () {
@@ -95,7 +95,7 @@ function x_hash() {
 	let show = document.getElementById('show');
 	let hh = window.location.hash.substring(1);
 	let tt = ['xd', 'dev', 'net'];
-	for (var i = 0; i < tt.length; i++) {
+	for (let i = 0; i < tt.length; i++) {
 		if (hh == tt[i]) show.selectedIndex = i;
 	}
 	x_load();
