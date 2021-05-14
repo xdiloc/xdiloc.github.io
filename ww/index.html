@@ -96,7 +96,10 @@ function x_hash() {
 	let hh = window.location.hash.substring(1);
 	let tt = ['xd', 'dev', 'net'];
 	for (let i = 0; i < tt.length; i++) {
-		if (hh == tt[i]) show.selectedIndex = i;
+		if (hh == tt[i]) {
+			show.selectedIndex = i;
+			break;
+		}
 	}
 	x_load();
 }
