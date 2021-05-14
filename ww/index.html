@@ -61,18 +61,13 @@ function x_load() {
 	out.innerHTML = '';
 	loadJSON('https://xdiloc.github.io/ww/data.json', function(json) {
 		let dd, cache = '';
-		if (show.value == 1) {
-			dd = json['xd'];
-			window.location.hash = '#xd';
-		}
-		if (show.value == 2) {
-			dd = json['dev'];
-			window.location.hash = '#dev';
-		}
+		dd = json[show.value];
 		if (dd === void 0) {
 			out.innerHTML = '<tr><td>bad index</td></tr>';
+			history.pushState("", document.title, window.location.pathname);
 			return;
 		}
+		window.location.hash = '#' + show.value;
 		for (let i = 0; i < dd.length; i++) {
 			let newtab = '';
 			if (dd[i]['newtab'] == '1') newtab = 'target=\"_blank\" ';
@@ -87,8 +82,8 @@ function x_load() {
 <div class="content warp">
 <h2>url book</h2><hr />
 <select id="show" onchange="x_load();">
-<option value="1">my projects</option>
-<option value="2">web developer</option>
+<option value="xd">my projects</option>
+<option value="dev">web developer</option>
 </select> Категория<br />
 <table id="out"></table>
 </div>
