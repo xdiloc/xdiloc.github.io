@@ -94,8 +94,10 @@ function x_load() {
 function x_hash() {
 	let show = document.getElementById('show');
 	let hh = window.location.hash.substring(1);
-	if (hh == 'xd') show.selectedIndex = 0;
-	if (hh == 'dev') show.selectedIndex = 1;
+	var tt = ['xd', 'dev', 'net'];
+	for (var i = 0; i < tt.length; i++) {
+		if (hh == tt[i]) show.selectedIndex = i;
+	}
 	x_load();
 }
 window.onhashchange = x_hash();
