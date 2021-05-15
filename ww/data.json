@@ -17,6 +17,10 @@
 {"url":"https://www.speedtest.net/","name":"www.speedtest.net","newtab":"1","title":"Speedtest Service","description":"Сервис проверки скорости интернет-соединения."},
 {"url":"https://www.myip.com/","name":"www.myip.com","newtab":"1","title":"Check IP address","description":"Узнать свой ip адрес."}
 ],
+"net":[
+{"url":"https://www.virtualbox.org/","name":"www.virtualbox.org","newtab":"1","title":"Oracle VM VirtualBox","description":"Менеджер виртуальных машин VirtualBox. Виртуализации для операционных систем."},
+{"url":"https://anydesk.com/","name":"anydesk.com","newtab":"1","title":"Remote Control","description":"Приложение для дистанционного администрирования рабочего стола, бесплатное для личного использования."}
+],
 "device":[
 {"url":"https://www.cpubenchmark.net/","name":"www.cpubenchmark.net","newtab":"1","title":"CPU Benchmarks","description":"Сравнение процессоров, рейтинг производительности процессоров."}
 ],
