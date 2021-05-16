@@ -1,6 +1,14 @@
 @font-face {
 	font-family: 'Basicdots';
-	src: local('Basicdots'), url('https://xdiloc.github.io/assets/font/Basicdots.ttf');
+	src: url('https://xdiloc.github.io/assets/font/Basicdots.eot');
+	src: url('https://xdiloc.github.io/assets/font/Basicdots.eot?#iefix') format('embedded-opentype'),
+	url('https://xdiloc.github.io/assets/font/Basicdots.woff2') format('woff2'),
+	url('https://xdiloc.github.io/assets/font/Basicdots.woff') format('woff'),
+	url('https://xdiloc.github.io/assets/font/Basicdots.ttf') format('truetype'),
+	url('https://xdiloc.github.io/assets/font/Basicdots.svg#Basicdots') format('svg');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
 }
 
 * {
