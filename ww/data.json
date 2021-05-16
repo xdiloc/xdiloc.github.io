@@ -23,7 +23,7 @@
 {"url":"https://anydesk.com/","name":"anydesk.com","newtab":"1","title":"Remote Control","description":"Приложение для дистанционного администрирования рабочего стола, бесплатное для личного использования."}
 ],
 "device":[
-{"url":"https://www.cpubenchmark.net/","name":"www.cpubenchmark.net","newtab":"1","title":"CPU Benchmarks","description":"Сравнение процессоров, рейтинг производительности процессоров."}
+{"url":"https://www.cpubenchmark.net/","name":"www.cpubenchmark.net","newtab":"1","title":"CPU Benchmarks","description":"Сравнение и рейтинг производительности процессоров."}
 ],
 "test":[
 {"url":"test url","name":"test name","newtab":"1","title":"test title","description":"test description"}
