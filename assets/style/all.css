@@ -3,8 +3,8 @@
 }
 
 @font-face {
-	font-family: 'logo';
-	src: local('../font/logo.ttf'), url('../font/logo.ttf');
+	font-family: 'large9';
+	src: local('large9'), url('https://xdiloc.github.io/font/large9.ttf');
 }
 
 * {
@@ -26,7 +26,7 @@ body {
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-	background-image: url('../image/wave-ligth.svg');
+	background-image: url('https://xdiloc.github.io/image/wave-ligth.svg');
 }
 
 a, a:active {
@@ -92,7 +92,7 @@ p {
 .logo {
 	background-color: rgba(0, 0, 0,.8);
 	color: #FF9000;
-	font-family: 'logo';
+	font-family: 'large9';
 	font-size: 26px;
 	text-align: center;
 	text-shadow: 1px 1px 0px #000;

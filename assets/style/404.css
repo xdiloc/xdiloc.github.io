@@ -1,6 +1,6 @@
 @font-face {
 	font-family: 'basicdots';
-	src: local('../font/basicdots.ttf'), url('../font/basicdots.ttf');
+	src: local('basicdots'), url('https://xdiloc.github.io/font/basicdots.ttf');
 }
 
 * {
