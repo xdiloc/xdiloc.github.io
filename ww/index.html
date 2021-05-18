@@ -50,6 +50,8 @@ function loadJSON(file, callback) {
 	xobj.onreadystatechange = function () {
 		if (xobj.readyState == 4 && xobj.status == '200') {
 			callback(JSON.parse(xobj.responseText));
+		} else {
+			callback(undefined);
 		}
 	};
 	xobj.send(null);
@@ -60,13 +62,12 @@ function x_load() {
 	let show = document.getElementById('show');
 	out.innerHTML = '';
 	loadJSON('https://xdiloc.github.io/ww/data/' + show.value + '.json', function(json) {
-		let dd, cache = '';
-		dd = json[show.value];
-		if (dd === void 0) {
-			out.innerHTML = '<tr><td>bad index</td></tr>';
+		if (json === void 0) {
+			out.innerHTML = '<tr><td>undefined callback: ' + show.value + '.json</td></tr>';
 			history.pushState("", document.title, window.location.pathname);
 			return;
 		}
+		let dd = json[show.value], cache = '';
 		window.location.hash = '#' + show.value;
 		for (let i = 0; i < dd.length; i++) {
 			let newtab = '';
