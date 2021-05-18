@@ -57,6 +57,10 @@ function loadJSON(file, callback) {
 	xobj.send(null);
 }
 
+function x_hpush() {
+	history.pushState("", document.title, window.location.pathname);
+}
+
 function x_load() {
 	let out = document.getElementById('out');
 	let show = document.getElementById('show');
@@ -64,10 +68,15 @@ function x_load() {
 	loadJSON('https://xdiloc.github.io/ww/data/' + show.value + '.json', function(json) {
 		if (json === void 0) {
 			out.innerHTML = '<tr><td>undefined callback: ' + show.value + '.json</td></tr>';
-			history.pushState("", document.title, window.location.pathname);
+			x_hpush();
 			return;
 		}
 		let dd = json[show.value], cache = '';
+		if (dd === void 0) {
+			out.innerHTML = '<tr><td>bad index: ' + show.value + '.json</td></tr>';
+			x_hpush();
+			return;
+		}
 		window.location.hash = '#' + show.value;
 		for (let i = 0; i < dd.length; i++) {
 			let newtab = '';
