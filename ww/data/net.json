@@ -1,0 +1,6 @@
+{"net":[
+{"url":"https://speedtest.selectel.ru/","name":"speedtest.selectel.ru","newtab":"1","title":"Selectel Speedtest","description":"Сервис проверки скорости интернет-соединения."},
+{"url":"http://speedtest.tele2.net/","name":"speedtest.tele2.net","newtab":"1","title":"Tele2 Speedtest Service","description":"Сервис проверки скорости интернет-соединения."},
+{"url":"https://www.speedtest.net/","name":"www.speedtest.net","newtab":"1","title":"Speedtest Service","description":"Сервис проверки скорости интернет-соединения."},
+{"url":"https://www.myip.com/","name":"www.myip.com","newtab":"1","title":"Check IP address","description":"Узнать свой ip адрес."}
+]}
