@@ -237,11 +237,11 @@ function x_select(dd) {
 <h2>Клонирование текста</h2>
 <hr />
 <div class="pack">
-<div class="box warp" style="padding-right: 10px;">
+<div class="box warp">
 <textarea id="in" oninput="x_load();" placeholder="Введите сюда текст для клонирования" autofocus></textarea>
 <textarea id="out" readonly></textarea>
 </div>
-<div class="box warp" style="padding-left: 10px;">
+<div class="box warp">
 <input type="number" id="sum" oninput="x_load();" min="1" max="3000"> Количество повторений (1-3000)
 <hr />
 <input type="text" id="sep1" oninput="x_load();"> Разделитель (<a href="javascript:x_clear('sep1', 0);" title="очистить">очистить</a>)<br />
@@ -259,7 +259,6 @@ function x_select(dd) {
 <tr><td colspan="2"><b>\s</b></td><td colspan="4">пробел</td></tr>
 </table>
 </div>
-<div id="clear"></div>
 </div>
 </div>
 </div>
