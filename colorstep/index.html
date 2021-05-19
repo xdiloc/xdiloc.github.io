@@ -84,6 +84,48 @@ input[type="text"] {
 
 </div>
 
+<style>
+a > div {
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+}
+
+.c1f {
+	background-color: #29323c;
+}
+.c1e {
+	background-color: #485563;
+}
+
+.c2f {
+	background-color: #0ebeff;
+}
+.c2e {
+	background-color: #ff42b3;
+}
+
+.c3f {
+	background-color: #09203f;
+}
+.c3e {
+	background-color: #537895;
+}
+
+.c4f {
+	background-color: #FF9000;
+}
+.c4e {
+	background-color: #6699CC;
+}
+
+.c5f {
+	background-color: #ff9000;
+}
+.c5e {
+	background-color: #f03030;
+}
+</style>
 <script>
 let c1 = document.getElementById('c1');
 let c2 = document.getElementById('c2');
@@ -191,74 +233,23 @@ function x_crnd(dd) {
 	x_c();
 }
 
+function rgbSplit(dd) {
+	return dd.replace(/[^\d,]/g, '').split(',').map(Number);
+}
+
+function x_getc(dd) {
+	let sub = window.getComputedStyle(document.querySelector(dd)).getPropertyValue("background-color");
+	return rgbArrayToHex(rgbSplit(sub));
+}
+
 function x_ex(dd) {
-	if (dd == 1) {
-		c1.value = '#29323c';
-		c2.value = '#485563';
-	}
-	if (dd == 2) {
-		c1.value = '#0ebeff';
-		c2.value = '#ff42b3';
-	}
-	if (dd == 3) {
-		c1.value = '#09203f';
-		c2.value = '#537895';
-	}
-	if (dd == 4) {
-		c1.value = '#FF9000';
-		c2.value = '#6699CC';
-	}
-	if (dd == 5) {
-		c1.value = '#ff9000';
-		c2.value = '#f03030';
-	}
+	c1.value = x_getc('.c' + dd + 'f');
+	c2.value = x_getc('.c' + dd + 'e');
 	x_c();
 }
 
 x_c();
 </script>
-<style>
-a > div {
-	width: 20px;
-	height: 20px;
-	display: inline-block;
-}
-
-.c1f {
-	background-color: #29323c;
-}
-.c1e {
-	background-color: #485563;
-}
-
-.c2f {
-	background-color: #0ebeff;
-}
-.c2e {
-	background-color: #ff42b3;
-}
-
-.c3f {
-	background-color: #09203f;
-}
-.c3e {
-	background-color: #537895;
-}
-
-.c4f {
-	background-color: #FF9000;
-}
-.c4e {
-	background-color: #6699CC;
-}
-
-.c5f {
-	background-color: #ff9000;
-}
-.c5e {
-	background-color: #f03030;
-}
-</style>
 
 <footer class="footer"><div class="we">
 <a href="https://xdiloc.github.io/" title="главная страница">xdiloc.github.io</a>
