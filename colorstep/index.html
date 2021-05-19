@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<title>Color Step</title>
+<!-- xd -->
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="description" content="Разница между цветом">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="msapplication-config" content="https://xdiloc.github.io/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+<!-- xd -->
+<link rel="shortcut icon" href="https://xdiloc.github.io/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://xdiloc.github.io/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" sizes="180x180" href="https://xdiloc.github.io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://xdiloc.github.io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://xdiloc.github.io/favicon-16x16.png">
+<link rel="manifest" href="https://xdiloc.github.io/site.webmanifest">
+<link rel="mask-icon" href="https://xdiloc.github.io/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="stylesheet" href="../xdiloc.github.io/assets/style/all.css" type="text/css">
+<!-- xd -->
+<style>
+input[type="text"] {
+	width: 80px;
+	text-align: center;
+}
+
+.color {
+	color: #FFF;
+	text-align: center;
+	width: 100%;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.grad {
+	color: #FFF;
+	text-align: center;
+	width: 100%;
+	padding-top: 5px;
+}
+</style>
+</head>
+<body>
+
+<div class="wrapper warp">
+<div class="content warp">
+<h2>Color Step</h2><hr />
+<div class="pack">
+
+<div class="box warp">
+<div class="gg ww">
+<input type="color" id="c1" value="#29323c" onchange="x_c();">
+<input type="text" id="c1i" oninput="x_ci();">
+<a href="javascript:x_crnd('1');" title="Случайный цвет">Случайный цвет</a>
+</div>
+<div class="gg ww">
+<input type="color" id="c2" value="#485563" onchange="x_c();">
+<input type="text" id="c2i" oninput="x_ci();">
+<a href="javascript:x_crnd('2');" title="Случайный цвет">Случайный цвет</a>
+</div>
+</div>
+
+<div class="box warp">
+<div class="gg ww">
+<input type="range" id="step" value="10" min="2" max="50" oninput="x_c();">
+<span>Число результатов:</span><span id="steps"></span>
+</div>
+<hr />
+<div class="gg ww">
+<a href="javascript:x_exemple('1');" title="Пример 1"><div class="c1f"></div><div class="c1e"></div></a>
+<a href="javascript:x_exemple('2');" title="Пример 2"><div class="c2f"></div><div class="c2e"></div></a>
+<a href="javascript:x_exemple('3');" title="Пример 3"><div class="c3f"></div><div class="c3e"></div></a>
+<a href="javascript:x_exemple('4');" title="Пример 4"><div class="c4f"></div><div class="c4e"></div></a>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="content warp">
+<h2>Пример</h2><hr />
+<div class="pack">
+<div class="box"><div id="sout"></div></div>
+<div class="box"><div id="gout"></div></div>
+</div>
+</div>
+
+</div>
+
+<script>
+let c1 = document.getElementById('c1');
+let c2 = document.getElementById('c2');
+let c1i = document.getElementById('c1i');
+let c2i = document.getElementById('c2i');
+let step = document.getElementById('step');
+let steps = document.getElementById('steps');
+let sout = document.getElementById('sout');
+let gout = document.getElementById('gout');
+
+function hexArray(hex) {
+	return /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+}
+
+function rgbObjectFromHex(hex) {
+	let result = hexArray(hex);
+	return result ? { r: parseInt(result[1], 16), g: parseInt(result[2], 16), b: parseInt(result[3], 16) } : null;
+}
+
+function rgbArrayFromHex(hex) {
+	const rgb = rgbObjectFromHex(hex);
+	return [rgb.r, rgb.g, rgb.b];
+}
+
+function hexToRgb(hex) {
+	const rgb = rgbObjectFromHex(hex);
+	return `rgb(${rgb.r},${rgb.g},${rgb.b})`;
+}
+
+function rgbChannelToHex(channel) {
+	const hex = channel.toString(16);
+	return hex.length == 1 ? '0' + hex : hex;
+}
+
+function rgbToHex(r, g, b) {
+	return '#' + rgbChannelToHex(r) + rgbChannelToHex(g) + rgbChannelToHex(b);
+}
+
+function rgbArrayToHex(color) {
+	return rgbToHex(color[0], color[1], color[2]);
+}
+
+function interpolateColor(color1, color2, factor) {
+	if (arguments.length < 3) factor = 0.5;
+	const result = color1.slice();
+	for (var i = 0; i < 3; i++) {
+		result[i] = Math.round(result[i] + factor * (color2[i] - color1[i]));
+	}
+	return rgbArrayToHex(result);
+}
+
+function interpolateColors(color1, color2, steps) {
+	let stepFactor = 1 / (steps - 1);
+	let interpolatedColorArray = [];
+	color1 = rgbArrayFromHex(color1).map(Number);
+	color2 = rgbArrayFromHex(color2).map(Number);
+	for (let i = 0; i < steps; i++) {
+		interpolatedColorArray.push(interpolateColor(color1, color2, stepFactor * i));
+	}
+	return interpolatedColorArray;
+}
+
+function x_randomHex() {
+	let letters = '0123456789ABCDEF', color = '#';
+	for (let i = 0; i < 6; i++) color += letters[Math.floor(Math.random() * 16)];
+	return color;
+}
+
+function x_ishex(dd) {
+	return /^#[0-9A-F]{6}$/i.test(dd) ? true : false;
+}
+
+function x_steps() {
+	let gen = interpolateColors(c1.value, c2.value, step.value);
+	let cache = '';
+	sout.innerHTML = '';
+	steps.innerHTML = step.value;
+	for (let i = 0; i < gen.length; i++) {
+		cache += '<div class=\"color\" style=\"background-color: ' + gen[i] + ';\">' + gen[i] + '</div>';
+	}
+	sout.innerHTML = cache;
+	gout.innerHTML = '<div class=\"grad\" style=\"height: ' + (sout.offsetHeight - 5) + 'px; background: linear-gradient(' + c1.value + ', ' + c2.value + ');\">background: linear-gradient(' + c1.value + ', ' + c2.value + ');</div>';
+}
+
+function x_c() {
+	c1i.value = c1.value;
+	c2i.value = c2.value;
+	x_steps();
+}
+
+function x_ci() {
+	if (x_ishex(c1i.value)) {
+		c1.value = c1i.value;
+		x_steps();
+	}
+	if (x_ishex(c2i.value)) {
+		c2.value = c2i.value;
+		x_steps();
+	}
+}
+
+function x_crnd(dd) {
+	if (dd == 1) c1.value = x_randomHex();
+	if (dd == 2) c2.value = x_randomHex();
+	x_c();
+}
+
+function x_exemple(dd) {
+	if (dd == 1) {
+		c1.value = '#29323c';
+		c2.value = '#485563';
+	}
+	if (dd == 2) {
+		c1.value = '#0ebeff';
+		c2.value = '#ff42b3';
+	}
+	if (dd == 3) {
+		c1.value = '#09203f';
+		c2.value = '#537895';
+	}
+	if (dd == 4) {
+		c1.value = '#FF9000';
+		c2.value = '#6699CC';
+	}
+	x_c();
+}
+
+x_c();
+</script>
+<style>
+a > div {
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+}
+
+.c1f {
+	background-color: #29323c;
+}
+.c1e {
+	background-color: #485563;
+}
+
+.c2f {
+	background-color: #0ebeff;
+}
+.c2e {
+	background-color: #ff42b3;
+}
+
+.c3f {
+	background-color: #09203f;
+}
+.c3e {
+	background-color: #537895;
+}
+
+.c4f {
+	background-color: #FF9000;
+}
+.c4e {
+	background-color: #6699CC;
+}
+</style>
+
+<footer class="footer"><div class="we">
+<a href="https://xdiloc.github.io/" title="главная страница">xdiloc.github.io</a>
+<span> &starf; </span>
+<a href="https://github.com/xdiloc/xdiloc.github.io" target="_blank" title="разработка">github.com</a>
+</div></footer>
+
+</body>
+</html>
