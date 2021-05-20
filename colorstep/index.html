@@ -234,12 +234,13 @@ function x_crnd(dd) {
 }
 
 function rgbSplit(dd) {
-	return dd.replace(/[^\d,]/g, '').split(',').map(Number);
+	dd = dd.replace(/[^\d,]/g, '').split(',').map(Number);
+	return rgbToHex(dd[0], dd[1], dd[2]);
 }
 
 function x_getc(dd) {
 	let sub = window.getComputedStyle(document.querySelector(dd)).getPropertyValue("background-color");
-	return rgbArrayToHex(rgbSplit(sub));
+	return rgbSplit(sub);
 }
 
 function x_ex(dd) {
