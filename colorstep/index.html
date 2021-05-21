@@ -171,9 +171,7 @@ function rgbArrayToHex(color) {
 function interpolateColor(color1, color2, factor) {
 	if (arguments.length < 3) factor = 0.5;
 	const result = color1.slice();
-	for (let i = 0; i < 3; i++) {
-		result[i] = Math.round(result[i] + factor * (color2[i] - color1[i]));
-	}
+	for (let i = 0; i < 3; i++) result[i] = Math.round(result[i] + factor * (color2[i] - color1[i]));
 	return rgbArrayToHex(result);
 }
 
@@ -182,9 +180,7 @@ function interpolateColors(color1, color2, steps) {
 	let interpolatedColorArray = [];
 	color1 = rgbArrayFromHex(color1).map(Number);
 	color2 = rgbArrayFromHex(color2).map(Number);
-	for (let i = 0; i < steps; i++) {
-		interpolatedColorArray.push(interpolateColor(color1, color2, stepFactor * i));
-	}
+	for (let i = 0; i < steps; i++) interpolatedColorArray.push(interpolateColor(color1, color2, stepFactor * i));
 	return interpolatedColorArray;
 }
 
