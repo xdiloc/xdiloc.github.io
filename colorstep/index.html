@@ -34,6 +34,20 @@ input[type="text"] {
 .color {
 	padding-bottom: 5px;
 }
+
+#sout > *:first-child {
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+}
+
+#sout > *:last-child {
+	border-bottom-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+}
+
+#gout > *:first-child {
+		border-radius: 6px;
+}
 </style>
 </head>
 <body>
@@ -90,6 +104,16 @@ a > div {
 	width: 20px;
 	height: 20px;
 	display: inline-block;
+}
+
+a > div:first-child {
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+}
+
+a > div:last-child {
+	border-bottom-right-radius: 3px;
+	border-top-right-radius: 3px;
 }
 
 .c1f {
