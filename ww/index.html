@@ -38,6 +38,10 @@
 	padding: 8px;
 	text-align: center;
 }
+
+.efw {
+	filter: opacity(25%);
+}
 </style>
 </head>
 <body>
@@ -64,15 +68,18 @@ function x_hpush() {
 function x_load() {
 	let out = document.getElementById('out');
 	let show = document.getElementById('show');
-	out.innerHTML = '';
+//	out.innerHTML = '';
+	out.classList.add('efw');
 	loadJSON('https://xdiloc.github.io/ww/data/' + show.value + '.json', function(json) {
 		if (json === void 0) {
+			out.classList.remove('efw');
 			out.innerHTML = '<tr><td>undefined callback: ' + show.value + '.json</td></tr>';
 			x_hpush();
 			return;
 		}
 		let dd = json[show.value], cache = '';
 		if (dd === void 0) {
+			out.classList.remove('efw');
 			out.innerHTML = '<tr><td>bad index: ' + show.value + '.json</td></tr>';
 			x_hpush();
 			return;
@@ -84,6 +91,7 @@ function x_load() {
 			cache += '<tr><td><a href=\"' + dd[i]['url'] + '\" ' + newtab + 'title=\"' + dd[i]['title'] + '\">' + dd[i]['name'] + '</a></td><td>' + dd[i]['description'] + '</td></tr>';
 		}
 		out.innerHTML = '<thead><tr><td>сайт</td><td>описание</td></tr></thead>' + cache;
+		out.classList.remove('efw');
 	});
 }
 </script>
