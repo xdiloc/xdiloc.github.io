@@ -218,7 +218,7 @@ class ColorStep {
 	}
 	inphex(dd) {
 		dd = dd.match(/[0-9A-F]{1,6}/i);
-		return dd ? dd = '#' + dd : '#';
+		return dd ? '#' + dd : '#';
 	}
 	init() {
 		let gen = this.interpolateColors(this.c1.value, this.c2.value, this.step.value);
