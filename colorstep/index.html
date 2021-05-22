@@ -214,7 +214,11 @@ class ColorStep {
 		return color;
 	}
 	ishex(dd) {
-		return /^#[0-9A-F]{6}$/i.test(dd) ? true : false;
+		return /^#[0-9A-F]{6}$/i.test(dd);
+	}
+	inphex(dd) {
+		dd = dd.match(/[0-9A-F]{1,6}/i);
+		return dd ? dd = '#' + dd : '#';
 	}
 	init() {
 		let gen = this.interpolateColors(this.c1.value, this.c2.value, this.step.value);
@@ -231,6 +235,8 @@ class ColorStep {
 		this.init();
 	}
 	inp_t() {
+		this.c1i.value = this.inphex(this.c1i.value);
+		this.c2i.value = this.inphex(this.c2i.value);
 		if (this.ishex(this.c1i.value)) {
 			this.c1.value = this.c1i.value;
 			this.init();
