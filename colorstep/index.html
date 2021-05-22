@@ -117,30 +117,30 @@ a > div:last-child {
 
 <div class="box warp">
 <div class="gg ww">
-<input type="color" id="c1" value="#29323c" onchange="x_c();" title="Выбрать цвет">
-<input type="text" id="c1i" oninput="x_ci();">
-<a href="javascript:x_crnd('1');" title="Случайный цвет">Случайный цвет</a>
+<input type="color" id="c1" value="#29323c" onchange="cs.inp_c();" title="Выбрать цвет">
+<input type="text" id="c1i" oninput="cs.inp_t();">
+<a href="javascript:cs.crnd('1');" title="Случайный цвет">Случайный цвет</a>
 </div>
 <div class="gg ww">
-<input type="color" id="c2" value="#485563" onchange="x_c();" title="Выбрать цвет">
-<input type="text" id="c2i" oninput="x_ci();">
-<a href="javascript:x_crnd('2');" title="Случайный цвет">Случайный цвет</a>
+<input type="color" id="c2" value="#485563" onchange="cs.inp_c();" title="Выбрать цвет">
+<input type="text" id="c2i" oninput="cs.inp_t();">
+<a href="javascript:cs.crnd('2');" title="Случайный цвет">Случайный цвет</a>
 </div>
 </div>
 
 <div class="box warp">
 <div class="gg ww">
-<input type="range" id="step" value="9" min="2" max="50" oninput="x_c();">
+<input type="range" id="step" value="9" min="2" max="50" oninput="cs.inp_c();">
 <span>Число результатов:</span><span id="steps"></span>
 </div>
 <hr />
 <div class="gg ww center">
-<a href="javascript:x_ex('1');" title="Пример 1"><div class="c1f"></div><div class="c1e"></div></a>
-<a href="javascript:x_ex('2');" title="Пример 2"><div class="c2f"></div><div class="c2e"></div></a>
-<a href="javascript:x_ex('3');" title="Пример 3"><div class="c3f"></div><div class="c3e"></div></a>
-<a href="javascript:x_ex('4');" title="Пример 4"><div class="c4f"></div><div class="c4e"></div></a>
-<a href="javascript:x_ex('5');" title="Пример 5"><div class="c5f"></div><div class="c5e"></div></a>
-<a href="javascript:x_ex('6');" title="Пример 6"><div class="c6f"></div><div class="c6e"></div></a>
+<a href="javascript:cs.ex('1');" title="Пример 1"><div class="c1f"></div><div class="c1e"></div></a>
+<a href="javascript:cs.ex('2');" title="Пример 2"><div class="c2f"></div><div class="c2e"></div></a>
+<a href="javascript:cs.ex('3');" title="Пример 3"><div class="c3f"></div><div class="c3e"></div></a>
+<a href="javascript:cs.ex('4');" title="Пример 4"><div class="c4f"></div><div class="c4e"></div></a>
+<a href="javascript:cs.ex('5');" title="Пример 5"><div class="c5f"></div><div class="c5e"></div></a>
+<a href="javascript:cs.ex('6');" title="Пример 6"><div class="c6f"></div><div class="c6e"></div></a>
 </div>
 </div>
 
@@ -158,125 +158,110 @@ a > div:last-child {
 </div>
 
 <script>
-let c1 = document.getElementById('c1');
-let c2 = document.getElementById('c2');
-let c1i = document.getElementById('c1i');
-let c2i = document.getElementById('c2i');
-let step = document.getElementById('step');
-let steps = document.getElementById('steps');
-let sout = document.getElementById('sout');
-let gout = document.getElementById('gout');
-
-function hexArray(hex) {
-	return /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-}
-
-function rgbObjectFromHex(hex) {
-	let result = hexArray(hex);
-	return result ? { r: parseInt(result[1], 16), g: parseInt(result[2], 16), b: parseInt(result[3], 16) } : null;
-}
-
-function rgbArrayFromHex(hex) {
-	const rgb = rgbObjectFromHex(hex);
-	return [rgb.r, rgb.g, rgb.b];
-}
-
-function hexToRgb(hex) {
-	const rgb = rgbObjectFromHex(hex);
-	return `rgb(${rgb.r},${rgb.g},${rgb.b})`;
-}
-
-function rgbChannelToHex(channel) {
-	const hex = channel.toString(16);
-	return hex.length == 1 ? '0' + hex : hex;
-}
-
-function rgbToHex(r, g, b) {
-	return '#' + rgbChannelToHex(r) + rgbChannelToHex(g) + rgbChannelToHex(b);
-}
-
-function rgbArrayToHex(color) {
-	return rgbToHex(color[0], color[1], color[2]);
-}
-
-function interpolateColor(color1, color2, factor) {
-	if (arguments.length < 3) factor = 0.5;
-	const result = color1.slice();
-	for (let i = 0; i < 3; i++) result[i] = Math.round(result[i] + factor * (color2[i] - color1[i]));
-	return rgbArrayToHex(result);
-}
-
-function interpolateColors(color1, color2, steps) {
-	let stepFactor = 1 / (steps - 1);
-	let interpolatedColorArray = [];
-	color1 = rgbArrayFromHex(color1).map(Number);
-	color2 = rgbArrayFromHex(color2).map(Number);
-	for (let i = 0; i < steps; i++) interpolatedColorArray.push(interpolateColor(color1, color2, stepFactor * i));
-	return interpolatedColorArray;
-}
-
-function x_randomHex() {
-	let letters = '0123456789ABCDEF', color = '#';
-	for (let i = 0; i < 6; i++) color += letters[Math.floor(Math.random() * 16)];
-	return color;
-}
-
-function x_ishex(dd) {
-	return /^#[0-9A-F]{6}$/i.test(dd) ? true : false;
-}
-
-function x_steps() {
-	let gen = interpolateColors(c1.value, c2.value, step.value);
-	let cache = '';
-	sout.innerHTML = '';
-	steps.innerHTML = step.value;
-	for (let i = 0; i < gen.length; i++) {
-		cache += '<div class=\"color\" style=\"background-color: ' + gen[i] + ';\">' + gen[i] + '</div>';
+class ColorStep {
+	constructor() {
+		this.c1 = document.getElementById('c1');
+		this.c2 = document.getElementById('c2');
+		this.c1i = document.getElementById('c1i');
+		this.c2i = document.getElementById('c2i');
+		this.step = document.getElementById('step');
+		this.steps = document.getElementById('steps');
+		this.sout = document.getElementById('sout');
+		this.gout = document.getElementById('gout');
 	}
-	sout.innerHTML = cache;
-	gout.innerHTML = '<div class=\"grad\" style=\"height: ' + (sout.offsetHeight - 5) + 'px; background: linear-gradient(' + c1.value + ', ' + c2.value + ');\">background: linear-gradient(' + c1.value + ', ' + c2.value + ');</div>';
-}
-
-function x_c() {
-	c1i.value = c1.value;
-	c2i.value = c2.value;
-	x_steps();
-}
-
-function x_ci() {
-	if (x_ishex(c1i.value)) {
-		c1.value = c1i.value;
-		x_steps();
+	hexArray(hex) {
+		return /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
 	}
-	if (x_ishex(c2i.value)) {
-		c2.value = c2i.value;
-		x_steps();
+	rgbObjectFromHex(hex) {
+		let result = this.hexArray(hex);
+		return result ? { r: parseInt(result[1], 16), g: parseInt(result[2], 16), b: parseInt(result[3], 16) } : null;
+	}
+	rgbArrayFromHex(hex) {
+		const rgb = this.rgbObjectFromHex(hex);
+		return [rgb.r, rgb.g, rgb.b];
+	}
+	hexToRgb(hex) {
+		const rgb = this.rgbObjectFromHex(hex);
+		return `rgb(${rgb.r},${rgb.g},${rgb.b})`;
+	}
+	rgbChannelToHex(channel) {
+		const hex = channel.toString(16);
+		return hex.length == 1 ? '0' + hex : hex;
+	}
+	rgbToHex(r, g, b) {
+		return '#' + this.rgbChannelToHex(r) + this.rgbChannelToHex(g) + this.rgbChannelToHex(b);
+	}
+	rgbArrayToHex(color) {
+		return this.rgbToHex(color[0], color[1], color[2]);
+	}
+	interpolateColor(color1, color2, factor) {
+		//if (arguments.length < 3) factor = 0.5;
+		const result = color1.slice();
+		for (let i = 0; i < 3; i++) result[i] = Math.round(result[i] + factor * (color2[i] - color1[i]));
+		return this.rgbArrayToHex(result);
+	}
+	interpolateColors(color1, color2, steps) {
+		let stepFactor = 1 / (steps - 1);
+		let interpolatedColorArray = [];
+		color1 = this.rgbArrayFromHex(color1).map(Number);
+		color2 = this.rgbArrayFromHex(color2).map(Number);
+		for (let i = 0; i < steps; i++) interpolatedColorArray.push(this.interpolateColor(color1, color2, stepFactor * i));
+		return interpolatedColorArray;
+	}
+	randomHex() {
+		let letters = '0123456789ABCDEF', color = '#';
+		for (let i = 0; i < 6; i++) color += letters[Math.floor(Math.random() * 16)];
+		return color;
+	}
+	ishex(dd) {
+		return /^#[0-9A-F]{6}$/i.test(dd) ? true : false;
+	}
+	init() {
+		let gen = this.interpolateColors(this.c1.value, this.c2.value, this.step.value);
+		let cache = '';
+		this.sout.innerHTML = '';
+		this.steps.innerHTML = this.step.value;
+		for (let i = 0; i < gen.length; i++) cache += '<div class=\"color\" style=\"background-color: ' + gen[i] + ';\">' + gen[i] + '</div>';
+		this.sout.innerHTML = cache;
+		this.gout.innerHTML = '<div class=\"grad\" style=\"height: ' + (this.sout.offsetHeight - 5) + 'px; background: linear-gradient(' + this.c1.value + ', ' + this.c2.value + ');\">background: linear-gradient(' + this.c1.value + ', ' + this.c2.value + ');</div>';
+	}
+	inp_c() {
+		this.c1i.value = this.c1.value;
+		this.c2i.value = this.c2.value;
+		this.init();
+	}
+	inp_t() {
+		if (this.ishex(this.c1i.value)) {
+			this.c1.value = this.c1i.value;
+			this.init();
+		}
+		if (this.ishex(this.c2i.value)) {
+			this.c2.value = this.c2i.value;
+			this.init();
+		}
+	}
+	crnd(dd) {
+		if (dd == 1) this.c1.value = this.randomHex();
+		if (dd == 2) this.c2.value = this.randomHex();
+		this.inp_c();
+	}
+	rgbSplit(dd) {
+		dd = dd.replace(/[^\d,]/g, '').split(',').map(Number);
+		return this.rgbToHex(dd[0], dd[1], dd[2]);
+	}
+	getrgbcss(dd) {
+		let sub = window.getComputedStyle(document.querySelector(dd)).getPropertyValue("background-color");
+		return this.rgbSplit(sub);
+	}
+	ex(dd) {
+		this.c1.value = this.getrgbcss('.c' + dd + 'f');
+		this.c2.value = this.getrgbcss('.c' + dd + 'e');
+		this.inp_c();
 	}
 }
 
-function x_crnd(dd) {
-	if (dd == 1) c1.value = x_randomHex();
-	if (dd == 2) c2.value = x_randomHex();
-	x_c();
-}
-
-function rgbSplit(dd) {
-	dd = dd.replace(/[^\d,]/g, '').split(',').map(Number);
-	return rgbToHex(dd[0], dd[1], dd[2]);
-}
-
-function x_getc(dd) {
-	let sub = window.getComputedStyle(document.querySelector(dd)).getPropertyValue("background-color");
-	return rgbSplit(sub);
-}
-
-function x_ex(dd) {
-	c1.value = x_getc('.c' + dd + 'f');
-	c2.value = x_getc('.c' + dd + 'e');
-	x_c();
-}
-
-x_c();
+let cs = new ColorStep();
+cs.inp_c();
 </script>
 
 <footer class="footer"><div class="we">
