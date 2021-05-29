@@ -85,11 +85,11 @@ function x_load() {
 			return;
 		}
 		window.location.hash = '#' + show.value;
-		for (let i = 0; i < dd.length; i++) {
+		dd.forEach(function(ww) {
 			let newtab = '';
-			if (dd[i]['newtab'] == '1') newtab = 'target=\"_blank\" ';
-			cache += '<tr><td><a href=\"' + dd[i]['url'] + '\" ' + newtab + 'title=\"' + dd[i]['title'] + '\">' + dd[i]['name'] + '</a></td><td>' + dd[i]['description'] + '</td></tr>';
-		}
+			if (ww['newtab'] == '1') newtab = 'target=\"_blank\" ';
+			cache += '<tr><td><a href=\"' + ww['url'] + '\" ' + newtab + 'title=\"' + ww['title'] + '\">' + ww['name'] + '</a></td><td>' + ww['description'] + '</td></tr>';
+		});
 		out.innerHTML = '<thead><tr><td>сайт</td><td>описание</td></tr></thead>' + cache;
 		out.classList.remove('efw');
 	});
@@ -122,7 +122,12 @@ function x_hash() {
 	}
 	x_load();
 }
-window.onhashchange = x_hash();
+
+document.onreadystatechange = function () {
+	if (document.readyState == "complete") {
+		window.onhashchange = x_hash();
+	}
+}
 </script>
 
 <footer class="footer"><div class="we">
