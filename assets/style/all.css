@@ -28,7 +28,7 @@ body {
 	color: #000;
 	background-color: #A8B1BB;
 	background-repeat: no-repeat;
-	background-attachment: fixed;
+/*	background-attachment: fixed; */
 	background-position: center;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -73,6 +73,8 @@ p {
 	}
 	.logo {
 		font-size: 18px;
+		padding-top: 10px;
+		padding-bottom: 10px;
 	}
 	.logo, .content {
 		border-left: 1px solid #333;
@@ -88,10 +90,12 @@ p {
 
 @media screen and (min-width: 768px) {
 	.wrapper {
-		padding: 20px;
+		padding: 16px;
 	}
 	.logo {
-		font-size: 26px;
+		font-size: 22px;
+		padding-top: 16px;
+		padding-bottom: 16px;
 	}
 	.logo, .content {
 		border-left: 10px solid #333;
@@ -110,7 +114,7 @@ p {
 }
 
 .warp > * {
-	margin-bottom: 10px;
+	margin-bottom: 8px;
 }
 
 .warp > *:last-child, .warp > *:only-child {
@@ -118,7 +122,7 @@ p {
 }
 
 .ww > * {
-	margin-right: 10px;
+	margin-right: 8px;
 }
 
 .ww > *:last-child, .ww > *:only-child {
@@ -154,8 +158,6 @@ p {
 	font-family: 'large9';
 	text-align: center;
 	text-shadow: 1px 1px 0px #000;
-	padding-top: 16px;
-	padding-bottom: 16px;
 }
 
 .content {
