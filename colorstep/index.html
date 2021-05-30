@@ -50,18 +50,23 @@ input[type="text"] {
 	border-bottom-right-radius: 6px;
 }
 
-a > div {
-	width: 20px;
+.preset a {
+	width: 40px;
 	height: 20px;
-	display: inline-block;
 }
 
-a > div:first-child {
+.preset a > div {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+}
+
+.preset a > div:first-child {
 	border-top-left-radius: 3px;
 	border-bottom-left-radius: 3px;
 }
 
-a > div:last-child {
+.preset a > div:last-child {
 	border-top-right-radius: 3px;
 	border-bottom-right-radius: 3px;
 }
@@ -134,7 +139,7 @@ a > div:last-child {
 <span>Число результатов:</span><span id="steps"></span>
 </div>
 <hr />
-<div class="gg center">
+<div class="gg center preset">
 <a href="javascript:cs.ex('1');" title="Пример 1"><div class="c1f"></div><div class="c1e"></div></a>
 <a href="javascript:cs.ex('2');" title="Пример 2"><div class="c2f"></div><div class="c2e"></div></a>
 <a href="javascript:cs.ex('3');" title="Пример 3"><div class="c3f"></div><div class="c3e"></div></a>
