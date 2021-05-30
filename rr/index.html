@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<title>Radio Record</title>
+<!-- xd -->
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="description" content="online radio m3u playlist">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="msapplication-config" content="https://xdiloc.github.io/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+<!-- xd -->
+<link rel="shortcut icon" href="https://xdiloc.github.io/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://xdiloc.github.io/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" sizes="180x180" href="https://xdiloc.github.io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://xdiloc.github.io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://xdiloc.github.io/favicon-16x16.png">
+<link rel="manifest" href="https://xdiloc.github.io/site.webmanifest">
+<link rel="mask-icon" href="https://xdiloc.github.io/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="stylesheet" href="https://xdiloc.github.io/assets/style/all.css" type="text/css">
+<!-- xd -->
+<style>
+.loading {
+	display: inline-block;
+	width: 16px;
+	min-width: 16px;
+	height: 16px;
+	min-height: 16px;
+	border: 2px solid transparent;
+	border-top-color: #333;
+	border-left-color: #333;
+	border-right-color: #333;
+	border-radius: 50%;
+	animation: loader 0.6s linear reverse infinite;
+}
+
+@keyframes loader {
+	100% {
+		transform: rotate(1turn);
+	}
+}
+
+@-webkit-keyframes loader {
+	100% {
+		transform: rotate(1turn);
+	}
+}
+
+#playlist {
+	text-align: center;
+}
+
+a.rr img {
+	width: 70px;
+	height: 70px;
+}
+
+a.rr span {
+	font-weight: bold;
+}
+
+a.rr:hover img {
+	-webkit-filter: brightness(1.3);
+	filter: brightness(1.3);
+}
+
+a.rr {
+	display: inline-block;
+	width: 190px;
+	height: 100px;
+	text-align: center;
+	border-radius: 6px;
+	background-color: #333;
+	margin: 3px;
+	padding: 6px;
+}
+
+a.rr, #player {
+	--psgd: rgb(38, 57, 77) 0px 5px 10px 0px;
+	box-shadow: var(--psgd);
+	-o-box-shadow: var(--psgd);
+	-moz-box-shadow: var(--psgd);
+	-webkit-box-shadow: -webkit-var(--psgd);
+}
+
+#player ::selection { background-color: #fff; color: #333; }
+#player ::-moz-selection { background-color: #fff; color: #333; }
+#player ::-webkit-selection { background-color: #fff; color: #333; }
+
+#station img {
+	width: 40px;
+	height: 40px;
+}
+
+#station span {
+	font-weight: bold;
+	background: linear-gradient(to right, #fff 40%, #FF9000 50%, #fff 60%);
+	background-size: 200% auto;
+	background-clip: text;
+	text-fill-color: transparent;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-webkit-animation: shine 1s linear infinite;
+	animation: shine 1s linear infinite;
+}
+
+@-webkit-keyframes shine {
+	to {
+		background-position: 200% center;
+	}
+}
+
+@keyframes shine {
+	to {
+		background-position: 200% center;
+	}
+}
+
+#player {
+	border-right: 1px solid #111;
+	border-top: 1px solid #111;
+	border-radius: 6px;
+	color: #fff;
+	border-collapse: separate;
+	border-spacing: 0;
+	min-width: 700px;
+}
+
+#player a {
+	font-weight: bold;
+}
+
+#player td {
+	height: 40px;
+	padding: 6px;
+	text-align: center;
+	background-color: #333;
+	border-left: 1px solid #111;
+	border-bottom: 1px solid #111;
+}
+
+#player .play {
+	display: inline-block;
+	border: 0;
+	background: transparent;
+	box-sizing: border-box;
+	width: 32px;
+	min-width: 32px;
+	height: 32px;
+	min-height: 32px;
+	border-color: transparent transparent transparent #6699CC;
+	transition: 100ms all ease;
+	cursor: pointer;
+	border-style: solid;
+	border-width: 16px 0 16px 30px;
+}
+
+#player .play:hover {
+	border-color: transparent transparent transparent #FF9000;
+}
+
+#player .pause {
+	display: inline-block;
+	width: 0;
+	height: 32px;
+	min-height: 32px;
+	border-style: double;
+	border-width: 0 0 0 32px;
+}
+
+table tr:first-child {
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+}
+
+table tr:last-child {
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+}
+
+table tr:first-child td:first-child {
+	border-top-left-radius: 6px;
+}
+
+table tr:first-child td:last-child {
+	border-top-right-radius: 6px;
+}
+
+table tr:last-child td:first-child {
+	border-bottom-left-radius: 6px;
+}
+
+table tr:last-child td:last-child {
+	border-bottom-right-radius: 6px;
+}
+
+.gc {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+</style>
+</head>
+<body>
+
+<audio id="sound"></audio>
+<div class="wrapper warp">
+<div class="content warp">
+<h2>Radio Record</h2><hr />
+
+<div class="gc ww"><table id="player">
+<tr>
+<td><div id="station" class="gc ww"><span>www.radiorecord.ru</span></div></td>
+<td><div class="gc ww"><input type="range" id="volume" value="10" step="1" min="0" max="100" oninput="volume();">
+<span id="volumesrc"></span></div></td>
+<td><a href="javascript:gen_m3u();" title="создать плейлист">m3u</a></td>
+<td><div class="gc ww"><a href="javascript:control();" id="control" class="play" title="play / pause"></a></div></td>
+</tr>
+<tr>
+<td><div class="gc ww">
+<select id="bitrate" onchange="bitrate();" title="Качество воспроизведение кодек / битрейт">
+<option value="0">mpga / 320</option>
+<option value="1">mpga / 128</option>
+<option value="2">aac / 32</option>
+</select>
+</div></td>
+<td colspan="3"><div class="gc ww"><span id="song">выберите станцию</span></div></td>
+</tr>
+</table></div>
+
+</div>
+
+<div class="content warp">
+<h2>Playlist</h2><hr />
+<div id="playlist"></div>
+</div>
+</div>
+
+<script>
+let json_url = 'https://www.radiorecord.ru/radioapi/stations/';
+let player = document.getElementById('player');
+let player_playlist = document.getElementById('playlist');
+let player_bitrate = document.getElementById('bitrate');
+let player_audio = document.getElementById('sound');
+let player_cast = document.getElementById('station');
+let player_song = document.getElementById('song');
+let player_control = document.getElementById('control');
+let player_volume = document.getElementById('volume');
+let player_volumesrc = document.getElementById('volumesrc');
+let json = undefined, lastwave, preload, isplay;
+let stream = ['stream_320','stream_128','stream_64'];
+
+function ststus(x) {
+	let text = '';
+	if (x == 1) text = '<i class=\"loading\"></i><br />Загрузка';
+	if (x == 2) text = 'запрос не удался';
+	if (x == 3) text = 'json undefined callback';
+	if (x == 4) text = 'json bad index';
+	if (x == 5) text = 'connect timeout';
+	player_playlist.innerHTML = '<b>' + text + '</b>: ' + json_url + '<br /><a href=\"javascript:check();\">restart list</a>';
+}
+
+function setsong(dd) {
+	let rr = json['result'];
+	let x = rr.map(el => el.prefix).indexOf(dd);
+	player_song.innerHTML = rr[x]['artist'] + ' - ' + rr[x]['song'];
+}
+
+let songtmr;
+function upsong() {
+	clearInterval(songtmr);
+	songtmr = setInterval(function() {
+		loadjson();
+		if (lastwave) setsong(lastwave);
+	}, 6000);
+}
+
+function play(dd) {
+	let rr = json['result'];
+	let x = rr.map(el => el.prefix).indexOf(dd);
+	let wave = stream[player_bitrate.value];
+	isplay = true;
+	lastwave = dd;
+	player_audio.src = rr[x][wave];
+	player_audio.play();
+	player_cast.innerHTML = '<img src=\"' + rr[x]['icon_png'] + '\" alt=\"' + rr[x]['title'] + '\"><span>' + rr[x]['title'] + '</span>';
+	player_song.innerHTML = rr[x]['artist'] + ' - ' + rr[x]['song'];
+	player_control.classList.remove('play');
+	player_control.classList.add('pause');
+	upsong();
+}
+
+function bitrate() {
+	let count = player.rows.length;
+	if (count > 2) player.deleteRow(count - 1);
+	if (lastwave && isplay) play(lastwave);
+}
+
+function control() {
+	if (isplay) {
+		isplay = false;
+		clearInterval(songtmr);
+		player_audio.pause();
+		player_audio.src = '';
+		player_cast.innerHTML = '<span>www.radiorecord.ru</span>';
+		player_song.innerHTML = 'воспроизведение остановлено';
+		player_control.classList.remove('pause');
+		player_control.classList.add('play');
+	} else if (lastwave) {
+		play(lastwave);
+		player_control.classList.remove('play');
+		player_control.classList.add('pause');
+	} else {
+		play('jungle');
+	}
+}
+
+function volume() {
+	player_audio.volume = player_volume.value / 100;
+	player_volumesrc.innerHTML = player_volume.value;
+}
+volume();
+
+function init() {
+	preload = true;
+	if (json === void 0 || json === null) {
+		ststus(3);
+		return;
+	}
+	let dd = json['result'], cache = '';
+	if (dd === void 0) {
+		ststus(4);
+		return;
+	}
+	dd.forEach(function(rr) {
+		cache += '<a href=\"javascript:play(\'' + rr['prefix'] + '\')\" class=\"rr\" title=\"Play ' + rr['title'] + '\">';
+		cache += '<img src=\"' + rr['icon_png'] + '\" alt=\"' + rr['title'] + '\"><br />';
+		cache += '<span>' + rr['title'] + '</span>';
+		cache += '</a>';
+	});
+	player_playlist.innerHTML = cache;
+}
+
+function gen_m3u() {
+	let fileclass = ['mpga320','mpga128','aac64'];
+	let filename = 'radiorecord_' + fileclass[player_bitrate.value] + '.m3u';
+	let wave = stream[player_bitrate.value];
+	let count = player.rows.length;
+	let tr = player.insertRow(count);
+	if (count > 2) player.deleteRow(count - 1);
+	let dd = json['result'], cache = '';
+	dd.forEach(function(rr) { cache += '#EXTINF:-1, ' + rr['title'] + '\r' + rr[wave] + '\r'; });
+	cache = '#EXTM3U\r#EXTINF:0\r#EXTVLCOPT:network-caching=1000\r' + cache;
+	let filedata = 'data:audio/x-mpegurl;charset=utf-8,' + encodeURIComponent(cache);
+	tr.innerHTML = '<tr><td colspan=\"4\"><a href=\"' + filedata + '\" download=\"' + filename + '\" target=\"_blank\" title=\"скачать плейлист ' + filename + '\">скачать плейлист</a></td></tr>';
+}
+
+function loadjson() {
+	if (preload != true) ststus(1);
+	let xhr = new XMLHttpRequest();
+	xhr.timeout = 1000;
+	xhr.overrideMimeType('application/json');
+	xhr.open('GET', json_url);
+	xhr.send();
+	xhr.onload = function() {
+		if (xhr.status === 200) {
+			json = JSON.parse(xhr.responseText);
+			if (preload != true) init();
+		}
+	};
+	xhr.onerror = function() {
+		ststus(2);
+	};
+	xhr.ontimeout = function() {
+		ststus(3);
+	};
+}
+loadjson();
+
+function check() {
+	preload = false;
+	loadjson();
+	if (lastwave && isplay) play(lastwave);
+}
+</script>
+
+<footer class="footer"><div class="we">
+<a href="https://xdiloc.github.io/" title="главная страница">xdiloc.github.io</a>
+<span> &starf; </span>
+<a href="https://github.com/xdiloc/xdiloc.github.io" target="_blank" title="разработка">github.com</a>
+</div></footer>
+
+</body>
+</html>
