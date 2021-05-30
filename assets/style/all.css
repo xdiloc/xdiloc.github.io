@@ -154,7 +154,8 @@ p {
 	flex-direction: row;
 	flex-wrap: wrap;
 	align-items: center;
-	gap: 6px;
+	column-gap: 6px;
+	row-gap: 8px;
 }
 
 .pack {

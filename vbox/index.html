@@ -38,31 +38,39 @@
 <div class="content warp">
 <h2>Генератор команд для управления vbox vm</h2>
 <hr />
-<div class="gg ww">
+<div class="gg">
 <input type="text" class="in" oninput="vname();" placeholder="[name или uuid]" autofocus> <a href="javascript:x_clear('in');" title="очистить">[очистить]</a>
 </div>
 <hr />
 <p>Список виртуальных машин по имени и uuid</p>
-<div class="gg ww">
-<input type="text" class="cmd" onclick="this.select();" value="VBoxManage list vms" readonly> <a href="javascript:x_copy('cmd', 0);" title="Копировать текст в буфер обмена">[копировать]</a>
+<div class="gg">
+<input type="text" class="cmd" onclick="this.select();" value="VBoxManage list vms" readonly>
+<a href="javascript:x_copy('cmd', 0);" title="Копировать текст в буфер обмена">[копировать]</a>
 </div>
 <hr />
 <p>pause</p>
-<div class="gg ww"><input type="text" class="out" placeholder="VBoxManage controlvm [name или uuid] pause" readonly></div>
+<div class="gg"><input type="text" class="out" placeholder="VBoxManage controlvm [name или uuid] pause" readonly></div>
+<hr />
 <p>unpause</p>
-<div class="gg ww"><input type="text" class="out" placeholder="VBoxManage controlvm [name или uuid] resume" readonly></div>
+<div class="gg"><input type="text" class="out" placeholder="VBoxManage controlvm [name или uuid] resume" readonly></div>
+<hr />
 <p>poweroff</p>
-<div class="gg ww"><input type="text" class="out" placeholder="VBoxManage controlvm [name или uuid] poweroff" readonly></div>
+<div class="gg"><input type="text" class="out" placeholder="VBoxManage controlvm [name или uuid] poweroff" readonly></div>
+<hr />
 <p>poweroff savestate</p>
-<div class="gg ww"><input type="text" class="out" placeholder="VBoxManage controlvm [name или uuid] savestate" readonly></div>
+<div class="gg"><input type="text" class="out" placeholder="VBoxManage controlvm [name или uuid] savestate" readonly></div>
+<hr />
 <p>poweroff button</p>
-<div class="gg ww"><input type="text" class="out" placeholder="VBoxManage controlvm [name или uuid] acpipowerbutton" readonly></div>
+<div class="gg"><input type="text" class="out" placeholder="VBoxManage controlvm [name или uuid] acpipowerbutton" readonly></div>
+<hr />
 <p>restart button</p>
-<div class="gg ww"><input type="text" class="out" placeholder="VBoxManage controlvm [name или uuid] reset" readonly></div>
+<div class="gg"><input type="text" class="out" placeholder="VBoxManage controlvm [name или uuid] reset" readonly></div>
+<hr />
 <p>startvm gui</p>
-<div class="gg ww"><input type="text" class="out" placeholder="VBoxManage startvm [name или uuid] --type gui" readonly></div>
+<div class="gg"><input type="text" class="out" placeholder="VBoxManage startvm [name или uuid] --type gui" readonly></div>
+<hr />
 <p>startvm nogui</p>
-<div class="gg ww"><input type="text" class="out" placeholder="VBoxManage startvm [name или uuid] --type headless" readonly></div>
+<div class="gg"><input type="text" class="out" placeholder="VBoxManage startvm [name или uuid] --type headless" readonly></div>
 </div>
 </div>
 
@@ -91,7 +99,7 @@ function vname() {
 			cache = out[i].placeholder.replaceAll('[name или uuid]', quot);
 			out[i].value = cache;
 			url = 'data:application/x-shellscript;charset=utf-8,' + encodeURIComponent('#!/bin/bash\n' + cache);
-			out[i].insertAdjacentHTML('afterend', ' <span class=\"copy\"><a href=\"javascript:x_copy(\'out\', ' + i + ');\" title=\"Копировать текст в буфер обмена\">[копировать]</a>, <a href=\"' + url + '\" target=\"_blank\" download=\"' + prefix + fname[i] + '.sh\" title=\"Сохранить в фаил\">[sh скрипт]</a></span>');
+			out[i].insertAdjacentHTML('afterend', '<span class=\"copy\"><a href=\"javascript:x_copy(\'out\', ' + i + ');\" title=\"Копировать текст в буфер обмена\">[копировать]</a>, <a href=\"' + url + '\" target=\"_blank\" download=\"' + prefix + fname[i] + '.sh\" title=\"Сохранить в фаил\">[sh скрипт]</a></span>');
 		}
 	}
 }
