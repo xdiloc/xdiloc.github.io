@@ -237,20 +237,20 @@ function x_select(dd) {
 <div class="content warp">
 <h2>Клонирование текста</h2>
 <hr />
-<div class="pack">
+<div class="pack warp">
 <div class="box warp">
 <textarea id="in" oninput="x_load();" placeholder="Введите сюда текст для клонирования" autofocus></textarea>
 <textarea id="out" readonly></textarea>
 </div>
 <div class="box warp">
-<input type="number" id="sum" oninput="x_load();" min="1" max="3000"> Количество повторений (1-3000)
+<div class="gg ww"><input type="number" id="sum" oninput="x_load();" min="1" max="3000"><span>Количество повторений (1-3000)</span></div>
 <hr />
-<input type="text" id="sep1" oninput="x_load();"> Разделитель (<a href="javascript:x_clear('sep1', 0);" title="очистить">очистить</a>)<br />
-<input type="number" id="step" oninput="x_load();" min="1" max="3000"> Шаг разделителя<br />
-<label><input type="checkbox" id="sepend1" onchange="x_load();"><span> Разделитель в конце</span></label>
+<div class="gg ww"><input type="text" id="sep1" oninput="x_load();"><span>Разделитель (<a href="javascript:x_clear('sep1', 0);" title="очистить">очистить</a>)</span></div>
+<div class="gg ww"><input type="number" id="step" oninput="x_load();" min="1" max="3000"><span>Шаг разделителя</span></div>
+<label><input type="checkbox" id="sepend1" onchange="x_load();"><span>Разделитель в конце</span></label>
 <hr />
-<input type="text" id="sep2" oninput="x_load();" disabled> Разделитель (<a href="javascript:x_clear('sep2', 0);" title="очистить">очистить</a>)<br />
-<label><input type="checkbox" id="sepend2" onchange="x_load();" disabled><span> Разделитель в конце</span></label>
+<div class="gg ww"><input type="text" id="sep2" oninput="x_load();" disabled><span>Разделитель (<a href="javascript:x_clear('sep2', 0);" title="очистить">очистить</a>)</span></div>
+<label><input type="checkbox" id="sepend2" onchange="x_load();" disabled><span>Разделитель в конце</span></label>
 <hr />
 <table class="help">
 <tr><td colspan="2" rowspan="2"><b>calc(1+1)</b></td><td colspan="4">простые вычисления</td></tr>

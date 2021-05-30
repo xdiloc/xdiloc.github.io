@@ -28,7 +28,7 @@ body {
 	color: #000;
 	background-color: #A8B1BB;
 	background-repeat: no-repeat;
-/*	background-attachment: fixed; */
+	background-attachment: fixed;
 	background-position: center;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -86,11 +86,18 @@ p {
 	.content {
 		padding: 10px;
 	}
+	.pack {
+		flex-direction: column;
+	}
+	.box {
+		display: flex;
+		flex-direction: column;
+	}
 }
 
 @media screen and (min-width: 768px) {
 	.wrapper {
-		padding: 16px;
+		padding: 14px;
 	}
 	.logo {
 		font-size: 22px;
@@ -107,6 +114,12 @@ p {
 	.content {
 		padding: 16px;
 	}
+	.pack {
+		flex-wrap: wrap;
+	}
+	.box {
+		width: calc(50% - 6px);
+	}
 }
 
 .wrapper {
@@ -122,7 +135,7 @@ p {
 }
 
 .ww > * {
-	margin-right: 8px;
+	margin-right: 6px;
 }
 
 .ww > *:last-child, .ww > *:only-child {
@@ -139,10 +152,6 @@ p {
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
-}
-
-.box {
-	width: calc(50% - 10px);
 }
 
 .logo, .content, .footer {
@@ -332,10 +341,10 @@ input[type="checkbox"] + span {
 
 input[type="checkbox"] + span {
 	cursor: pointer;
-	padding-left: 0;
 }
 
 input[type="checkbox"] + span:before {
+	margin-right: 8px;
 	content: "";
 	display: inline-block;
 	width: 18px;
