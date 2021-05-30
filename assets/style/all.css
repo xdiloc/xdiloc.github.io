@@ -93,6 +93,12 @@ p {
 		display: flex;
 		flex-direction: column;
 	}
+	.mwarp > * {
+		margin-bottom: 8px;
+	}
+	.mwarp > *:last-child, .mwarp > *:only-child {
+		margin-bottom: 0;
+	}
 }
 
 @media screen and (min-width: 768px) {
@@ -133,19 +139,22 @@ p {
 .warp > *:last-child, .warp > *:only-child {
 	margin-bottom: 0;
 }
-
+/*
 .ww > * {
-	margin-right: 6px;
+	margin-right: 8px;
 }
 
 .ww > *:last-child, .ww > *:only-child {
 	margin-right: 0;
 }
-
+*/
 .gg {
+	display: inline-flex;
 	display: flex;
 	flex-direction: row;
+	flex-wrap: wrap;
 	align-items: center;
+	gap: 6px;
 }
 
 .pack {
@@ -366,5 +375,10 @@ input[type="checkbox"]:indeterminate + span:before {
 
 input[type="checkbox"]:disabled + span {
 	color: #999;
+}
+
+input[type="range"] {
+	margin-top: 6px;
+	margin-bottom: 6px;
 }
 

@@ -114,15 +114,14 @@ a > div:last-child {
 <div class="wrapper warp">
 <div class="content warp">
 <h2>Color Step</h2><hr />
-<div class="pack">
-
+<div class="pack mwarp">
 <div class="box warp">
-<div class="gg ww">
+<div class="gg">
 <input type="color" id="c1" value="#29323c" onchange="cs.inp_c();" title="Выбрать цвет">
 <input type="text" id="c1i" oninput="cs.inp_t();">
 <a href="javascript:cs.crnd('1');" title="Случайный цвет">Случайный цвет</a>
 </div>
-<div class="gg ww">
+<div class="gg">
 <input type="color" id="c2" value="#485563" onchange="cs.inp_c();" title="Выбрать цвет">
 <input type="text" id="c2i" oninput="cs.inp_t();">
 <a href="javascript:cs.crnd('2');" title="Случайный цвет">Случайный цвет</a>
@@ -130,12 +129,12 @@ a > div:last-child {
 </div>
 
 <div class="box warp">
-<div class="gg ww">
+<div class="gg center">
 <input type="range" id="step" value="5" min="2" max="50" oninput="cs.inp_c();">
 <span>Число результатов:</span><span id="steps"></span>
 </div>
 <hr />
-<div class="gg ww center">
+<div class="gg center">
 <a href="javascript:cs.ex('1');" title="Пример 1"><div class="c1f"></div><div class="c1e"></div></a>
 <a href="javascript:cs.ex('2');" title="Пример 2"><div class="c2f"></div><div class="c2e"></div></a>
 <a href="javascript:cs.ex('3');" title="Пример 3"><div class="c3f"></div><div class="c3e"></div></a>
@@ -150,7 +149,7 @@ a > div:last-child {
 
 <div class="content warp">
 <h2>Пример</h2><hr />
-<div class="pack">
+<div class="pack mwarp">
 <div class="box"><div id="sout"></div></div>
 <div class="box"><div id="gout"></div></div>
 </div>
