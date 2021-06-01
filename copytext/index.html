@@ -242,16 +242,44 @@ function x_select(dd) {
 <textarea id="in" oninput="x_load();" placeholder="Введите сюда текст для клонирования" autofocus></textarea>
 <textarea id="out" readonly></textarea>
 </div>
+
 <div class="box warp">
-<div class="gg"><input type="number" id="sum" oninput="x_load();" min="1" max="3000"><span>Количество повторений (1-3000)</span></div>
+<div class="gg">
+<input type="number" id="sum" oninput="x_load();" min="1" max="3000">
+<span>Количество повторений (1-3000)</span>
+</div>
+
 <hr />
-<div class="gg"><input type="text" id="sep1" oninput="x_load();"><span>Разделитель (<a href="javascript:x_clear('sep1', 0);" title="очистить">очистить</a>)</span></div>
-<div class="gg"><input type="number" id="step" oninput="x_load();" min="1" max="3000"><span>Шаг разделителя</span></div>
-<label><input type="checkbox" id="sepend1" onchange="x_load();"><span>Разделитель в конце</span></label>
+
+<div class="gg">
+<input type="text" id="sep1" oninput="x_load();">
+<span>Разделитель (<a href="javascript:x_clear('sep1', 0);" title="очистить">очистить</a>)</span>
+</div>
+
+<div class="gg">
+<input type="number" id="step" oninput="x_load();" min="1" max="3000">
+<span>Шаг разделителя</span>
+</div>
+
+<label>
+<input type="checkbox" id="sepend1" onchange="x_load();">
+<span>Разделитель в конце</span>
+</label>
+
 <hr />
-<div class="gg"><input type="text" id="sep2" oninput="x_load();" disabled><span>Разделитель (<a href="javascript:x_clear('sep2', 0);" title="очистить">очистить</a>)</span></div>
-<label><input type="checkbox" id="sepend2" onchange="x_load();" disabled><span>Разделитель в конце</span></label>
+
+<div class="gg">
+<input type="text" id="sep2" oninput="x_load();" disabled>
+<span>Разделитель (<a href="javascript:x_clear('sep2', 0);" title="очистить">очистить</a>)</span>
+</div>
+
+<label>
+<input type="checkbox" id="sepend2" onchange="x_load();" disabled>
+<span>Разделитель в конце</span>
+</label>
+
 <hr />
+
 <table class="help">
 <tr><td colspan="2" rowspan="2"><b>calc(1+1)</b></td><td colspan="4">простые вычисления</td></tr>
 <tr><td>+</td><td>-</td><td>*</td><td>/</td></tr>
@@ -260,6 +288,7 @@ function x_select(dd) {
 <tr><td colspan="2"><b>\s</b></td><td colspan="4">пробел</td></tr>
 </table>
 </div>
+
 </div>
 </div>
 </div>

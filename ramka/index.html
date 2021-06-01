@@ -198,32 +198,50 @@ function x_copy(dd) {
 <div class="content warp">
 <h2>Набор рамок для видео</h2>
 <hr />
-<div class="pack">
+<div class="pack mwarp">
 <div class="box warp">
-<input type="text" id="url" oninput="x_load();" autofocus> Ссылка на ролик (<a href="javascript:x_clear('url');" title="очистить">очистить</a>)
-<br />
+
+<div class="gg">
+<input type="text" id="url" oninput="x_load();" autofocus>
+<span>Ссылка на ролик (<a href="javascript:x_clear('url');" title="очистить">очистить</a>)</span>
+</div>
+
+<div class="gg">
 <select id="show" onchange="x_load();">
 <option value="1">Да (быстрый)</option>
 <option value="2">Да (исходное)</option>
 <option value="3">Да (только рамка)</option>
 <option value="4">Нет</option>
-</select> Показать результат
-<br />
+</select>
+<span>Показать результат</span>
+</div>
+
+<div class="gg">
 <select id="ramka" onchange="x_load();">
 <option value="1">C тенью</option>
 <option value="2">Неон</option>
 <option value="3">Новогодняя</option>
 <option value="4">Белая рамка</option>
 <option value="5">Белая рамка с тенью</option>
-</select> Вид рамки
-<br />
-<label><input type="checkbox" id="imgcenter" onchange="x_load();"><span> Выровнять по центру</span></label>
-<br />
-Пример рамки: <a href="javascript:x_exemple(1);" title="вид 1">[1]</a>, <a href="javascript:x_exemple(2);" title="вид 2">[2]</a>
+</select>
+<span>Вид рамки</span>
 </div>
+
+<label>
+<input type="checkbox" id="imgcenter" onchange="x_load();">
+<span>Выровнять по центру</span>
+</label>
+
+<div class="gg">
+<span>Пример рамки:</span>
+<a href="javascript:x_exemple(1);" title="вид 1">[1]</a>, <a href="javascript:x_exemple(2);" title="вид 2">[2]</a>
+</div>
+</div>
+
 <div class="box warp">
 <textarea id="result" onclick="this.select();" placeholder="Вставьте ссылку на youtube ролик" readonly></textarea>
 </div>
+
 </div>
 </div>
 </div>
