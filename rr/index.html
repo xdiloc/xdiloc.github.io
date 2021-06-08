@@ -194,6 +194,14 @@ table tr:last-child td:last-child {
 	justify-content: center;
 	align-items: center;
 }
+
+.ww > * {
+	margin-right: 8px;
+}
+
+.ww > *:last-child, .ww > *:only-child {
+	margin-right: 0;
+}
 </style>
 </head>
 <body>
@@ -203,23 +211,23 @@ table tr:last-child td:last-child {
 <div class="content warp">
 <h2>Radio Record</h2><hr />
 
-<div class="gc ww"><table id="player">
+<div class="gc"><table id="player">
 <tr>
 <td><div id="station" class="gc ww"><span>www.radiorecord.ru</span></div></td>
 <td><div class="gc ww"><input type="range" id="volume" value="10" step="1" min="0" max="100" oninput="volume();">
 <span id="volumesrc"></span></div></td>
 <td><a href="javascript:gen_m3u();" title="создать плейлист">m3u</a></td>
-<td><div class="gc ww"><a href="javascript:control();" id="control" class="play" title="play / pause"></a></div></td>
+<td><div class="gc"><a href="javascript:control();" id="control" class="play" title="play / pause"></a></div></td>
 </tr>
 <tr>
-<td><div class="gc ww">
+<td><div class="gc">
 <select id="bitrate" onchange="bitrate();" title="Качество воспроизведение кодек / битрейт">
 <option value="0">mpga / 320</option>
 <option value="1">mpga / 128</option>
 <option value="2">aac / 32</option>
 </select>
 </div></td>
-<td colspan="3"><div class="gc ww"><span id="song">выберите станцию</span></div></td>
+<td colspan="3"><div class="gc"><span id="song">выберите станцию</span></div></td>
 </tr>
 </table></div>
 
