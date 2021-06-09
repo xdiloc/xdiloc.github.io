@@ -20,6 +20,46 @@
 <link rel="stylesheet" href="https://xdiloc.github.io/assets/style/all.css" type="text/css">
 <!-- xd -->
 <style>
+@media screen and (max-width: 767px) {
+	#player {
+		min-width: 300px;
+	}
+	table, thead, tbody, tr {
+		display: block;
+	}
+	th, td {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	#player {
+		min-width: 700px;
+	}
+	table tr:first-child {
+		border-top-left-radius: 6px;
+		border-top-right-radius: 6px;
+	}
+	table tr:last-child {
+		border-bottom-left-radius: 6px;
+		border-bottom-right-radius: 6px;
+	}
+	table tr:first-child td:first-child {
+		border-top-left-radius: 6px;
+	}
+	table tr:first-child td:last-child {
+		border-top-right-radius: 6px;
+	}
+	table tr:last-child td:first-child {
+		border-bottom-left-radius: 6px;
+	}
+	table tr:last-child td:last-child {
+		border-bottom-right-radius: 6px;
+	}
+}
+
 .loading {
 	display: inline-block;
 	width: 16px;
@@ -116,7 +156,6 @@ a.rr, #player {
 	color: #fff;
 	border-collapse: separate;
 	border-spacing: 0;
-	min-width: 700px;
 }
 
 #player a {
@@ -161,32 +200,6 @@ a.rr, #player {
 	min-height: 32px;
 	border-style: double;
 	border-width: 0 0 0 32px;
-}
-
-table tr:first-child {
-	border-top-left-radius: 6px;
-	border-top-right-radius: 6px;
-}
-
-table tr:last-child {
-	border-bottom-left-radius: 6px;
-	border-bottom-right-radius: 6px;
-}
-
-table tr:first-child td:first-child {
-	border-top-left-radius: 6px;
-}
-
-table tr:first-child td:last-child {
-	border-top-right-radius: 6px;
-}
-
-table tr:last-child td:first-child {
-	border-bottom-left-radius: 6px;
-}
-
-table tr:last-child td:last-child {
-	border-bottom-right-radius: 6px;
 }
 
 .gc {
