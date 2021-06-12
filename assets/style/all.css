@@ -141,7 +141,6 @@ p {
 }
 
 .gg {
-	display: inline-flex;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
