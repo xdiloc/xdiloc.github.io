@@ -261,13 +261,13 @@ input[type="text"], input[type="number"] {
 	border-radius: 3px;
 }
 
-input[type="text"]:disabled, input[type="number"]:disabled {
-	background-color: #555;
+input[type="text"]:read-only, input[type="number"]:read-only {
+	background-color: #222;
+	color: #fff;
 }
 
-input[type="text"]:read-only, input[type="number"]:read-only {
+input[type="text"]:disabled, input[type="number"]:disabled {
 	background-color: #555;
-	color: #999;
 }
 
 input[type="submit"], select, button {
