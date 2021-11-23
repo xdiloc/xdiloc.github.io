@@ -287,7 +287,7 @@ input[type="text"]:read-only, input[type="number"]:read-only {
 }
 
 input[type="text"]:disabled, input[type="number"]:disabled {
-	background-color: #555;
+	background-color: rgba(0, 0, 0,.3);
 	color: #999;
 }
 
@@ -387,7 +387,7 @@ input[type="checkbox"]:indeterminate + span:before {
 }
 
 input[type="checkbox"]:disabled + span:before {
-	background-color: #555;
+	background-color: rgba(0, 0, 0,.3);
 	color: #999;
 }
 
