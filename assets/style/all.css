@@ -175,6 +175,13 @@ p {
 	background-color: rgba(0, 0, 0,.5);
 }
 
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+	.content {
+		-webkit-backdrop-filter: blur(10px);
+		backdrop-filter: blur(10px);
+	}
+}
+
 footer {
 	position: fixed;
 	right: 0;
