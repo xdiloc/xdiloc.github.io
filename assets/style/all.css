@@ -156,23 +156,26 @@ p {
 	width: 100%;
 }
 
-.logo, .content, .footer {
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+	.logo, .content, footer {
+		-webkit-backdrop-filter: blur(10px);
+		backdrop-filter: blur(10px);
+	}
+}
+
+.logo, .content, footer {
 	box-shadow: var(--shadow);
 	-o-box-shadow: var(--shadow);
 	-moz-box-shadow: var(--shadow);
 	-webkit-box-shadow: -webkit-var(--shadow);
+	background-color: rgba(0, 0, 0,.5);
 }
 
 .logo {
-	background-color: rgba(0, 0, 0,.5);
 	color: #FF9000;
 	font-family: 'large9';
 	text-align: center;
 	text-shadow: 1px 1px 0px #000;
-}
-
-.content {
-	background-color: rgba(0, 0, 0,.5);
 }
 
 footer {
@@ -181,14 +184,6 @@ footer {
 	bottom: 0;
 	width: 100%;
 	border-top: 2px solid #A8B1BB;
-	background-color: rgba(0, 0, 0,.5);
-}
-
-@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-	footer, .content {
-		-webkit-backdrop-filter: blur(10px);
-		backdrop-filter: blur(10px);
-	}
 }
 
 .we {
@@ -229,7 +224,6 @@ textarea {
 	font-family: monospace;
 	color: #FFF;
 	font-size: 14px;
-/*	border: 1px solid #666; */
 /*	box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, .2), inset 0px 0px 1px 0px rgba(0, 0, 0, .3); */
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
