@@ -39,13 +39,13 @@ body {
 }
 
 a, a:active {
-	color: #6699CC;
+	color: #CCEEFF;
 	outline-style: none;
 	text-decoration: none;
 }
 
 a:visited {
-	color: #6699CC;
+	color: #CCEEFF;
 }
 
 a:hover {
