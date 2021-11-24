@@ -39,13 +39,13 @@ body {
 }
 
 a, a:active {
-	color: #CCEEFF;
+	color: #99ddff;
 	outline-style: none;
 	text-decoration: none;
 }
 
 a:visited {
-	color: #CCEEFF;
+	color: #99ddff;
 }
 
 a:hover {
@@ -66,6 +66,10 @@ h2 {
 p {
 	text-align: justify;
 	text-justify: inter-word;
+}
+
+ul {
+	list-style-position: inside;
 }
 
 @media screen and (max-width: 720px) {
