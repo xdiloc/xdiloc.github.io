@@ -291,31 +291,37 @@ input[type="text"]:disabled, input[type="number"]:disabled {
 
 input[type="submit"], select, button {
 	margin: 0;
-	border: none;
 	/* line-height: 20px; */
 	text-align: center;
 	text-align-last: center;
+	text-shadow: none;
 	min-width: 200px;
-	color: #fff;
+	color: #99ddff;
 	font-size: 14px;
 	font-weight: bold;
 	cursor: pointer;
-	background-color: #6699CC;
+	background-color: #222;
 	transition: 200ms;
 	transition-timing-function: ease-in-out;
-	-webkit-transition: 200ms;
+	-webkit-transition: 150ms;
 	-webkit-transition-timing-function: ease-in-out;
+	border-left: 6px solid #99ddff;
+	border-right: 6px solid #99ddff;
+	border-top: none;
+	border-bottom: none;
 	border-radius: 3px;
-	text-shadow: none;
 }
 
 input[type="submit"]:hover, select:hover, button:hover {
-	background-color: #1f668f;
+	border-left: 10px solid #FF9000;
+	border-right: 10px solid #FF9000;
+	border-top: none;
+	border-bottom: none;
+	color: #FF9000;
 }
 
 select {
 	margin: 0;
-	border: none;
 	padding-left: 0;
 	padding-right: 0;
 	padding-top: 4px;
@@ -332,12 +338,12 @@ input[type="submit"], button {
 	padding-bottom: 5px;
 }
 
-select, select:-moz-focusring, select::-moz-focus-inner {
+/*select, select:-moz-focusring, select::-moz-focus-inner {
 	color: transparent !important;
 	text-shadow: 0 0 0 #FFF !important;
 	background-image: none !important;
 	border: 0;
-}
+}*/
 
 input[type="checkbox"] {
 	-webkit-appearance: none;
@@ -378,7 +384,7 @@ input[type="checkbox"] + span:before {
 
 input[type="checkbox"]:checked + span:before,
 input[type="checkbox"]:indeterminate + span:before {
-	color: #6699CC;
+	color: #99ddff;
 	content: "\2713";
 	font-size: 15px;
 	text-shadow: 0px 0px 1px rgba(0, 0, 0, .3);
