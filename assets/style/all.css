@@ -210,7 +210,7 @@ footer {
 ::-webkit-selection { background-color: #fff; color: #333; }
 
 *:focus {
-	outline: 1px solid #666;
+	outline: 1px solid #a053df;
 }
 
 textarea, input, input[type="checkbox"] + span:before {
@@ -233,7 +233,13 @@ textarea {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+/*
 	border-radius: 3px;
+	border-width: 1px;
+	border-style: solid;
+	border-image: linear-gradient(to right bottom, #260B3C, #a053df);
+	border-image-slice: 1;
+*/
 }
 
 label {
@@ -275,9 +281,7 @@ input[type="text"], input[type="number"] {
 	padding-top: 5px;
 	padding-left: 7px;
 	padding-right: 7px;
-	border: none;
 /*	box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, .2), inset 0px 0px 1px 0px rgba(0, 0, 0, .3); */
-	border-radius: 3px;
 }
 
 input[type="text"]:read-only, input[type="number"]:read-only {
@@ -306,11 +310,6 @@ input[type="submit"], select, button {
 	transition-timing-function: ease-in-out;
 	-webkit-transition: 150ms;
 	-webkit-transition-timing-function: ease-in-out;
-	border-left: 6px solid #99ddff;
-	border-right: 6px solid #99ddff;
-	border-top: none;
-	border-bottom: none;
-	border-radius: 3px;
 }
 
 input[type="submit"]:hover, select:hover, button:hover {
@@ -380,7 +379,6 @@ input[type="checkbox"] + span:before {
 	background-color: #222;
 	text-align: center;
 /*	box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, .2), inset 0px 0px 1px 0px rgba(0, 0, 0, .3); */
-	border-radius: 3px;
 }
 
 input[type="checkbox"]:checked + span:before,
