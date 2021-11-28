@@ -311,7 +311,6 @@ input[type="submit"], select, button {
 	transition-timing-function: ease-in-out;
 	-webkit-transition: 150ms;
 	-webkit-transition-timing-function: ease-in-out;
-	border-radius: 3px;
 	border-left: 6px solid #99ddff;
 	border-right: 6px solid #99ddff;
 	border-top: none;
