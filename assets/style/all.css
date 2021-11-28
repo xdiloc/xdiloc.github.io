@@ -282,6 +282,7 @@ input[type="text"], input[type="number"] {
 	padding-left: 7px;
 	padding-right: 7px;
 /*	box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, .2), inset 0px 0px 1px 0px rgba(0, 0, 0, .3); */
+	border-radius: 3px;
 }
 
 input[type="text"]:read-only, input[type="number"]:read-only {
@@ -310,6 +311,7 @@ input[type="submit"], select, button {
 	transition-timing-function: ease-in-out;
 	-webkit-transition: 150ms;
 	-webkit-transition-timing-function: ease-in-out;
+	border-radius: 3px;
 	border-left: 6px solid #99ddff;
 	border-right: 6px solid #99ddff;
 	border-top: none;
