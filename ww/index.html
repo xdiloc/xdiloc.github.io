@@ -96,7 +96,7 @@ function x_set() {
 function x_fset() {
 	let hh = window.location.hash.substring(1);
 	let show = document.getElementById('show');
-	if (hh.length < 1) window.location.hash = '#' + show.value;
+	if (hh.length === 0) window.location.hash = '#' + show.value;
 }
 </script>
 
