@@ -65,6 +65,7 @@ function loadJSON(file, callback) {
 function x_load() {
 	let out = document.getElementById('out');
 	let hh = window.location.hash.substring(1);
+	let show = document.getElementById('show');
 	out.classList.add('efw');
 	loadJSON('https://xdiloc.github.io/ww/data/' + hh + '.json', function(json) {
 		if (json === void 0) {
@@ -80,6 +81,7 @@ function x_load() {
 			out.innerHTML = '<tr><td>bad index: ' + hh + '.json</td></tr>';
 			return;
 		}
+		document.title = "url book - " + show.options[show.selectedIndex].text;
 		dd.forEach(function(ww) {
 			let newtab = '';
 			if (ww['newtab'] == '1') newtab = 'target=\"_blank\" ';
@@ -125,7 +127,6 @@ function x_hash() {
 	for (let i = 0; i < show.length; i++) {
 		if (hh == show[i].value) {
 			show.selectedIndex = i;
-			document.title = "url book - " + show.options[i].text;
 			x_set();
 			break;
 		}
