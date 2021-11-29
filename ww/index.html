@@ -62,14 +62,10 @@ function loadJSON(file, callback) {
 	xobj.send(null);
 }
 
-function x_hpush() {
-	history.pushState("", document.title, window.location.pathname);
-}
-
 function x_load() {
 	let out = document.getElementById('out');
 	let show = document.getElementById('show');
-//	out.innerHTML = '';
+	out.innerHTML = '';
 	out.classList.add('efw');
 	loadJSON('https://xdiloc.github.io/ww/data/' + show.value + '.json', function(json) {
 		if (json === void 0) {
@@ -128,7 +124,8 @@ function x_hash() {
 
 document.onreadystatechange = function () {
 	if (document.readyState == "complete") {
-		window.onhashchange = x_hash();
+		x_hash();
+		window.addEventListener("hashchange", x_hash, false);
 	}
 }
 </script>
