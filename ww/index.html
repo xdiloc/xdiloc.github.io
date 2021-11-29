@@ -70,10 +70,12 @@ function x_load() {
 		if (json === void 0) {
 			out.classList.remove('efw');
 			out.innerHTML = '<tr><td>undefined callback: ' + hh + '.json</td></tr>';
+			document.title = "url book";
 			return;
 		}
 		let dd = json[hh], cache = '';
 		if (dd === void 0) {
+			document.title = "url book";
 			out.classList.remove('efw');
 			out.innerHTML = '<tr><td>bad index: ' + hh + '.json</td></tr>';
 			return;
@@ -123,6 +125,7 @@ function x_hash() {
 	for (let i = 0; i < show.length; i++) {
 		if (hh == show[i].value) {
 			show.selectedIndex = i;
+			document.title = "url book - " + show.options[i].text;
 			x_set();
 			break;
 		}
