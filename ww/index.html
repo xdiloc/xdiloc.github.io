@@ -62,16 +62,14 @@ function loadJSON(file, callback) {
 	xobj.send(null);
 }
 
-function x_load() {
+function x_load(hh, show) {
 	let out = document.getElementById('out');
-	let hh = window.location.hash.substring(1);
-	let show = document.getElementById('show');
 	out.classList.add('efw');
 	loadJSON('https://xdiloc.github.io/ww/data/' + hh + '.json', function(json) {
 		if (json === void 0) {
+			document.title = "url book";
 			out.classList.remove('efw');
 			out.innerHTML = '<tr><td>undefined callback: ' + hh + '.json</td></tr>';
-			document.title = "url book";
 			return;
 		}
 		let dd = json[hh], cache = '';
@@ -131,7 +129,7 @@ function x_hash() {
 			break;
 		}
 	}
-	x_load();
+	x_load(hh, show);
 }
 
 document.onreadystatechange = function () {
