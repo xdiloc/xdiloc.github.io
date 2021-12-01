@@ -62,7 +62,7 @@ function loadJSON(file, callback) {
 	xobj.send(null);
 }
 
-function x_load(hh, show) {
+function x_load(hh, choice) {
 	let out = document.getElementById('out');
 	out.classList.add('efw');
 	loadJSON('https://xdiloc.github.io/ww/data/' + hh + '.json', function(json) {
@@ -79,7 +79,7 @@ function x_load(hh, show) {
 			out.innerHTML = '<tr><td>bad index: ' + hh + '.json</td></tr>';
 			return;
 		}
-		document.title = "url book - " + show.options[show.selectedIndex].text;
+		document.title = "url book - " + choice.options[choice.selectedIndex].text;
 		dd.forEach(function(ww) {
 			let newtab = '';
 			if (ww['newtab'] == '1') newtab = 'target=\"_blank\" ';
@@ -90,22 +90,21 @@ function x_load(hh, show) {
 	});
 }
 
-function x_set() {
-	let show = document.getElementById('show');
-	window.location.hash = '#' + show.value;
-}
-
-function x_fset() {
-	let hh = window.location.hash.substring(1);
-	let show = document.getElementById('show');
-	if (hh.length === 0) window.location.hash = '#' + show.value;
+function x_dset(dd) {
+	let choice = document.getElementById('choice');
+	if (dd === 1) {
+		let hh = window.location.hash.substring(1);
+		if (hh.length === 0) window.location.hash = '#' + choice.value;
+	} else {
+		window.location.hash = '#' + choice.value;
+	}
 }
 </script>
 
 <div class="wrapper warp">
 <div class="content warp">
 <h2>url book</h2><hr />
-<select id="show" onchange="x_set();">
+<select id="choice" onchange="x_dset();">
 <option value="xd">my projects</option>
 <option value="webdev">web developer</option>
 <option value="net">network</option>
@@ -120,21 +119,20 @@ function x_fset() {
 
 <script>
 function x_hash() {
-	let show = document.getElementById('show');
+	let choice = document.getElementById('choice');
 	let hh = window.location.hash.substring(1);
-	for (let i = 0; i < show.length; i++) {
-		if (hh == show[i].value) {
-			show.selectedIndex = i;
-			x_set();
+	for (let i = 0; i < choice.length; i++) {
+		if (hh == choice[i].value) {
+			choice.selectedIndex = i;
 			break;
 		}
 	}
-	x_load(hh, show);
+	x_load(hh, choice);
 }
 
 document.onreadystatechange = function () {
 	if (document.readyState == "complete") {
-		x_fset();
+		x_dset(1);
 		x_hash();
 		window.addEventListener("hashchange", x_hash, false);
 	}
