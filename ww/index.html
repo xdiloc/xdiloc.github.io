@@ -124,7 +124,10 @@ function x_dset() {
 function x_hash() {
 	let choice = document.getElementById('choice');
 	let hh = window.location.hash.substring(1);
-	if (hh.length === 0) return;
+	if (hh.length === 0) {
+		x_dset();
+		return;
+	}
 	for (let i = 0; i < choice.length; i++) {
 		if (hh == choice[i].value) {
 			choice.selectedIndex = i;
@@ -136,7 +139,7 @@ function x_hash() {
 
 document.onreadystatechange = function () {
 	if (document.readyState == "complete") {
-		x_dset();
+		x_hash();
 		window.addEventListener("hashchange", x_hash, false);
 	}
 }
