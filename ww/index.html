@@ -102,10 +102,9 @@ function x_dset(dd) {
 	let choice = document.getElementById('choice');
 	if (dd === 1) {
 		let hh = window.location.hash.substring(1);
-		if (hh.length === 0) window.location.hash = '#' + choice.value;
-	} else {
-		window.location.hash = '#' + choice.value;
+		if (hh.length !== 0) return;
 	}
+	window.location.hash = '#' + choice.value;
 }
 </script>
 
