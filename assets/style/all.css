@@ -131,8 +131,6 @@ ul {
 
 .warp > * {
 	margin-bottom: 8px;
-	margin-left: auto;
-	margin-right: auto;
 }
 
 .warp > *:last-child, .warp > *:only-child {
@@ -171,6 +169,8 @@ ul {
 
 .logo, .content {
 	max-width: 1280px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .logo {
