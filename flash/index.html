@@ -23,6 +23,11 @@
 #hexxagon {
 	text-align: center;
 }
+
+#Incriminati
+ {
+	text-align: center;
+}
 </style>
 </head>
 <body>
@@ -31,7 +36,6 @@
 <div class="content warp">
 <h2>hexxagon</h2><hr />
 <div id="hexxagon"></div>
-</div>
 </div>
 
 <script>
@@ -46,6 +50,26 @@ window.addEventListener("load", (event) => {
 	player.load("hexxagon-en.swf");
 });
 </script>
+
+<div class="content warp">
+<h2>Incriminati</h2><hr />
+<div id="Incriminati"></div>
+</div>
+</div>
+
+<script>
+window.RufflePlayer = window.RufflePlayer || {};
+window.addEventListener("load", (event) => {
+	const ruffle = window.RufflePlayer.newest();
+	const player = ruffle.createPlayer();
+	const container = document.getElementById("Incriminati");
+	container.appendChild(player);
+	player.style.width = "1280px";
+	player.style.height = "600px";
+	player.load("Incriminati.swf");
+});
+</script>
+
 <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
 
 <footer>
