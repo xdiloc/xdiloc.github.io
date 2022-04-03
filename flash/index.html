@@ -5,7 +5,7 @@
 <!-- xd -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Генератор ключа Q3">
+<meta name="description" content="флеш игры">
 <meta name="msapplication-TileColor" content="#2d89ef">
 <meta name="msapplication-config" content="https://xdiloc.github.io/browserconfig.xml">
 <meta name="theme-color" content="#ffffff">
@@ -24,8 +24,7 @@
 	text-align: center;
 }
 
-#Incriminati
- {
+#incriminati {
 	text-align: center;
 }
 </style>
@@ -45,31 +44,28 @@ window.addEventListener("load", (event) => {
 	const player = ruffle.createPlayer();
 	const container = document.getElementById("hexxagon");
 	container.appendChild(player);
-	player.style.width = "1280px";
-	player.style.height = "600px";
+	player.style.width = "600px";
+	player.style.height = "400px";
 	player.load("hexxagon-en.swf");
 });
 </script>
 
 <div class="content warp">
-<h2>Incriminati</h2><hr />
-<div id="Incriminati"></div>
+<h2>incriminati</h2><hr />
+<div id="incriminati"></div>
 </div>
 </div>
 
 <script>
 window.RufflePlayer = window.RufflePlayer || {};
-window.RufflePlayer.config = {
-	"autoplay": "off",
-};
 window.addEventListener("load", (event) => {
 	const ruffle = window.RufflePlayer.newest();
 	const player = ruffle.createPlayer();
-	const container = document.getElementById("Incriminati");
+	const container = document.getElementById("incriminati");
 	container.appendChild(player);
-	player.style.width = "800px";
-	player.style.height = "600px";
-	player.load("Incriminati.swf");
+	player.style.width = "600px";
+	player.style.height = "400px";
+	player.load("incriminati.swf");
 });
 </script>
 
