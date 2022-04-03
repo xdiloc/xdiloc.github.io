@@ -19,13 +19,18 @@
 <link rel="mask-icon" href="https://xdiloc.github.io/safari-pinned-tab.svg" color="#5bbad5">
 <link rel="stylesheet" href="https://xdiloc.github.io/assets/style/all.css" type="text/css">
 <!-- xd -->
+<style>
+#hexxagon {
+	text-align: center;
+}
+</style>
 </head>
 <body>
 
 <div class="wrapper warp">
 <div class="content warp">
-<h2>flash test</h2><hr />
-<div id="container"></div>
+<h2>hexxagon</h2><hr />
+<div id="hexxagon"></div>
 </div>
 </div>
 
@@ -34,9 +39,11 @@ window.RufflePlayer = window.RufflePlayer || {};
 window.addEventListener("load", (event) => {
 	const ruffle = window.RufflePlayer.newest();
 	const player = ruffle.createPlayer();
-	const container = document.getElementById("container");
+	const container = document.getElementById("hexxagon");
 	container.appendChild(player);
 	player.load("hexxagon-en.swf");
+	player.style.width = "800px";
+	player.style.width = "600px";
 });
 </script>
 <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
