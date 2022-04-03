@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<title>flash</title>
+<title>flash game</title>
 <!-- xd -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -20,10 +20,6 @@
 <link rel="stylesheet" href="https://xdiloc.github.io/assets/style/all.css" type="text/css">
 <!-- xd -->
 <style>
-#hexxagon {
-	text-align: center;
-}
-
 #incriminati {
 	text-align: center;
 }
@@ -32,24 +28,6 @@
 <body>
 
 <div class="wrapper warp">
-<div class="content warp">
-<h2>hexxagon</h2><hr />
-<div id="hexxagon"></div>
-</div>
-
-<script>
-window.RufflePlayer = window.RufflePlayer || {};
-window.addEventListener("load", (event) => {
-	const ruffle = window.RufflePlayer.newest();
-	const player = ruffle.createPlayer();
-	const container = document.getElementById("hexxagon");
-	container.appendChild(player);
-	player.style.width = "600px";
-	player.style.height = "400px";
-	player.load("hexxagon-en.swf");
-});
-</script>
-
 <div class="content warp">
 <h2>incriminati</h2><hr />
 <div id="incriminati"></div>
@@ -68,7 +46,6 @@ window.addEventListener("load", (event) => {
 	player.load("incriminati.swf");
 });
 </script>
-
 <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
 
 <footer>
