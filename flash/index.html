@@ -41,9 +41,9 @@ window.addEventListener("load", (event) => {
 	const player = ruffle.createPlayer();
 	const container = document.getElementById("hexxagon");
 	container.appendChild(player);
-	player.load("hexxagon-en.swf");
 	player.style.width = "800px";
-	player.style.width = "600px";
+	player.style.height = "600px";
+	player.load("hexxagon-en.swf");
 });
 </script>
 <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
