@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="https://xdiloc.github.io/assets/style/all.css" type="text/css">
 <!-- xd -->
 <style>
-#hexxagon {
+.cnt {
 	text-align: center;
 }
 </style>
@@ -30,23 +30,26 @@
 <div class="wrapper warp">
 <div class="content warp">
 <h2>hexxagon</h2><hr />
+<div class="cnt">
 <div id="hexxagon"></div>
+<a href="javascript:fs();" title="go back page">развернуть на весь экран</a>
+</div>
 </div>
 </div>
 
-<script>
-window.RufflePlayer = window.RufflePlayer || {};
-window.addEventListener("load", (event) => {
-	const ruffle = window.RufflePlayer.newest();
-	const player = ruffle.createPlayer();
-	const container = document.getElementById("hexxagon");
-	container.appendChild(player);
-	player.style.width = "600px";
-	player.style.height = "400px";
-	player.load("hexxagon-en.swf");
-});
-</script>
 <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+<script>
+const ruffle = window.RufflePlayer.newest();
+const player = ruffle.createPlayer();
+const container = document.getElementById("hexxagon");
+container.appendChild(player);
+player.style.width = "600px";
+player.style.height = "400px";
+player.load("hexxagon-en.swf");
+function fs() {
+	player.enterFullscreen();
+}
+</script>
 
 <footer>
 <div class="we">
