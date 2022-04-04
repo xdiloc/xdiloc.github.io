@@ -6,4 +6,5 @@
 {"url":"https://developers.google.com/speed/pagespeed/insights/","name":"PageSpeed Insights","newtab":"1","title":"PageSpeed Insights","description":"Проверить скорость загрузки веб страницы."},
 {"url":"https://search.google.com/search-console","name":"search.google.com","newtab":"1","title":"Google Search Console tool","description":"Инструмент для оценки индексации сайтов в google поисковике."},
 {"url":"https://webmaster.yandex.ru/","name":"webmaster.yandex.ru","newtab":"1","title":"Инструмент для оценки индексации сайта","description":"Инструмент для оценки индексации сайтов в yandex поисковике."}
+{"url":"https://ruffle.rs/","name":"ruffle.rs","newtab":"1","title":"Эмулятор флеш-плеера","description":"Эмулятор флеш-плеера."}
 ]}
