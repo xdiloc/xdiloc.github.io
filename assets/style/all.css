@@ -72,10 +72,13 @@ ul {
 	list-style-position: inside;
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (min-device-width: 1281px) {
 	.wrapper {
-		padding: 10px;
+		width: 1260px;
 	}
+}
+
+@media screen and (max-width: 720px) {
 	.logo {
 		font-size: 18px;
 	}
@@ -103,9 +106,6 @@ ul {
 }
 
 @media screen and (min-width: 721px) {
-	.wrapper {
-		padding: 14px;
-	}
 	.logo {
 		font-size: 22px;
 	}
@@ -126,7 +126,10 @@ ul {
 }
 
 .wrapper {
+	margin-left: auto;
+	margin-right: auto;
 	margin-bottom: 54px;
+	padding: 10px;
 }
 
 .warp > * {
@@ -165,12 +168,6 @@ ul {
 	-moz-box-shadow: var(--shadow);
 	-webkit-box-shadow: -webkit-var(--shadow);
 	background-color: rgba(0, 0, 0,.5);
-}
-
-.logo, .content {
-	max-width: 1280px;
-	margin-left: auto;
-	margin-right: auto;
 }
 
 .logo {
