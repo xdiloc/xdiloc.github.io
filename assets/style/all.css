@@ -320,7 +320,6 @@ input[type="number"]:disabled {
 select,
 button,
 input[type="submit"] {
-	/* line-height: 20px; */
 	width: 200px;
 	color: #99ddff;
 	text-align: center;
@@ -363,6 +362,7 @@ input[type="checkbox"] + span {
 	cursor: pointer;
 	display: inline-flex;
 	align-items: center;
+	line-height: 21px;
 }
 
 input[type="checkbox"] + span:before {
