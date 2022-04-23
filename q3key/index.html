@@ -20,15 +20,9 @@
 <link rel="stylesheet" href="https://xdiloc.github.io/assets/style/all.css" type="text/css">
 <!-- xd -->
 <style>
-.out {
-	display: inline-block;
-	padding-top: 4px;
-	padding-bottom: 4px;
-	padding-right: 8px;
-	padding-left: 8px;
-	background-color: #ddd;
-	font-family: monospace;
-	color: #000;
+#q3key {
+	text-align: center;
+	width: 200px;
 }
 </style>
 </head>
@@ -37,7 +31,7 @@
 <div class="wrapper warp">
 <div class="content warp">
 <h2>q3key</h2><hr />
-<div><span class="out" id="q3key"></span> <a href="javascript:makeid();">new key</a></div>
+<div  class="gg"><input type="text" id="q3key" onclick="this.select();" readonly autofocus> <button onclick="javascript:makeid();">new key</button></div>
 </div>
 </div>
 
@@ -45,7 +39,7 @@
 function makeid() {
 	let text = '', possible = '237abcdghjlprstw';
 	for(let i = 0; i < 16; i++) text += possible.charAt(Math.floor(Math.random() * possible.length));
-	document.getElementById("q3key").innerHTML = text;
+	document.getElementById("q3key").value  = text;
 }
 makeid();
 console.log('%cxdiloc.github.io', 'color: #666;');
