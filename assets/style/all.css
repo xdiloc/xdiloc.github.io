@@ -336,33 +336,6 @@ input[type="submit"]:hover {
 	color: #000;
 }
 
-/*
-input[type="checkbox"] + span::after {
-  border-left: 2px solid #666;
-  border-bottom: 2px solid #666;
-  color: #09ad7e;
-  content: "";
-  position: absolute;
-  transition: all 0.2s;
-  transform: scale(1) rotate(-45deg);
-  left: 6px;
-  height: 3px;
-  top: 7px;
-  width: 9px;
-}
-
-input[type="checkbox"] + span::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 20px;
-  height: 20px;
-  border: 1px solid #aaa;
-  background: #f8f8f8;
-  border-radius: 2px;
-}
-*/
 input[type="checkbox"] {
 	position: absolute;
 	opacity: 0;
