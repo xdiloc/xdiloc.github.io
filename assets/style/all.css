@@ -353,7 +353,6 @@ input[type="checkbox"] + span:before {
 	vertical-align: top;
 	background-color: #222;
 	text-align: center;
-/*	box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, .2), inset 0px 0px 1px 0px rgba(0, 0, 0, .3); */
 	border-radius: 3px;
 }
 
