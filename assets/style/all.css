@@ -367,6 +367,7 @@ input[type="checkbox"] + span {
 
 input[type="checkbox"] + span:before {
 	left: 0;
+	top: 0;
 	content: "";
 	position: absolute;
 	display: block;
