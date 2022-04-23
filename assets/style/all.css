@@ -114,7 +114,7 @@ ul {
 	flex-direction: row;
 	flex-wrap: wrap;
 	align-items: center;
-	column-gap: 6px;
+	column-gap: 8px;
 	row-gap: 8px;
 }
 
@@ -336,6 +336,33 @@ input[type="submit"]:hover {
 	color: #000;
 }
 
+/*
+input[type="checkbox"] + span::after {
+  border-left: 2px solid #666;
+  border-bottom: 2px solid #666;
+  color: #09ad7e;
+  content: "";
+  position: absolute;
+  transition: all 0.2s;
+  transform: scale(1) rotate(-45deg);
+  left: 6px;
+  height: 3px;
+  top: 7px;
+  width: 9px;
+}
+
+input[type="checkbox"] + span::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #aaa;
+  background: #f8f8f8;
+  border-radius: 2px;
+}
+*/
 input[type="checkbox"] {
 	position: absolute;
 	opacity: 0;
@@ -354,16 +381,20 @@ input[type="checkbox"] + span {
 }
 
 input[type="checkbox"] + span {
+	padding-left: 28px;
+	position: relative;
 	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
 }
 
 input[type="checkbox"] + span:before {
-	margin-right: 8px;
+	left: 0;
 	content: "";
-	display: inline-block;
-	width: 18px;
-	height: 18px;
-	vertical-align: top;
+	position: absolute;
+	display: block;
+	width: 21px;
+	height: 21px;
 	background-color: #222;
 	text-align: center;
 	border-radius: 3px;
@@ -373,7 +404,7 @@ input[type="checkbox"]:checked + span:before,
 input[type="checkbox"]:indeterminate + span:before {
 	color: #99ddff;
 	content: "\2713";
-	font-size: 15px;
+	font-size: 18px;
 }
 
 input[type="checkbox"]:disabled + span:before {
@@ -382,6 +413,7 @@ input[type="checkbox"]:disabled + span:before {
 }
 
 input[type="checkbox"]:disabled + span {
+	cursor: default;
 	color: #999;
 }
 
