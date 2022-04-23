@@ -246,7 +246,7 @@ textarea {
 */
 }
 
-textarea:hover {
+textarea:focus {
 	background: linear-gradient(135deg,#222 0,#222 97%,#ad988b 97%);
 }
 
