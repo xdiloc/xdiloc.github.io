@@ -205,9 +205,13 @@ footer {
 	}
 }
 
-::selection { background-color: #fff; color: #333; }
-::-moz-selection { background-color: #fff; color: #333; }
-::-webkit-selection { background-color: #fff; color: #333; }
+::selection,
+::-moz-selection,
+::-webkit-selection {
+	color: #333;
+	text-shadow: none;
+	background-color: #fff;
+}
 
 *:focus {
 	outline: 1px solid #ad988b;
