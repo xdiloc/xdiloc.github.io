@@ -26,14 +26,19 @@ input[type="text"] {
 }
 
 .color, .grad {
-	color: #FFF;
-	text-align: center;
+	color: #fff;
+	font-family: monospace;
+	text-shadow: none;
+	text-align: right;
 	width: 100%;
-	padding-top: 5px;
 }
 
-.color {
-	padding-bottom: 5px;
+.color span, .grad span {
+	display: inline-block;
+	background-color: rgba(0, 0, 0, 0.6);
+	padding: 4px 10px;
+	margin: 3px;
+	border-radius: 3px;
 }
 
 .grad {
@@ -138,7 +143,7 @@ input[type="text"] {
 
 <div class="box warp">
 <div class="gg center">
-<input type="range" id="step" value="5" min="2" max="50" oninput="cs.inp_c();">
+<input type="range" id="step" value="5" min="3" max="50" oninput="cs.inp_c();">
 <span>Число результатов:</span><span id="steps"></span>
 </div>
 
@@ -205,7 +210,7 @@ class ColorStep {
 		return this.rgbToHex(color[0], color[1], color[2]);
 	}
 	interpolateColor(color1, color2, factor) {
-		//if (arguments.length < 3) factor = 0.5;
+/*		if (this.step.value < 3) factor = 0.5; */
 		const result = color1.slice();
 		for (let i = 0; i < 3; i++) result[i] = Math.round(result[i] + factor * (color2[i] - color1[i]));
 		return this.rgbArrayToHex(result);
@@ -235,9 +240,9 @@ class ColorStep {
 		let cache = '';
 		this.sout.innerHTML = '';
 		this.steps.innerHTML = this.step.value;
-		for (let i = 0; i < gen.length; i++) cache += '<div class=\"color\" style=\"background-color: ' + gen[i] + ';\">' + gen[i] + '</div>';
+		for (let i = 0; i < gen.length; i++) cache += '<div class=\"color\" style=\"background-color: ' + gen[i] + ';\"><span>' + gen[i] + '</span></div>';
 		this.sout.innerHTML = cache;
-		this.gout.innerHTML = '<div class=\"grad\" style=\"height: ' + (this.sout.offsetHeight - 5) + 'px; background: linear-gradient(' + this.c1.value + ', ' + this.c2.value + ');\">background: linear-gradient(' + this.c1.value + ', ' + this.c2.value + ');</div>';
+		this.gout.innerHTML = '<div class=\"grad\" style=\"height: ' + (this.sout.offsetHeight) + 'px; background: linear-gradient(' + this.c1.value + ', ' + this.c2.value + ');\"><span>background: linear-gradient(' + this.c1.value + ', ' + this.c2.value + ');</span></div>';
 	}
 	inp_c() {
 		this.c1i.value = this.c1.value;
