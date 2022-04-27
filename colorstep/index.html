@@ -41,6 +41,29 @@ input[type="text"] {
 	border-radius: 3px;
 }
 
+.color span {
+	cursor: pointer;
+}
+
+.color span:hover {
+	background-color: #fff;
+	color: #222;
+}
+
+.color span::before {
+	display: none;
+	content:'copy';
+	margin-right: 6px;
+}
+
+.color span:active {
+	background-color: #FF9000;
+}
+
+.color span:hover::before {
+	display: inline-block;
+}
+
 .grad {
 	border-radius: 6px;
 }
@@ -173,6 +196,15 @@ input[type="text"] {
 </div>
 
 <script>
+function copycc(event) {
+	var r = document.createRange();
+	r.selectNode(document.getElementById(event.id));
+	window.getSelection().removeAllRanges();
+	window.getSelection().addRange(r);
+	document.execCommand('copy');
+	window.getSelection().removeAllRanges();
+}
+
 class ColorStep {
 	constructor() {
 		this.c1 = document.getElementById('c1');
@@ -240,7 +272,7 @@ class ColorStep {
 		let cache = '';
 		this.sout.innerHTML = '';
 		this.steps.innerHTML = this.step.value;
-		for (let i = 0; i < gen.length; i++) cache += '<div class=\"color\" style=\"background-color: ' + gen[i] + ';\"><span>' + gen[i] + '</span></div>';
+		for (let i = 0; i < gen.length; i++) cache += '<div class=\"color\" style=\"background-color: ' + gen[i] + ';\"><span  id="bc' + i + '" onclick="copycc(this)">' + gen[i] + '</span></div>';
 		this.sout.innerHTML = cache;
 		this.gout.innerHTML = '<div class=\"grad\" style=\"height: ' + (this.sout.offsetHeight) + 'px; background: linear-gradient(' + this.c1.value + ', ' + this.c2.value + ');\"><span>background: linear-gradient(' + this.c1.value + ', ' + this.c2.value + ');</span></div>';
 	}
