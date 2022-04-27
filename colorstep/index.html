@@ -272,7 +272,7 @@ class ColorStep {
 		let cache = '';
 		this.sout.innerHTML = '';
 		this.steps.innerHTML = this.step.value;
-		for (let i = 0; i < gen.length; i++) cache += '<div class=\"color\" style=\"background-color: ' + gen[i] + ';\"><span  id="bc' + i + '" onclick="copycc(this)">' + gen[i] + '</span></div>';
+		for (let i = 0; i < gen.length; i++) cache += '<div class=\"color\" style=\"background-color: ' + gen[i] + ';\"><span id="bc' + i + '" onclick="copycc(this)">' + gen[i] + '</span></div>';
 		this.sout.innerHTML = cache;
 		this.gout.innerHTML = '<div class=\"grad\" style=\"height: ' + (this.sout.offsetHeight) + 'px; background: linear-gradient(' + this.c1.value + ', ' + this.c2.value + ');\"><span>background: linear-gradient(' + this.c1.value + ', ' + this.c2.value + ');</span></div>';
 	}
