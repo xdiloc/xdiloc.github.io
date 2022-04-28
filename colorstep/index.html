@@ -38,28 +38,33 @@ input[type="text"] {
 	background-color: rgba(0, 0, 0, 0.6);
 	padding: 4px 10px;
 	margin: 3px;
-	border-radius: 3px;
+	border-radius: 4px;
 }
 
+.grad span,
 .color span {
 	cursor: pointer;
 }
 
+.grad span:hover,
 .color span:hover {
 	background-color: #fff;
 	color: #222;
 }
 
+.grad span::before,
 .color span::before {
 	display: none;
 	content:'copy';
 	margin-right: 6px;
 }
 
+.grad span:active,
 .color span:active {
 	background-color: #FF9000;
 }
 
+.grad span:hover::before,
 .color span:hover::before {
 	display: inline-block;
 }
@@ -272,9 +277,9 @@ class ColorStep {
 		let cache = '';
 		this.sout.innerHTML = '';
 		this.steps.innerHTML = this.step.value;
-		for (let i = 0; i < gen.length; i++) cache += '<div class=\"color\" style=\"background-color: ' + gen[i] + ';\"><span id="bc' + i + '" onclick="copycc(this)">' + gen[i] + '</span></div>';
+		for (let i = 0; i < gen.length; i++) cache += '<div class=\"color\" style=\"background-color: ' + gen[i] + ';\"><span id="bc' + i + '" onclick="javascript:copycc(this)">' + gen[i] + '</span></div>';
 		this.sout.innerHTML = cache;
-		this.gout.innerHTML = '<div class=\"grad\" style=\"height: ' + (this.sout.offsetHeight) + 'px; background: linear-gradient(' + this.c1.value + ', ' + this.c2.value + ');\"><span>background: linear-gradient(' + this.c1.value + ', ' + this.c2.value + ');</span></div>';
+		this.gout.innerHTML = '<div class=\"grad\" style=\"height: ' + (this.sout.offsetHeight) + 'px; background: linear-gradient(' + this.c1.value + ', ' + this.c2.value + ');\"><span span id="bg1" onclick="javascript:copycc(this)">background: linear-gradient(' + this.c1.value + ', ' + this.c2.value + ');</span></div>';
 	}
 	inp_c() {
 		this.c1i.value = this.c1.value;
