@@ -267,7 +267,7 @@ textarea {
 
 textarea:focus {
 	resize: vertical;
-	background: linear-gradient(135deg,#222 0,#222 97%,#99ddff 97%);
+	background: linear-gradient(135deg,#222 0,#222 98%,#99ddff 98%);
 }
 
 input::-moz-focus-inner,
