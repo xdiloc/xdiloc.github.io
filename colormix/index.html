@@ -171,7 +171,7 @@ input[type="text"] {
 
 <div class="box warp">
 <div class="gg center">
-<input type="range" id="step" value="5" min="3" max="50" oninput="cm.inp_c();">
+<input type="range" id="step" value="5" min="1" max="50" oninput="cm.inp_c();">
 <span>Число результатов:</span><span id="steps"></span>
 </div>
 
@@ -246,7 +246,7 @@ class ColorMix {
 		return this.rgbToHex(color[0], color[1], color[2]);
 	}
 	interpolateColor(color1, color2, factor) {
-/*		if (this.step.value < 3) factor = 0.5; */
+		if (this.step.value < 2) factor = 0.5;
 		const result = color1.slice();
 		for (let i = 0; i < 3; i++) result[i] = Math.round(result[i] + factor * (color2[i] - color1[i]));
 		return this.rgbArrayToHex(result);
