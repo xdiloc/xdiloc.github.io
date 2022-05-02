@@ -19,7 +19,6 @@
 * {
 	margin: 0;
 	padding: 0;
-	border: none;
 	border-collapse: collapse;
 }
 
@@ -55,6 +54,7 @@ a:hover {
 hr {
 	background-color: #333;
 	height: 1px;
+	border: none;
 }
 
 h2 {
@@ -214,6 +214,18 @@ footer {
 
 *:focus {
 	outline: 1px solid #99ddff;
+}
+
+progress {
+	display: inline-block;
+	border: 1px solid #222;
+	background: #222;
+}
+
+progress::-moz-progress-bar,
+progress::-webkit-progress-bar,
+progress::-webkit-progress-value {
+	background-color: #6699cc !important;
 }
 
 label {
