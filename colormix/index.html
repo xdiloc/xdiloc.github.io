@@ -171,7 +171,7 @@ input[type="text"] {
 
 <div class="box warp">
 <div class="gg center">
-<input type="range" id="step" value="5" min="1" max="50" oninput="cm.inp_c();">
+<input type="range" id="step" value="5" min="0" max="50" oninput="cm.inp_c();">
 <span>Число результатов:</span><span id="steps"></span>
 </div>
 
@@ -272,15 +272,15 @@ class ColorMix {
 		return dd ? '#' + dd : '#';
 	}
 	init() {
-		let gen = this.interpolateColors(this.c1.value, this.c2.value, this.step.value);
-		let cache = '';
-		this.sout.innerHTML = '';
+		let cache = '', gen = this.interpolateColors(this.c1.value, this.c2.value, this.step.value);
 		this.steps.innerHTML = this.step.value;
+		this.sout.innerHTML = '';
 		for (let i = 0; i < gen.length; i++) cache += '<div class=\"color\" style=\"background-color: ' + gen[i] + ';\"><span id="bc' + i + '" onclick="javascript:cm.cc(this)">' + gen[i] + '</span></div>';
 		this.sout.innerHTML = cache;
 		this.gout.innerHTML = '<div class=\"grad\" style=\"height: ' + (this.sout.offsetHeight) + 'px; background: linear-gradient(' + this.c1.value + ', ' + this.c2.value + ');\"><span span id="bg1" onclick="javascript:cm.cc(this)">background: linear-gradient(' + this.c1.value + ', ' + this.c2.value + ');</span></div>';
 	}
 	inp_c() {
+		if (this.step.value < 1) this.step.value = 1;
 		this.c1i.value = this.c1.value;
 		this.c2i.value = this.c2.value;
 		this.init();
