@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<title>Color Step</title>
+<title>ColorMix</title>
 <!-- xd -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Генератор цвета interpolatecolor">
+<meta name="description" content="Генератор сочетание цветов">
 <meta name="msapplication-TileColor" content="#2d89ef">
 <meta name="msapplication-config" content="https://xdiloc.github.io/browserconfig.xml">
 <meta name="theme-color" content="#ffffff">
@@ -156,34 +156,34 @@ input[type="text"] {
 <div class="box warp">
 
 <div class="gg">
-<input type="color" id="c1" value="#29323c" onchange="cs.inp_c();" title="Выбрать цвет">
-<input type="text" id="c1i" oninput="cs.inp_t();">
-<a href="javascript:cs.crnd('1');" title="Случайный цвет">Случайный цвет</a>
+<input type="color" id="c1" value="#29323c" onchange="cm.inp_c();" title="Выбрать цвет">
+<input type="text" id="c1i" oninput="cm.inp_t();">
+<a href="javascript:cm.crnd('1');" title="Случайный цвет">Случайный цвет</a>
 </div>
 
 <div class="gg">
-<input type="color" id="c2" value="#485563" onchange="cs.inp_c();" title="Выбрать цвет">
-<input type="text" id="c2i" oninput="cs.inp_t();">
-<a href="javascript:cs.crnd('2');" title="Случайный цвет">Случайный цвет</a>
+<input type="color" id="c2" value="#485563" onchange="cm.inp_c();" title="Выбрать цвет">
+<input type="text" id="c2i" oninput="cm.inp_t();">
+<a href="javascript:cm.crnd('2');" title="Случайный цвет">Случайный цвет</a>
 </div>
 
 </div>
 
 <div class="box warp">
 <div class="gg center">
-<input type="range" id="step" value="5" min="3" max="50" oninput="cs.inp_c();">
+<input type="range" id="step" value="5" min="3" max="50" oninput="cm.inp_c();">
 <span>Число результатов:</span><span id="steps"></span>
 </div>
 
 <hr />
 
 <div class="gg center preset">
-<a href="javascript:cs.ex('1');" title="Пример 1"><div class="c1f"></div><div class="c1e"></div></a>
-<a href="javascript:cs.ex('2');" title="Пример 2"><div class="c2f"></div><div class="c2e"></div></a>
-<a href="javascript:cs.ex('3');" title="Пример 3"><div class="c3f"></div><div class="c3e"></div></a>
-<a href="javascript:cs.ex('4');" title="Пример 4"><div class="c4f"></div><div class="c4e"></div></a>
-<a href="javascript:cs.ex('5');" title="Пример 5"><div class="c5f"></div><div class="c5e"></div></a>
-<a href="javascript:cs.ex('6');" title="Пример 6"><div class="c6f"></div><div class="c6e"></div></a>
+<a href="javascript:cm.ex('1');" title="Пример 1"><div class="c1f"></div><div class="c1e"></div></a>
+<a href="javascript:cm.ex('2');" title="Пример 2"><div class="c2f"></div><div class="c2e"></div></a>
+<a href="javascript:cm.ex('3');" title="Пример 3"><div class="c3f"></div><div class="c3e"></div></a>
+<a href="javascript:cm.ex('4');" title="Пример 4"><div class="c4f"></div><div class="c4e"></div></a>
+<a href="javascript:cm.ex('5');" title="Пример 5"><div class="c5f"></div><div class="c5e"></div></a>
+<a href="javascript:cm.ex('6');" title="Пример 6"><div class="c6f"></div><div class="c6e"></div></a>
 </div>
 
 </div>
@@ -201,16 +201,7 @@ input[type="text"] {
 </div>
 
 <script>
-function copycc(event) {
-	var r = document.createRange();
-	r.selectNode(document.getElementById(event.id));
-	window.getSelection().removeAllRanges();
-	window.getSelection().addRange(r);
-	document.execCommand('copy');
-	window.getSelection().removeAllRanges();
-}
-
-class ColorStep {
+class ColorMix {
 	constructor() {
 		this.c1 = document.getElementById('c1');
 		this.c2 = document.getElementById('c2');
@@ -220,6 +211,14 @@ class ColorStep {
 		this.steps = document.getElementById('steps');
 		this.sout = document.getElementById('sout');
 		this.gout = document.getElementById('gout');
+	}
+	cc(event) {
+		var r = document.createRange();
+		r.selectNode(document.getElementById(event.id));
+		window.getSelection().removeAllRanges();
+		window.getSelection().addRange(r);
+		document.execCommand('copy');
+		window.getSelection().removeAllRanges();
 	}
 	hexArray(hex) {
 		return /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -277,9 +276,9 @@ class ColorStep {
 		let cache = '';
 		this.sout.innerHTML = '';
 		this.steps.innerHTML = this.step.value;
-		for (let i = 0; i < gen.length; i++) cache += '<div class=\"color\" style=\"background-color: ' + gen[i] + ';\"><span id="bc' + i + '" onclick="javascript:copycc(this)">' + gen[i] + '</span></div>';
+		for (let i = 0; i < gen.length; i++) cache += '<div class=\"color\" style=\"background-color: ' + gen[i] + ';\"><span id="bc' + i + '" onclick="javascript:cm.cc(this)">' + gen[i] + '</span></div>';
 		this.sout.innerHTML = cache;
-		this.gout.innerHTML = '<div class=\"grad\" style=\"height: ' + (this.sout.offsetHeight) + 'px; background: linear-gradient(' + this.c1.value + ', ' + this.c2.value + ');\"><span span id="bg1" onclick="javascript:copycc(this)">background: linear-gradient(' + this.c1.value + ', ' + this.c2.value + ');</span></div>';
+		this.gout.innerHTML = '<div class=\"grad\" style=\"height: ' + (this.sout.offsetHeight) + 'px; background: linear-gradient(' + this.c1.value + ', ' + this.c2.value + ');\"><span span id="bg1" onclick="javascript:cm.cc(this)">background: linear-gradient(' + this.c1.value + ', ' + this.c2.value + ');</span></div>';
 	}
 	inp_c() {
 		this.c1i.value = this.c1.value;
@@ -318,8 +317,8 @@ class ColorStep {
 	}
 }
 
-let cs = new ColorStep();
-cs.inp_c();
+let cm = new ColorMix();
+cm.inp_c();
 </script>
 
 <footer>
