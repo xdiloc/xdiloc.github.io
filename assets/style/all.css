@@ -413,9 +413,3 @@ input[type="range"] {
 	margin-bottom: 6px;
 }
 
-/* tmp
-	border-width: 1px;
-	border-style: solid;
-	border-image: linear-gradient(to right bottom, #260B3C, #a053df);
-	border-image-slice: 1;
-*/

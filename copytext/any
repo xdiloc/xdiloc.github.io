@@ -1,0 +1,23 @@
+/*
+animation
+*/
+	animation: animate 15s linear infinite;
+
+@keyframes animate {
+from {
+	filter: hue-rotate(0deg);
+}
+to {
+	filter: hue-rotate(360deg);
+}
+}
+
+
+/*
+border
+*/
+	border-width: 1px;
+	border-style: solid;
+	border-image: linear-gradient(to right bottom, #260B3C, #a053df);
+	border-image-slice: 1;
+
