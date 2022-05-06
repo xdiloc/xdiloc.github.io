@@ -87,13 +87,13 @@ footer {
 	-moz-box-shadow: var(--shadow);
 	-webkit-box-shadow: -webkit-var(--shadow);
 	background-color: rgba(0,0,0,.5);
-	text-shadow: 1px 1px 0px rgba(0,0,0,.8);
 }
 
 .logo {
 	color: #FF9000;
 	font-family: 'large9';
 	text-align: center;
+	text-shadow: 1px 1px 0px rgba(0,0,0,.8);
 }
 
 .pack {
