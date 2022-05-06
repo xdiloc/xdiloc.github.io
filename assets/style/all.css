@@ -80,13 +80,16 @@ ul {
 }
 
 .logo,
+.content {
+	background-color: rgba(0,0,0,.6);
+}
+.logo,
 .content,
 footer {
 	box-shadow: var(--shadow);
 	-o-box-shadow: var(--shadow);
 	-moz-box-shadow: var(--shadow);
 	-webkit-box-shadow: -webkit-var(--shadow);
-	background-color: rgba(0,0,0,.5);
 }
 
 .logo {
@@ -126,7 +129,7 @@ footer {
 	bottom: 0;
 	width: 100%;
 	border-top: 4px solid #333;
-	background: linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.5) 70%, rgba(41,50,60,1) 100%);
+	background: linear-gradient(90deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.6) 70%, rgba(41,50,60,1) 100%);
 }
 
 .we {
