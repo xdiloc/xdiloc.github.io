@@ -20,16 +20,31 @@
 <link rel="stylesheet" href="https://xdiloc.github.io/assets/style/all.css" type="text/css">
 <!-- xd -->
 <style>
+.inf {
+	text-align: center;
+	width: 300px;
+}
+
 .cube {
 	float: left;
 	display: block;
 	box-sizing: content-box;
 	margin: 40px;
-	perspective: 10000px;
+	perspective: none;
 	width: 100px;
 	height: 100px;
 	transform-style: preserve-3d;
 	animation: cmove 8s infinite;
+}
+
+.cube > * {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
 }
 
 .cube:hover > * {
@@ -109,7 +124,8 @@
 <span class="bottom">snap</span>
 </span>
 
-<p atyle="word-wrap: break-word;">
+<input type="text" class="inf" onclick="this.select();" value="sudo apt install apturl" readonly>
+<p>
 media: <a href="apt://vlc">vlc</a> <a href="apt://audacity">audacity</a>
  <a href="apt://pavucontrol">pavucontrol</a>
  <a href="apt://gimp">gimp</a>
