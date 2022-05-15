@@ -166,7 +166,7 @@ footer {
 	}
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 720px) {
 	.logo {
 		font-size: 18px;
 	}
@@ -186,7 +186,7 @@ footer {
 		flex-direction: column;
 	}
 	.mwarp > * {
-		margin-bottom: 8px;
+		margin-bottom: 10px;
 	}
 	.mwarp > *:last-child,
 	.mwarp > *:only-child {
@@ -194,7 +194,7 @@ footer {
 	}
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 721px) {
 	.logo {
 		font-size: 22px;
 	}
