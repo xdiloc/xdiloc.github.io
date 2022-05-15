@@ -37,14 +37,12 @@ body {
 	background-image: url('https://xdiloc.github.io/assets/image/nature.svg');
 }
 
-a, a:active {
+a,
+a:active,
+a:visited {
 	color: #99ddff;
 	outline-style: none;
 	text-decoration: none;
-}
-
-a:visited {
-	color: #99ddff;
 }
 
 a:hover {
@@ -109,7 +107,7 @@ footer {
 }
 
 .warp > * {
-	margin-bottom: 8px;
+	margin-bottom: 10px;
 }
 
 .warp > *:last-child,
@@ -150,7 +148,9 @@ footer {
 }
 
 @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-	.logo, .content, footer {
+	.logo,
+	.content,
+	footer {
 		-webkit-backdrop-filter: blur(10px);
 		backdrop-filter: blur(10px);
 	}
@@ -188,7 +188,8 @@ footer {
 	.mwarp > * {
 		margin-bottom: 8px;
 	}
-	.mwarp > *:last-child, .mwarp > *:only-child {
+	.mwarp > *:last-child,
+	.mwarp > *:only-child {
 		margin-bottom: 0;
 	}
 }
@@ -197,7 +198,8 @@ footer {
 	.logo {
 		font-size: 22px;
 	}
-	.logo, .content {
+	.logo,
+	.content {
 		border-left: 10px solid #333;
 		border-right: 10px solid #333;
 		border-top: 1px solid #333;
