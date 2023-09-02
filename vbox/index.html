@@ -37,38 +37,38 @@
 <div class="wrapper warp">
 <div class="content warp">
 <h2>Генератор команд для управления virtualbox vms</h2>
-<hr />
+<hr>
 <div class="gg">
 <input type="text" class="in" oninput="vname();" placeholder="[name или uuid]" autofocus> <a href="javascript:x_clear('in');" title="очистить">[очистить]</a>
 </div>
-<hr />
+<hr>
 <p>Список виртуальных машин по имени и uuid</p>
 <div class="gg">
 <input type="text" class="cmd" onclick="this.select();" value="VBoxManage list vms" readonly>
 <a href="javascript:x_copy('cmd', 0);" title="Копировать текст в буфер обмена">[копировать]</a>
 </div>
-<hr />
+<hr>
 <p>pause</p>
 <div class="gg"><input type="text" class="out" placeholder="VBoxManage controlvm [name или uuid] pause" readonly></div>
-<hr />
+<hr>
 <p>unpause</p>
 <div class="gg"><input type="text" class="out" placeholder="VBoxManage controlvm [name или uuid] resume" readonly></div>
-<hr />
+<hr>
 <p>poweroff</p>
 <div class="gg"><input type="text" class="out" placeholder="VBoxManage controlvm [name или uuid] poweroff" readonly></div>
-<hr />
+<hr>
 <p>poweroff savestate</p>
 <div class="gg"><input type="text" class="out" placeholder="VBoxManage controlvm [name или uuid] savestate" readonly></div>
-<hr />
+<hr>
 <p>poweroff button</p>
 <div class="gg"><input type="text" class="out" placeholder="VBoxManage controlvm [name или uuid] acpipowerbutton" readonly></div>
-<hr />
+<hr>
 <p>restart button</p>
 <div class="gg"><input type="text" class="out" placeholder="VBoxManage controlvm [name или uuid] reset" readonly></div>
-<hr />
+<hr>
 <p>startvm gui</p>
 <div class="gg"><input type="text" class="out" placeholder="VBoxManage startvm [name или uuid] --type gui" readonly></div>
-<hr />
+<hr>
 <p>startvm nogui</p>
 <div class="gg"><input type="text" class="out" placeholder="VBoxManage startvm [name или uuid] --type headless" readonly></div>
 </div>
